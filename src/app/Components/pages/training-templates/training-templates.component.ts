@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ITrainingTemplate } from '../../../Interfaces/ITrainingTemplate';
 import { ISetToDisplay } from 'src/app/Interfaces/ISetToDisplay';
-import { TemplatetrainingsService } from 'src/app/services/API/TemplateTrainings/templatetrainings.service';
+import { TemplatetrainingsService } from 'src/app/services/API/templatetrainings.service';
 declare var $ :any;
 
 
@@ -82,32 +82,24 @@ UploadTraining()
   UpdateAction()
   {
     this._httpTemplate.UpdateTrainingTemplate(this.training).subscribe(data=>{
-      this.SuccesfullyMadeByCoachMessage("You have succesfully updated training");
-      this._httpTemplate.GetTrainingTemplatesIncludedPersonal().subscribe(data=>{
-        this.trainings = data
-        console.log(this.trainings)
-       
-      })
+      this.trainings = data
+      this.SuccesfullyMadeByCoachMessage("You have succesfully updated training");     
     });
   }
 
   InsertAction()
   {
     this._httpTemplate.PostTrainingTemplates(this.training).subscribe(data=>{
+      this.trainings = data;
       if(localStorage.getItem("error")==null)
       {
-      console.log("good")
-     
+      console.log("good")     
       }
       else{
         this.error=localStorage.getItem("error");
         localStorage.removeItem("error");
       }
       this.SuccesfullyMadeByCoachMessage("You have succesfully inserted training");
-      this._httpTemplate.GetTrainingTemplatesIncludedPersonal().subscribe(data=>{
-        this.trainings = data
-        console.log(this.trainings)
-      })
     });
   }
  
@@ -187,11 +179,9 @@ UploadTraining()
     this._httpTemplate.DeleteTrainingTemplate(this.training.id).subscribe(data=>{
       console.log(data)
       this.SuccesfullyMadeByCoachMessage("You have succesfully deleted item");
-      this._httpTemplate.GetTrainingTemplatesIncludedPersonal().subscribe(data=>{
+     
         this.trainings = data
-        console.log(this.trainings)
         
-      })
     })    
     $('#myModalDelete').modal("hide");
   }

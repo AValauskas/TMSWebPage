@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenParams } from './TokenParams';
-import { AuthService } from 'src/app/services/API/auth/auth.service';
+import { AuthService } from 'src/app/services/API/auth.service';
 import { Router } from '@angular/router';
 import { HelperService } from 'src/app/services/helper/helper.service';
 

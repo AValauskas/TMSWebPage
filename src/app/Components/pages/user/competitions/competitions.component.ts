@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IRecords, IRecordsByPlace } from 'src/app/Interfaces/IRecords';
 import { Router } from '@angular/router';
-import { PersonalmanagementService } from 'src/app/services/API/PersonalManagement/personalmanagement.service';
+import { PersonalmanagementService } from 'src/app/services/API/personalmanagement.service';
 declare var $ :any;
 
 

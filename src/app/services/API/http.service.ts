@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
-import { TokenParams } from 'src/app/Components/userBegin/login/TokenParams';
 
 
 @Injectable({

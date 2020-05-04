@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RegisterForm } from './RegisterForm';
 import { NgForm } from '@angular/forms';
-import { AuthService } from 'src/app/services/API/auth/auth.service';
+import { AuthService } from 'src/app/services/API/auth.service';
 import { Router } from '@angular/router';
 import { HelperService } from 'src/app/services/helper/helper.service';
 import { Iuser } from 'src/app/Interfaces/IUser';

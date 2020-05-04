@@ -11,9 +11,9 @@ import { IPersonalTraining } from '../../../Interfaces/IPersonalTraining';
 import { ITrainingTemplate } from '../../../Interfaces/ITrainingTemplate';
 import { ITrainingDefinition } from 'src/app/Interfaces/ITrainingDefinition';
 import { ICoachAssignedTraining } from 'src/app/Interfaces/ICoachAssignedTraining';
-import { PersonaltrainingsService } from 'src/app/services/API/PersonalTrainings/personaltrainings.service';
-import { TemplatetrainingsService } from 'src/app/services/API/TemplateTrainings/templatetrainings.service';
-import { PersonalmanagementService } from 'src/app/services/API/PersonalManagement/personalmanagement.service';
+import { PersonaltrainingsService } from 'src/app/services/API/personaltrainings.service';
+import { TemplatetrainingsService } from 'src/app/services/API/templatetrainings.service';
+import { PersonalmanagementService } from 'src/app/services/API/personalmanagement.service';
 
 
 @Component({

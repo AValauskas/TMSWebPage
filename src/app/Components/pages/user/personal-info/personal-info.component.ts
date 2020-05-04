@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Iuser } from 'src/app/Interfaces/IUser';
 import { Router, NavigationStart } from '@angular/router';
-import { PersonalmanagementService } from 'src/app/services/API/PersonalManagement/personalmanagement.service';
+import { PersonalmanagementService } from 'src/app/services/API/personalmanagement.service';
 
 @Component({
   selector: 'app-personal-info',

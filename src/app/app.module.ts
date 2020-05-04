@@ -26,6 +26,7 @@ import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { CoachTrainingAssignModalComponent } from './Components/Modals/coach-training-assign-modal/coach-training-assign-modal.component';
 import { AthleteListComponent } from './Components/Modals/athlete-list/athlete-list.component';
 import { NewCompetitionModalComponent } from './Components/Modals/new-competition-modal/new-competition-modal.component';
+import { ForgetpassComponent } from './Components/userBegin/forgetpass/forgetpass.component';
 
 
 
@@ -50,7 +51,8 @@ import { NewCompetitionModalComponent } from './Components/Modals/new-competitio
     PersonalTrainingModalComponent,
     CoachTrainingAssignModalComponent,
     AthleteListComponent,
-    NewCompetitionModalComponent
+    NewCompetitionModalComponent,
+    ForgetpassComponent
   ],
   imports: [
     CommonModule,

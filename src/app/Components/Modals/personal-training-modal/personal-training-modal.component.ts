@@ -6,7 +6,7 @@ import { IPersonalTraining } from '../../../Interfaces/IPersonalTraining';
 import { ITrainingTemplate } from '../../../Interfaces/ITrainingTemplate';
 import { IAthleteForm } from '../../../Interfaces/IAthleteForm';
 import { ISetToDisplay } from 'src/app/Interfaces/ISetToDisplay';
-import { PersonaltrainingsService } from 'src/app/services/API/PersonalTrainings/personaltrainings.service';
+import { PersonaltrainingsService } from 'src/app/services/API/personaltrainings.service';
 
 @Component({
   selector: 'app-personal-training-modal',

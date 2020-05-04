@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IRecords, IRecordsByPlace } from 'src/app/Interfaces/IRecords';
-import { PersonalmanagementService } from 'src/app/services/API/PersonalManagement/personalmanagement.service';
+import { PersonalmanagementService } from 'src/app/services/API/personalmanagement.service';
 
 @Component({
   selector: 'app-personal-best',

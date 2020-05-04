@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
-import { PersonalmanagementService } from 'src/app/services/API/PersonalManagement/personalmanagement.service';
+import { PersonalmanagementService } from 'src/app/services/API/personalmanagement.service';
 
 interface IInviter{
   Id:string;

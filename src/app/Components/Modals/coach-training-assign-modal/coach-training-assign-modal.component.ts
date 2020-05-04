@@ -4,9 +4,9 @@ import { Router } from '@angular/router';
 import { ITrainingTemplate } from 'src/app/Interfaces/ITrainingTemplate';
 import { IAthlete } from 'src/app/Interfaces/IAthlete';
 import { IPersonalTrainingFew } from 'src/app/Interfaces/IPersonalTrainingFew';
-import { PersonaltrainingsService } from 'src/app/services/API/PersonalTrainings/personaltrainings.service';
-import { TemplatetrainingsService } from 'src/app/services/API/TemplateTrainings/templatetrainings.service';
-import { PersonalmanagementService } from 'src/app/services/API/PersonalManagement/personalmanagement.service';
+import { PersonaltrainingsService } from 'src/app/services/API/personaltrainings.service';
+import { TemplatetrainingsService } from 'src/app/services/API/templatetrainings.service';
+import { PersonalmanagementService } from 'src/app/services/API/personalmanagement.service';
 
 @Component({
   selector: 'app-coach-training-assign-modal',

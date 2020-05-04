@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ICompetition } from 'src/app/Interfaces/ICompetition';
 import { Router } from '@angular/router';
 import { ITime } from 'src/app/Interfaces/ITime';
-import { PersonalmanagementService } from 'src/app/services/API/PersonalManagement/personalmanagement.service';
+import { PersonalmanagementService } from 'src/app/services/API/personalmanagement.service';
 declare var $ :any;
 
 @Component({

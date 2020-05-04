@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { TokenParams } from '../../../Components/userBegin/login/TokenParams';
-import * as jwt_decode from 'jwt-decode';
+import { TokenParams } from '../../Components/userBegin/login/TokenParams';
 import { Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
-import { HttpService } from '../http/http.service';
+import { HttpService } from '../API/http.service';
 
 
 @Injectable({

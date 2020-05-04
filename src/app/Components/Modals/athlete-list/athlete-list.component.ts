@@ -6,8 +6,8 @@ import { ICoachAssignedTraining } from 'src/app/Interfaces/ICoachAssignedTrainin
 import { ISet } from 'src/app/Interfaces/ISet';
 import { IAthleteForm } from 'src/app/Interfaces/IAthleteForm';
 import { ISetToDisplay } from 'src/app/Interfaces/ISetToDisplay';
-import { TemplatetrainingsService } from 'src/app/services/API/TemplateTrainings/templatetrainings.service';
-import { PersonaltrainingsService } from 'src/app/services/API/PersonalTrainings/personaltrainings.service';
+import { TemplatetrainingsService } from 'src/app/services/API/templatetrainings.service';
+import { PersonaltrainingsService } from 'src/app/services/API/personaltrainings.service';
 declare var $ :any;
 
 @Component({
