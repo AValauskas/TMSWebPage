@@ -7,7 +7,7 @@ import { ITrainingTemplate } from '../../../Interfaces/ITrainingTemplate';
 import { IAthleteForm } from '../../../Interfaces/IAthleteForm';
 import { ISetToDisplay } from 'src/app/Interfaces/ISetToDisplay';
 import { PersonaltrainingsService } from 'src/app/services/API/personaltrainings.service';
-import { CustomFormsModule } from 'ng2-validation'
+
 
 @Component({
   selector: 'app-personal-training-modal',
