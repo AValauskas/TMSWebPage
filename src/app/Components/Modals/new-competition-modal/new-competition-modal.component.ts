@@ -17,6 +17,7 @@ export class NewCompetitionModalComponent implements OnInit {
   competition:ICompetition=<ICompetition>{};
   time:ITime=<ITime>{};
   @Output("FillForms") parentFun: EventEmitter<any> = new EventEmitter();
+  selectedDistance="";
   
   ngOnInit(): void {
 
@@ -25,7 +26,16 @@ export class NewCompetitionModalComponent implements OnInit {
 
   OnSubmit()
   {
+    console.log(this.time.min);
+    console.log(this.time.sec);
+    if(this.time.min!=null)    
+    {
     this.competition.time=this.time.min*60+this.time.sec;
+    }
+    else{
+      this.competition.time=this.time.sec;
+    }
+    this.competition.distance=+this.selectedDistance;
   console.log(this.competition);
   this.competition.distance= Number(this.competition.distance);
   this._httpManagement.AddNewCompetition(this.competition).subscribe(data=>{

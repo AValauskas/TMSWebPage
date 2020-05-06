@@ -39,15 +39,6 @@ export class TemplatetrainingsService {
      return this.httpserv.requestCall(this.trainingTemplatesUrl +"/"+id,"Get",null,HeadersForProductAPI).pipe(catchError(this.HandleError)); 
    }
  
-   GetTrainingTemplatesIncludedPersonal()
-   {
-     const HeadersForProductAPI = new HttpHeaders({
-       'Content-Type': 'application/json',
-       'Authorization': 'Bearer ' + localStorage.getItem('token')
-     })    
-     return this.httpserv.requestCall(this.trainingTemplatesUrl+"/allTrainings","Get",null,HeadersForProductAPI).pipe(catchError(this.HandleError)); 
-   }
- 
    GetTrainingsByType(type)
    {
      const HeadersForProductAPI = new HttpHeaders({

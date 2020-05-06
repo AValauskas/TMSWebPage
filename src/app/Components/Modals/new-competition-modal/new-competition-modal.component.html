@@ -3,40 +3,38 @@
     
     <div >
         <form #NewCompetitionForm="ngForm" class="" >
-            <div class="form-group">    
+            <div class="form-group d-flex justify-content-center" >    
                 
-              <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="competition.distance" name="destinition"  required> 
-                <option value="" disabled selected>Distance</option>
+              <select id="exampleFormControlSelect1" [(ngModel)]="selectedDistance" name="destinition"  required> 
+                <option selected value="" disabled id="firstChoose">Choose distance</option>
                 <option type="number"  value=400>400</option>
                 <option type="number"  value=600>600</option>
                 <option type="number"  value=800>800</option>
                 <option type="number"  value=1000>1000</option>
               </select>
             </div>  
-            <div class ="form-group ">
+            <div class ="form-group d-flex justify-content-center mt-3">
                 <label class="radio-inline">
                   <input type="text" id="competition" [(ngModel)]="competition.competitionName"name="competition" placeholder="Competition name" required>
                 </label>              
             </div>
-            <div class="form-group">
-                <div class= "row" >
-
-                    <label class="radio-inline">
-                        <input type="number" id="time" [(ngModel)]="time.min" name="minutes" placeholder=" result minutes">
-                      </label> 
-                      <label class="radio-inline">
-                        <input type="number" step="0.01" id="time" [(ngModel)]="time.sec" name="seconds" placeholder="result seconds" required>
-                      </label> 
-
-                </div>
+            <div class ="form-group d-flex justify-content-center mt-3" >
+            <div class="form-inline d-flex justify-content-center">               
+                  <label class="">
+                    Result:
+                  </label>                             
+                        <input type="number" id="time" [(ngModel)]="time.min" name="minutes" placeholder= "min">     
+                        <div class="divider"></div>   
+                        <input type="number" step="0.01" id="time" [(ngModel)]="time.sec" name="seconds" placeholder="sec" required>    
             </div>
+          </div>
 
-            <div class ="form-group ">
+            <div class ="form-group d-flex justify-content-center  mt-3" >
                 <label class="radio-inline">
                   <input type="date" id="date" value="date" [(ngModel)]="competition.date" name="date" required>
                 </label>              
             </div>
-            <div class ="form-group ">
+            <div class ="form-group d-flex justify-content-center  mt-3" >
                 <label class="radio-inline">
                   <input type="radio" name="optradio"  id="Inside" value="Inside"   [(ngModel)]="competition.place" checked>Inside
                 </label>

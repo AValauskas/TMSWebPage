@@ -45,10 +45,9 @@ export class CoachTrainingAssignModalComponent implements OnInit {
   ngOnChanges() {
      
     var dateTraining=new Date(this.dateClicked);
-    console.log( this.canFillForm);
-    console.log (dateTraining.getTime());
-    console.log (Date.now());
-    if(dateTraining.getTime() >= Date.now() )
+    var d = new Date();
+    d.setDate(d.getDate() - 1);
+    if(dateTraining.getTime() >= d.getTime() )
     {
       this.canFillForm = true;
       this.GetData();

@@ -73,6 +73,7 @@ export class InvitationsComponent implements OnInit {
 
   SendInvite()
   {
+    this.error=null;
     console.log( this.inviter);
     this._httpManagement.SendInvite(this.inviter).subscribe(data=>{    
       if(localStorage.getItem("error")==null)
@@ -85,7 +86,7 @@ export class InvitationsComponent implements OnInit {
       else
       {
         this.error = localStorage.getItem("error");
-        this.parentFail.emit(localStorage.getItem("error"));
+       // this.parentFail.emit(localStorage.getItem("error"));
         localStorage.removeItem("error");
       }
     })

@@ -2,9 +2,14 @@
         <input class="form-control" id= "inputInvite" type="text" placeholder="Send Invite"  [(ngModel)]="inviter.Id" name="Id">
         <div class="divider"></div>
         <button [disabled]="!InviteForm.valid" class="btn sendInvite" type="submit" >Send</button>
+
+        
+        
       </form>
       <br>
-
+      <div  *ngIf="error" class = "err"> 
+        <p>{{error}}</p>
+      </div>
      
         <div class="table-responsive-lg" *ngIf="invitations" id="invites"> 
         <table class="table">

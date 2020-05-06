@@ -61,7 +61,14 @@ export class PersonalInfoComponent implements OnInit {
 
   ChangePassword()
   {
-    if(this.firstPass==this.secondPass)
+    if(this.firstPass!=this.secondPass)
+    {
+      this.FailMessage("Password missmatch");
+    }
+    else if(!this.isAlphaNum(this.firstPass)){
+      this.FailMessage("Password must contain numbers and letters");
+    }
+    else
     {
       this.user.password=this.firstPass;
       this._httpManagement.ChangePassword(this.user).subscribe(data=>{        
@@ -71,9 +78,7 @@ export class PersonalInfoComponent implements OnInit {
         this.SuccesfullyMessage("Password succesfully changed")
       })
     }
-    else{
-      this.FailMessage("Password missmatch")
-    }
+  
   }
 
   ChangeCoachSize()
@@ -130,6 +135,12 @@ export class PersonalInfoComponent implements OnInit {
     this.successMessage = false;
     this.message="";
   }
+
+  isAlphaNum(s){ // this function tests it
+    var p = /^([0-9]+[a-zA-Z]+|[a-zA-Z]+[0-9]+)[0-9a-zA-Z]*$/;
+     return p.test(s);
+     }
+     
 
   async FailMessage(message)
   {

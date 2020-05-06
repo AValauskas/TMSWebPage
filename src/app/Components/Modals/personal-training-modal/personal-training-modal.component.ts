@@ -7,6 +7,7 @@ import { ITrainingTemplate } from '../../../Interfaces/ITrainingTemplate';
 import { IAthleteForm } from '../../../Interfaces/IAthleteForm';
 import { ISetToDisplay } from 'src/app/Interfaces/ISetToDisplay';
 import { PersonaltrainingsService } from 'src/app/services/API/personaltrainings.service';
+import { CustomFormsModule } from 'ng2-validation'
 
 @Component({
   selector: 'app-personal-training-modal',
@@ -25,11 +26,14 @@ export class PersonalTrainingModalComponent implements OnInit {
   canFillForm = false;
   max =0;
   setsToDisplay:ISetToDisplay[]=[]
+
   
-  constructor(private _httpPersonalTrain: PersonaltrainingsService, public _router:Router) { }
+  constructor(private _httpPersonalTrain: PersonaltrainingsService, public _router:Router) { 
+  
+  }
 
   ngOnInit(): void {
-     
+   
   }
 
 
@@ -116,6 +120,7 @@ console.log(this.setsToDisplay);
 
   OnSubmit()
   {
+
     this.athleteForm.report=this.personalTraining.athleteReport;
     this.athleteForm.results = this.trainingsToAdd;
     console.log(this.athleteForm);

@@ -51,18 +51,18 @@ export class TrainingTemplatesComponent implements OnInit {
 
 UploadTraining()
 {
-  if( this.Role=="Athlete")
-  {
+  //if( this.Role=="Athlete")
+  //{
     this._httpTemplate.GetTrainingTemplates().subscribe(data=>{
       this.trainings = data
       console.log(this.trainings)
     });
-  }else{
+/*  }else{
   this._httpTemplate.GetTrainingTemplatesIncludedPersonal().subscribe(data=>{
     this.trainings = data
     console.log(this.trainings)
   })
-}
+}*/
 
 }
 
@@ -139,10 +139,6 @@ UploadTraining()
       
   }
 
-  UpdateTemplate()
-  {
-    
-  }
 
   OpenModal(modal)
   {
