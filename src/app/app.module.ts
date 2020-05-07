@@ -27,6 +27,8 @@ import { CoachTrainingAssignModalComponent } from './Components/Modals/coach-tra
 import { AthleteListComponent } from './Components/Modals/athlete-list/athlete-list.component';
 import { NewCompetitionModalComponent } from './Components/Modals/new-competition-modal/new-competition-modal.component';
 import { ForgetpassComponent } from './Components/userBegin/forgetpass/forgetpass.component';
+import { AdminsideComponent } from './Components/adminside/adminside.component';
+
 
 
 
@@ -52,7 +54,9 @@ import { ForgetpassComponent } from './Components/userBegin/forgetpass/forgetpas
     CoachTrainingAssignModalComponent,
     AthleteListComponent,
     NewCompetitionModalComponent,
-    ForgetpassComponent
+    ForgetpassComponent,
+    AdminsideComponent,
+    
   ],
   imports: [
     CommonModule,
@@ -67,6 +71,7 @@ import { ForgetpassComponent } from './Components/userBegin/forgetpass/forgetpas
        provide: DateAdapter,
        useFactory: adapterFactory,
      }),
+     
   ],
   providers: [],
   bootstrap: [AppComponent]

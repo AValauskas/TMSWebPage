@@ -52,6 +52,7 @@ export class AuthService {
 
    return this.httpserv.requestCall(this._auth+"confirm/"+id,"Patch",null,null).pipe(catchError(this.HandleError));   
   }
+  
   logoutUser()
   {
     localStorage.removeItem("token");

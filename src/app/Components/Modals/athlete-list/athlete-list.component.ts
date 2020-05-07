@@ -29,6 +29,7 @@ export class AthleteListComponent implements OnInit {
   trainingsToAdd: ISet[] = [];
   athleteForm:IAthleteForm = new IAthleteForm();
   setsToDisplay:ISetToDisplay[]=[];
+  negative =false;
   
   constructor(private _httpPersonalTrain: PersonaltrainingsService,private _httpTemplate: TemplatetrainingsService,public _router:Router) { }
 
@@ -128,8 +129,17 @@ console.log(this.setsToDisplay);
 
   OnSubmit()
   {
+    this.negative= false;
     this.athleteForm.results = this.trainingsToAdd;
 
+    this.athleteForm.results.forEach(element => {
+      if (element.distance<0||element.pace<0||element.rest<0)
+      {
+        this.negative= true;
+      }
+  })
+  if(!this.negative)
+  {
     console.log(this.athleteForm);
     this._httpPersonalTrain.UpdatePersonalTrainingResults(this.athleteForm, this.personalTraining.id).subscribe(data=>{   
       console.log(data);           
@@ -137,6 +147,7 @@ console.log(this.setsToDisplay);
     $('#myModal').modal("hide");
       this.parentFun.emit("You have succesfully updated your athlete training");
   }
+}
 
 
   OnClick()

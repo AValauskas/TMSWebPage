@@ -85,7 +85,23 @@
         <div class ="form-group ">
         <div class= "row" >
           <div class="input-field col s3" >
-            <input type="number" min="0" step="0.01" class="form-control" [(ngModel)]="trainingtoAdd.distance"  name="distance{{i}}" placeholder="Distance/m" required >
+            <input type="number" min="0" step="0.01" class="form-control" [(ngModel)]="trainingtoAdd.distance"  name="distance{{i}}" placeholder="Distance/m" required #name="ngModel">
+           
+           
+           <!--
+            <div *ngIf="name.invalid && (name.dirty || name.touched)"
+            class="alert alert-danger">
+        
+          <div *ngIf="name.errors.required">
+            Name is required.
+          </div>
+          <div *ngIf="name.errors.min">
+            Name must be at least 4 characters long.
+          </div>
+        
+        </div>
+-->
+
           </div>
           <div class="input-field col s3" >
             <input type="number" min="0" step="0.01" class="form-control" [(ngModel)]="trainingtoAdd.pace" name="pace{{i}}" placeholder="Pace/s" required >                      
@@ -101,7 +117,14 @@
       </div>             
    </div>
    <div class="form-group " *ngIf="canFillForm">
+     <div class = "row">
+      <div class="sm-6">
     <button  class="btn  " id ="add" (click)="OnClick()">+</button>
+    </div>
+    <div class="sm-6" *ngIf="negative">
+      <p id="negativ">all training datas must be positive</p>
+      </div>
+    </div>
     </div>
 
     <div class="form-group separate" *ngIf="canFillForm">    

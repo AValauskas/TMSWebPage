@@ -71,10 +71,8 @@ export class RegisterComponent implements OnInit {
 
   HandleError()
   {
-    console.log("aaten");
     if(localStorage.getItem('error') !=null)
     {
-      console.log("a y");
       this.error= localStorage.getItem('error' );
       localStorage.removeItem('error');
     }

@@ -100,9 +100,18 @@
                 </div>             
              </div>
              <div class="form-group" *ngIf="alreadyPast">
+              <div class = "row">
+                <div class="sm-6">
               <button  class="btn btn-info" id ="add"  (click)="OnClick()">+</button>
               </div>
+              <div class="sm-6" *ngIf="negative">
+                <p id="negativ">all training datas must be positive</p>
+                </div>
+              </div>
+              </div>        
 
+           
+           
 
               <div class="form-group separate">    
                 <div class = "row ">

@@ -26,7 +26,7 @@ export class PersonalTrainingModalComponent implements OnInit {
   canFillForm = false;
   max =0;
   setsToDisplay:ISetToDisplay[]=[]
-
+  negative =false;
   
   constructor(private _httpPersonalTrain: PersonaltrainingsService, public _router:Router) { 
   
@@ -95,7 +95,7 @@ export class PersonalTrainingModalComponent implements OnInit {
 
         set.rest=restMin+(element.rest - restMinNumb*60).toString()+"s"
         set.runTime=paceMin+(element.pace - paceMinNumb*60).toString()+"s"
-        
+        this.negative= false;
         this.setsToDisplay.push(set);
       });
 console.log(this.setsToDisplay);
@@ -120,15 +120,24 @@ console.log(this.setsToDisplay);
 
   OnSubmit()
   {
-
+    this.negative= false;
     this.athleteForm.report=this.personalTraining.athleteReport;
     this.athleteForm.results = this.trainingsToAdd;
+    this.athleteForm.results.forEach(element => {
+        if (element.distance<0||element.pace<0||element.rest<0)
+        {
+          this.negative= true;
+        }
+    })
+    if(!this.negative)
+    {
     console.log(this.athleteForm);
     this._httpPersonalTrain.UpdatePersonalTrainingResults(this.athleteForm, this.personalTraining.id).subscribe(data=>{   
       console.log(data);      
     })
     this.parentFun.emit();
     $('#myModal').modal("hide");
+    }
   }
 
  

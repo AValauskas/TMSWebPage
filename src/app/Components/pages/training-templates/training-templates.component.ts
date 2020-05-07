@@ -29,7 +29,7 @@ export class TrainingTemplatesComponent implements OnInit {
   successMessage= false;
   failMessage= false;
   message:string;
-
+  negative =false;
 
   setsToDisplay:ISetToDisplay[]=[];
   
@@ -74,20 +74,39 @@ UploadTraining()
       this.InsertAction();
      } else{
        this.UpdateAction();
-     }
-    
-    $('#myModal').modal("hide");
+     }    
+   
   }
 
   UpdateAction()
   {
-    this._httpTemplate.UpdateTrainingTemplate(this.training).subscribe(data=>{
-      this.trainings = data
-      this.SuccesfullyMadeByCoachMessage("You have succesfully updated training");     
-    });
+    this.negative= false;
+    this.training.sets.forEach(element => {
+      if (element.distance<0||element.pace<0||element.rest<0)
+      {
+        this.negative= true;
+      }
+  })
+    if(!this.negative)
+    {
+      this._httpTemplate.UpdateTrainingTemplate(this.training).subscribe(data=>{
+        this.trainings = data
+        this.SuccesfullyMadeByCoachMessage("You have succesfully updated training");     
+      });
+      $('#myModal').modal("hide");
+    }
   }
 
   InsertAction()
+  {
+    this.negative= false;
+    this.training.sets.forEach(element => {
+      if (element.distance<0||element.pace<0||element.rest<0)
+      {
+        this.negative= true;
+      }
+  })
+  if(!this.negative)
   {
     this._httpTemplate.PostTrainingTemplates(this.training).subscribe(data=>{
       this.trainings = data;
@@ -100,7 +119,9 @@ UploadTraining()
         localStorage.removeItem("error");
       }
       this.SuccesfullyMadeByCoachMessage("You have succesfully inserted training");
+      $('#myModal').modal("hide");
     });
+  }
   }
  
 

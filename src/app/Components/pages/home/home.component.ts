@@ -68,6 +68,10 @@ export class HomeComponent implements OnInit {
     localStorage.removeItem("friendId");   
     localStorage.removeItem("visit");
     this.Role=localStorage.getItem('role')
+    if(this.Role=="Admin")
+    {
+      this._router.navigateByUrl('/trainingTemplates');
+    }
     if(this.Role=="Athlete")
     this.HttpCallAthlete();  
     if(this.Role=="Coach")

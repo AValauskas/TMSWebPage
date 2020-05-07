@@ -18,7 +18,9 @@ export class NewCompetitionModalComponent implements OnInit {
   time:ITime=<ITime>{};
   @Output("FillForms") parentFun: EventEmitter<any> = new EventEmitter();
   selectedDistance="";
-  
+  negative =false;
+
+
   ngOnInit(): void {
 
   }
@@ -28,6 +30,10 @@ export class NewCompetitionModalComponent implements OnInit {
   {
     console.log(this.time.min);
     console.log(this.time.sec);
+    if(this.time.min<0||this.time.sec<0||this.time.sec>60)
+    {
+
+    }
     if(this.time.min!=null)    
     {
     this.competition.time=this.time.min*60+this.time.sec;
@@ -35,15 +41,22 @@ export class NewCompetitionModalComponent implements OnInit {
     else{
       this.competition.time=this.time.sec;
     }
-    this.competition.distance=+this.selectedDistance;
-  console.log(this.competition);
-  this.competition.distance= Number(this.competition.distance);
-  this._httpManagement.AddNewCompetition(this.competition).subscribe(data=>{
-    this.parentFun.emit();
-    $('#myModal').modal("hide");
-    this.competition=<ICompetition>{};
-    this.time=<ITime>{};
-    });
+    if(this.time.min<0||this.time.sec<0||this.time.sec>60)
+    {
+      this.negative= true;
+    }
+    else{
+      this.negative= false;
+      this.competition.distance=+this.selectedDistance;
+    console.log(this.competition);
+    this.competition.distance= Number(this.competition.distance);
+    this._httpManagement.AddNewCompetition(this.competition).subscribe(data=>{
+      this.parentFun.emit();
+      $('#myModal').modal("hide");
+      this.competition=<ICompetition>{};
+      this.time=<ITime>{};
+      });
+    }
   }
 
 
