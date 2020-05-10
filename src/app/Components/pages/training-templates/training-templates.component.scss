@@ -253,6 +253,7 @@ button.btnclose
     margin-left: 5%;
     background-color: white;
     height:40px;
+    line-height: 95%;
     border: solid grey 0.3px;
   }
   div.tableRow:hover
@@ -285,4 +286,53 @@ button.btnclose
 {
     margin-left: 50px;
     color: red;
+}
+
+#person{
+margin-left: 20px;
+
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+ 
+}
+
+#distance
+{
+    text-align: right; 
+max-width: 90px;
+border-radius: 5px;
+
+}
+
+input.timesfill
+{
+    text-align: right; 
+max-width: 70px;
+border-radius: 5px;
+
+}
+
+#deleteSet
+{
+    color:white;
+  background-color:rgb(68, 67, 67);
+}
+
+#deleteSet:hover
+{
+    color:white;
+  background-color:rgb(32, 32, 32);
+}
+
+#add
+{
+  background-color:khaki;
+}
+#add:hover
+{
+  background-color:rgb(240, 223, 69);
 }

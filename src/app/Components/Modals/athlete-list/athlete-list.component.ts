@@ -8,6 +8,7 @@ import { IAthleteForm } from 'src/app/Interfaces/IAthleteForm';
 import { ISetToDisplay } from 'src/app/Interfaces/ISetToDisplay';
 import { TemplatetrainingsService } from 'src/app/services/API/templatetrainings.service';
 import { PersonaltrainingsService } from 'src/app/services/API/personaltrainings.service';
+import { ISetFull } from 'src/app/Interfaces/ISetFull';
 declare var $ :any;
 
 @Component({
@@ -27,9 +28,11 @@ export class AthleteListComponent implements OnInit {
   toDo:ITrainingTemplate;
   personalTraining: IPersonalTraining;
   trainingsToAdd: ISet[] = [];
+  trainingsToAddFull: ISetFull[] = [];
   athleteForm:IAthleteForm = new IAthleteForm();
   setsToDisplay:ISetToDisplay[]=[];
   negative =false;
+  message="";
   
   constructor(private _httpPersonalTrain: PersonaltrainingsService,private _httpTemplate: TemplatetrainingsService,public _router:Router) { }
 
@@ -108,7 +111,7 @@ console.log(this.setsToDisplay);
       if(typeof this.toDo !== 'undefined'){
         if(this.toDo.sets.length==0)
         {
-          this.max =1;
+          this.max =this.toDo.repeats;
         }
         else{
         this.max = this.toDo.repeats*this.toDo.sets.length
@@ -120,6 +123,18 @@ console.log(this.setsToDisplay);
     this._httpPersonalTrain.GetPersonalTrainingById( this.AssignedTraining.personalTrainingId).subscribe(data=>{   
       this.personalTraining=data;
       this.trainingsToAdd =this.personalTraining.results
+      
+      this.trainingsToAddFull=[];
+      this.trainingsToAdd =this.personalTraining.results
+      this.trainingsToAdd.forEach(element => {
+
+        var paceMin=Math.trunc(element.pace/60);
+        var paceSec=element.pace-paceMin*60;
+        var restMin=Math.trunc(element.rest/60);
+        var restSec=element.rest-restMin*60;
+        var trainObject = {distance:element.distance,paceMin:paceMin,paceSec:paceSec, restMin:restMin,restSec:restSec};      
+        this.trainingsToAddFull.push(trainObject);   
+      })
       console.log(this.trainingsToAdd)
       console.log( this.personalTraining);
     }); 
@@ -129,41 +144,62 @@ console.log(this.setsToDisplay);
 
   OnSubmit()
   {
-    this.negative= false;
-    this.athleteForm.results = this.trainingsToAdd;
-
-    this.athleteForm.results.forEach(element => {
-      if (element.distance<0||element.pace<0||element.rest<0)
+    this.negative=false;
+    this.message ="";
+    this.trainingsToAdd=[];
+    console.log(this.trainingsToAddFull);
+    this.trainingsToAddFull.forEach(element => {
+      if (element.distance<0||element.paceMin<0||element.restMin<0||element.paceSec<0||element.restSec<0||element.paceSec>59||element.restSec>59)
       {
-        this.negative= true;
-      }
+        this.negative= true; 
+        this.message ="all training datas must be positive and seconds less than 60 "      
+      } 
+      var pace =element.paceMin*60+element.paceSec
+      var paceString = pace.toFixed(2);
+      var roundedPace = Number(paceString);
+
+      var rest =element.restMin*60+element.restSec
+      var restString = rest.toFixed(2);
+      var roundedRest = Number(restString);
+
+      var train = {distance:element.distance,pace:roundedPace, rest:roundedRest};
+      this.trainingsToAdd.push(train);    
+      
   })
   if(!this.negative)
   {
+    console.log(this.trainingsToAdd);
+    this.athleteForm.results = this.trainingsToAdd;
     console.log(this.athleteForm);
     this._httpPersonalTrain.UpdatePersonalTrainingResults(this.athleteForm, this.personalTraining.id).subscribe(data=>{   
-      console.log(data);           
+      console.log(data);      
     })
     $('#myModal').modal("hide");
       this.parentFun.emit("You have succesfully updated your athlete training");
-  }
+  } 
+   
 }
 
-
-  OnClick()
-  { 
-    console.log("pasuapude")
-    var nullObject = {distance:null,pace:null, rest:null};
+OnClick()
+{ var nullObject = {distance:null,paceMin:null,paceSec:null, restMin:null,restSec:null};
+    
+this.negative=false;
+  if(this.trainingsToAddFull.length<this.max)
+  {
+    this.trainingsToAddFull.push(nullObject);    
+  }
+  else{
+    this.negative=true;
+    this.message ="Accordint to template you can only add this count of repeats"
       
-    if(this.trainingsToAdd.length<this.max)
-    {
-      this.trainingsToAdd.push(nullObject);    
-    }
-    console.log( this.trainingsToAdd);
   }
 
-  OnDelete(index:number)
-  {        
-     this.trainingsToAdd.splice(index, 1);
-  }
+}
+
+OnDelete(index:number)
+{        
+  this.negative=false;
+  this.message =""
+   this.trainingsToAddFull.splice(index, 1);
+}
 }

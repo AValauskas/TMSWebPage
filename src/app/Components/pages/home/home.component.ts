@@ -54,8 +54,7 @@ export class HomeComponent implements OnInit {
   TrainingToSendForModal:ICoachAssignedTraining=<ICoachAssignedTraining>{};
 
 
-  constructor(private _httpPersonalTrain: PersonaltrainingsService,private _httpTemplate: TemplatetrainingsService,
-    private _httpManagement: PersonalmanagementService, public _router:Router) { }
+  constructor(private _httpPersonalTrain: PersonaltrainingsService,private _httpTemplate: TemplatetrainingsService, public _router:Router) { }
 
   //-------------------------------Data to display-------------------------------------------
   ngOnInit() {  
@@ -115,20 +114,20 @@ export class HomeComponent implements OnInit {
     
     }  
   
-    dateClick(model) {  
-      this.dateClicked = model.dateStr;
+    dateClick(dateinfo) {  
+      this.dateClicked = dateinfo.dateStr;
       if(this.Role=="Athlete"){
-        this.AthleteDateClick(model)     
+        this.AthleteDateClick(dateinfo)     
         }
         else if(this.Role=="Coach"){
-      this.CoachDateClick(model);
+      this.CoachDateClick(dateinfo);
         }
     }  
 
 
-    AthleteDateClick(model)
+    AthleteDateClick(dateinfo)
     {
-      this._httpPersonalTrain.GetPersonalTrainingByDate(model.dateStr).subscribe(data=>{   
+      this._httpPersonalTrain.GetPersonalTrainingByDate(dateinfo.dateStr).subscribe(data=>{   
         this.ChosenTraining= data;
         if(data!=null)
         {
@@ -163,7 +162,11 @@ export class HomeComponent implements OnInit {
     {
         this.calendarEvents = []
         this.HttpCallCoach();
-
+        this._httpPersonalTrain.GetAllCoachAssignedTrainingsByDate(this.dateClicked).subscribe(data=>{   
+          this.AssignedTrainingsByDate= data;   
+          this.ListClicked = true;
+          console.log(data)  
+           }); 
     this.SuccesfullyMadeByCoachMessage(message);
         
     }
@@ -183,14 +186,12 @@ export class HomeComponent implements OnInit {
     }
     DeletePersonalTraining()
     {
-      this._httpPersonalTrain.DeletePersonalTraining(this.personalTrainingIdToDelete).subscribe(data=>{   
-      this._httpPersonalTrain.GetAllCoachAssignedTrainingsByDate(this.dateClicked).subscribe(data2=>{   
-       this.AssignedTrainingsByDate= data2;   
+      this._httpPersonalTrain.DeletePersonalTraining(this.personalTrainingIdToDelete).subscribe(data=>{       
+       this.AssignedTrainingsByDate= data;   
        this.calendarEvents = [];
        $('#myModalDelete').modal("hide");  
        this.SuccesfullyMadeByCoachMessage("Training was succesfully deleted")  
-       this.HttpCallCoach();
-        }); 
+       this.HttpCallCoach();  
         this.deleteModalActive = false;
       });  
     

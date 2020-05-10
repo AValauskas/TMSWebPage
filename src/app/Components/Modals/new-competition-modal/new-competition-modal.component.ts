@@ -22,7 +22,7 @@ export class NewCompetitionModalComponent implements OnInit {
 
 
   ngOnInit(): void {
-
+    this.competition.place="Inside";
   }
 
 

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ITrainingTemplate } from '../../../Interfaces/ITrainingTemplate';
 import { ISetToDisplay } from 'src/app/Interfaces/ISetToDisplay';
 import { TemplatetrainingsService } from 'src/app/services/API/templatetrainings.service';
+import { ISetFull } from 'src/app/Interfaces/ISetFull';
 declare var $ :any;
 
 
@@ -16,6 +17,7 @@ export class TrainingTemplatesComponent implements OnInit {
   Role: string;
   trainings: ITrainingTemplate[]=[];
   trainingsToAdd: { distance: number, pace: number, rest: number }[] = [];
+  trainingsToAddFull: ISetFull[] = [];
   Choosen: { distance: number, pace: number, rest: number }[] = [];
   train: { distance: number, pace: number, rest: number };
   training:ITrainingTemplate;
@@ -80,6 +82,8 @@ UploadTraining()
 
   UpdateAction()
   {
+    this.trainingsToAdd=[];
+    this.trainingsToAddFull=[];
     this.negative= false;
     this.training.sets.forEach(element => {
       if (element.distance<0||element.pace<0||element.rest<0)
@@ -99,6 +103,7 @@ UploadTraining()
 
   InsertAction()
   {
+    
     this.negative= false;
     this.training.sets.forEach(element => {
       if (element.distance<0||element.pace<0||element.rest<0)
@@ -108,8 +113,10 @@ UploadTraining()
   })
   if(!this.negative)
   {
-    this._httpTemplate.PostTrainingTemplates(this.training).subscribe(data=>{
+      this._httpTemplate.PostTrainingTemplates(this.training).subscribe(data=>{
       this.trainings = data;
+      this.trainingsToAddFull=[];
+      this.trainingsToAdd=[];
       if(localStorage.getItem("error")==null)
       {
       console.log("good")     
@@ -117,39 +124,57 @@ UploadTraining()
       else{
         this.error=localStorage.getItem("error");
         localStorage.removeItem("error");
-      }
-      this.SuccesfullyMadeByCoachMessage("You have succesfully inserted training");
-      $('#myModal').modal("hide");
+      }    
     });
+    this.SuccesfullyMadeByCoachMessage("You have succesfully inserted training");
+    $('#myModal').modal("hide");
   }
   }
  
 
   FillData(){
-    this.training.sets=this.trainingsToAdd;
+    this.negative=false;
+    this.trainingsToAdd=[];
+    console.log(this.trainingsToAddFull);
+    this.trainingsToAddFull.forEach(element => {
+      if (element.distance<0||element.paceMin<0||element.restMin<0||element.paceSec<0||element.restSec<0||element.paceSec>59||element.restSec>59)
+      {
+        this.negative= true;       
+      } 
+      var pace =element.paceMin*60+element.paceSec
+      var paceString = pace.toFixed(2);
+      var roundedPace = Number(paceString);
+
+      var rest =element.restMin*60+element.restSec
+      var restString = rest.toFixed(2);
+      var roundedRest = Number(restString);
+
+      var train = {distance:element.distance,pace:roundedPace, rest:roundedRest};
+      this.trainingsToAdd.push(train);    
+      
+  })
+  this.trainingsToAddFull=[];
+    this.training.sets=this.trainingsToAdd;    
    this.training.destinition=Number(this.training.destinition);
     console.log(this.training);
 
   }
 
-
+  
   OnClick()
-  { 
-    var nullObject = {distance:null,pace:null, rest:null};
-    this.trainingsToAdd[this.trainingsToAdd.length]=nullObject;
-    console.log(this.training)
-    //this.trainingsToAdd.push(nullObject);    
+  { var nullObject = {distance:null,paceMin:null,paceSec:null, restMin:null,restSec:null};
+      this.trainingsToAddFull.push(nullObject);   
   }
 
   OnDelete(index:number)
-  {    
-    this.trainingsToAdd.splice(index, 1);
+  {        
+     this.trainingsToAddFull.splice(index, 1);
   }
-
 
   ChooseTraining(trainingTemplateId)
   {
     this.trainingsToAdd=[];
+    this.trainingsToAddFull=[];
       this.insertModalActive= false;
       this.training = this.trainings.filter(x=>x.id==trainingTemplateId)[0];
       if(this.training.owner == localStorage.getItem('user'))
@@ -175,11 +200,22 @@ UploadTraining()
     }
     else if(modal=="update")
     {    
+      this.trainingsToAddFull=[];
+      this.trainingsToAdd=[];
       console.log(this.training);
     this.insertModalActive= false;
     this.updateModalActive= true;
     this.deleteModalActive = false;
     this.training.sets.forEach(val =>  this.trainingsToAdd.push(Object.assign({}, val)));
+       this.trainingsToAdd.forEach(element => {
+
+        var paceMin=Math.trunc(element.pace/60);
+        var paceSec=element.pace-paceMin*60;
+        var restMin=Math.trunc(element.rest/60);
+        var restSec=element.rest-restMin*60;
+        var trainObject = {distance:element.distance,paceMin:paceMin,paceSec:paceSec, restMin:restMin,restSec:restSec};      
+        this.trainingsToAddFull.push(trainObject);   
+      })
     $('#myModal').modal("show");
     }
     else{
@@ -193,13 +229,11 @@ UploadTraining()
   }
   DeleteTemplate()
   {
-    this._httpTemplate.DeleteTrainingTemplate(this.training.id).subscribe(data=>{
-      console.log(data)
-      this.SuccesfullyMadeByCoachMessage("You have succesfully deleted item");
-     
-        this.trainings = data
-        
-    })    
+    this._httpTemplate.DeleteTrainingTemplate(this.training.id).subscribe(data=>{ 
+        this.trainings = data;
+    })  
+    this.training=null;
+    this.SuccesfullyMadeByCoachMessage("You have succesfully deleted item");  
     $('#myModalDelete').modal("hide");
   }
 

@@ -76,14 +76,7 @@ export class PersonalmanagementService {
     })    
     return this.httpserv.requestCall(this.personalManagement+"/competitions/"+id,"Get",null,HeadersForProductAPI).pipe(catchError(this.HandleError)); 
   }
-  GetAthletesWhichStillFree(date)
-  { 
-    const HeadersForProductAPI = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + localStorage.getItem('token')
-    })    
-    return this.httpserv.requestCall(this.personalManagement+"/athleteList/"+date,"Get",null,HeadersForProductAPI).pipe(catchError(this.HandleError)); 
-  }
+ 
 
 
   //----------------------------INVITATIONS----------------------------

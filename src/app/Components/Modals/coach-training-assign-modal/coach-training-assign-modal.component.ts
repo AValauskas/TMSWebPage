@@ -30,13 +30,13 @@ export class CoachTrainingAssignModalComponent implements OnInit {
   oldDate:string;
   Description="";
   selectedType = "";
-  selectedTraining:string;
+  selectedTraining= "";
   Place="";
   trainingsCount=0;
   selectAthletes: IAthlete[];
   
-  constructor(private _httpPersonalTrain: PersonaltrainingsService,private _httpTemplate: TemplatetrainingsService,
-    private _httpManagement: PersonalmanagementService, public _router:Router) { }
+  constructor(private _httpPersonalTrain: PersonaltrainingsService,
+    private _httpTemplate: TemplatetrainingsService, public _router:Router) { }
 
   ngOnInit(): void {
    
@@ -70,7 +70,7 @@ export class CoachTrainingAssignModalComponent implements OnInit {
 
 
   GetData(){
-    this._httpManagement.GetAthletesWhichStillFree(this.dateClicked).subscribe(data=>{   
+    this._httpPersonalTrain.GetAthletesWhichStillFree(this.dateClicked).subscribe(data=>{   
       this.Athletes=data
        if(this.Athletes.length!=0)
        {
@@ -79,19 +79,13 @@ export class CoachTrainingAssignModalComponent implements OnInit {
       });  
   }
 
-  onChangeType(newValue) {
-    console.log(newValue);
-    this.selectedType = newValue;
-    this._httpTemplate.GetTrainingsByType(newValue).subscribe(data=>{   
+  onChangeType(type) {
+    console.log(type);
+    this.selectedType = type;
+    this._httpTemplate.GetTrainingsByType(type).subscribe(data=>{   
       this.Trainings=data;
        this.trainingsCount=this.Trainings.length;
       });    
-  }
-
-  onChangeTraining(newValue)
-  {
-    this.selectedTraining=newValue;
-    console.log( this.selectedTraining);
   }
 
   OnChooseAthletes(athletes){
@@ -111,6 +105,8 @@ export class CoachTrainingAssignModalComponent implements OnInit {
       $('#myModal').modal("hide");
       this.parentFun.emit("You have succesfully assigned trainings");
       this.GetData();
+      this.selectedType = "";
+      this.selectedTraining= "";
       });    
   }
 }

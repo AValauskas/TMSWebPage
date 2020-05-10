@@ -46,12 +46,20 @@ div.trainInfo
   background-color:rgb(68, 67, 67);
 }
 
+#delete:hover
+{
+    color:white;
+  background-color:rgb(32, 32, 32);
+}
+
 #add
 {
   background-color:khaki;
-  color: black;
 }
-
+#add:hover
+{
+  background-color:rgb(238, 219, 52);
+}
 div.free{
     text-align: center;
     font-size: 150%;
@@ -61,4 +69,29 @@ div.free{
 {
     margin-left: 50px;
     color: red;
+    font-size: 15px;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+ 
+}
+
+#distance
+{
+    text-align: right; 
+max-width: 90px;
+border-radius: 5px;
+
+}
+
+#timesfill
+{
+    text-align: right; 
+max-width: 70px;
+border-radius: 5px;
+
 }

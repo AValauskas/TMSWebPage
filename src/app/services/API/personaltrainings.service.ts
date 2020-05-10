@@ -20,6 +20,14 @@ export class PersonaltrainingsService {
     })    
     return this.httpserv.requestCall(this.personalTraining+"/athlete","Get",null,HeadersForProductAPI).pipe(catchError(this.HandleError)); 
   }
+  GetAthletesWhichStillFree(date)
+  { 
+    const HeadersForProductAPI = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    })    
+    return this.httpserv.requestCall(this.personalTraining+"/athleteList/"+date,"Get",null,HeadersForProductAPI).pipe(catchError(this.HandleError)); 
+  }
 
   GetPersonalTrainingByDate(data)
   {
