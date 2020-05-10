@@ -41,7 +41,7 @@ export class NewCompetitionModalComponent implements OnInit {
     else{
       this.competition.time=this.time.sec;
     }
-    if(this.time.min<0||this.time.sec<0||this.time.sec>60)
+    if(this.time.min<0||this.time.sec<0||this.time.sec>59)
     {
       this.negative= true;
     }

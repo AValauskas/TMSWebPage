@@ -6,7 +6,7 @@
             <div class="form-group d-flex justify-content-center" >    
                 
               <select id="exampleFormControlSelect1" [(ngModel)]="selectedDistance" name="destinition"  required> 
-                <option selected value="" disabled id="firstChoose">Choose distance</option>
+                <option selected value="" disabled id="firstChoose">{{'COMPETITIONS.CHOOSEDISTANCE' | translate}}</option>
                 <option type="number"  value=400>400</option>
                 <option type="number"  value=600>600</option>
                 <option type="number"  value=800>800</option>
@@ -15,23 +15,23 @@
             </div>  
             <div class ="form-group d-flex justify-content-center mt-3">
                 <label class="radio-inline">
-                  <input type="text" id="competition" [(ngModel)]="competition.competitionName"name="competition" placeholder="Competition name" required>
+                  <input type="text" id="competition" [(ngModel)]="competition.competitionName"name="competition" placeholder="{{'COMPETITIONS.COMPETITIONNAME' | translate}}" required>
                 </label>              
             </div>
             <div class ="form-group d-flex justify-content-center mt-3" >
             <div class="form-inline d-flex justify-content-center">               
                   <label class="">
-                    Result:
+                    {{'COMPETITIONS.RESULT' | translate}}:
                   </label>                             
                         <input type="number" id="time" [(ngModel)]="time.min" name="minutes" placeholder= "min">     
                         <div class="divider"></div>   
-                        <input type="number" step="0.01" id="time" [(ngModel)]="time.sec" name="seconds" placeholder="sec" required>    
+                        <input type="number" step="0.01" id="time" [(ngModel)]="time.sec" name="seconds" placeholder="{{'GENERAL.SEC' | translate}}" required>    
             </div>
           </div>
 
             <div class ="form-group d-flex justify-content-center  mt-3" >
               <label class="">
-                Date:
+                {{'COMPETITIONS.DATE' | translate}}:
               </label>    
                 <label class="radio-inline">
                   <input type="date" id="date" value="date" [(ngModel)]="competition.date" name="date" required>
@@ -41,14 +41,14 @@
 
             <div class ="form-group d-flex justify-content-center  mt-3" >
                 <label class="radio-inline">
-                  <input type="radio" name="optradio"  id="Inside" value="Inside"   [(ngModel)]="competition.place" checked>Inside
+                  <input type="radio" name="optradio"  id="Inside" value="Inside"   [(ngModel)]="competition.place" checked>{{'COMPETITIONS.INSIDE' | translate}}
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="optradio2"  id="Outside" value="Outside" [(ngModel)]="competition.place">Outside
+                  <input type="radio" name="optradio2"  id="Outside" value="Outside" [(ngModel)]="competition.place">{{'COMPETITIONS.OUTSIDE' | translate}}
                 </label>   
             </div>
             <div *ngIf="negative">
-              <p id="negativ">seconds must be in range [0..60] and minutes can't be negative</p>
+              <p id="negativ">{{'COMPETITIONS.ERRORSEC' | translate}}</p>
               </div>
          
             <div class="form-group">

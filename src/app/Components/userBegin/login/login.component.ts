@@ -3,6 +3,7 @@ import { TokenParams } from './TokenParams';
 import { AuthService } from 'src/app/services/API/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HelperService } from 'src/app/services/helper/helper.service';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
@@ -13,9 +14,21 @@ export class LoginComponent implements OnInit {
   error:String;
   loginUserData = <any>{};
   tokenParam: TokenParams;
+  language:String
   message="";
-  constructor(private _auth: AuthService,private helper:HelperService, public _router:Router, private route: ActivatedRoute) { }
+  constructor(private _auth: AuthService,private helper:HelperService, public _router:Router,
+     private route: ActivatedRoute, public translate: TranslateService ) { 
+       translate.addLangs(['en', 'lt']);
+       translate.setDefaultLang('lt');       
+       const browserLang = translate.getBrowserLang();
+      this.language = localStorage.getItem("lang");
+      console.log(localStorage.getItem("lang"));
+      // translate.use(browserLang.match( /en|lt/)? browserLang : 'lt');
+      translate.use(localStorage.getItem("lang"))
+     }
 
+
+     
   ngOnInit(): void {    
     
         if (!this.helper.CheckIfTokenIsExpired())
@@ -28,32 +41,41 @@ export class LoginComponent implements OnInit {
           this.message = this.route.snapshot.paramMap.get("message")     
           if(this.message=="forget")
           {
-            this.message="email exist, check email if you want to complete of  password changing";
+            this.translate.get('MESSAGES.FORGETPASSSUCCESS').subscribe((text:string) => {this.message=text});   
+         //   this.message="email exist, check email if you want to complete of  password changing";
           }
           else if(this.message=="registered")
           {
-            this.message="You have succesfully registered, you only need to confirm your email";
+            this.translate.get('MESSAGES.SUCESSREGISTER').subscribe((text:string) => {this.message=text});   
+          //  this.message="You have succesfully registered, you only need to confirm your email";
           }
           else if(this.message.includes("register"))
           {
             var id =  this.message.replace("register", "");
             this._auth.CompleteRegister(id).subscribe(
               data=>{  });
-            this.message="You have succesfully registered!!";
+              this.translate.get('MESSAGES.FORGETPASSSUCCESSFINISH').subscribe((text:string) => {this.message=text});   
+           // this.message="You have succesfully registered!!";
           }
           else if(this.message.includes("reset"))
           {
             var id =  this.message.replace("reset", "");
             this._auth.ConfirmReset(id).subscribe(
               data=>{  });
-            this.message="You have confirmed password update, we sent a new password to you";
+              this.translate.get('MESSAGES.PASSWORDUPDATECONFIRM').subscribe((text:string) => {this.message=text});   
+          //  this.message="You have confirmed password update, we sent a new password to you";
           }
 
         }     
          
         console.log(this.message);
   }
-
+ChangeLanguage(lang)
+{
+  localStorage.setItem("lang",lang)
+  this.language=lang;
+  this.translate.use(localStorage.getItem("lang"))
+}
   OnSubmit()
   {
     this.message=null;
@@ -79,14 +101,16 @@ export class LoginComponent implements OnInit {
       console.log(localStorage.getItem('error' ).substring(18,23));
       if(localStorage.getItem('error' ).substring(18,23)=="email")
       {
-        this.error= "you should confirm your email first";
+        this.translate.get('MESSAGES.CONFIRMEMAIL').subscribe((text:string) => {this.error=text});   
+       // this.error= "you should confirm your email first";
         localStorage.removeItem('error');
       }
       else{
        
         if( localStorage.getItem('error' ) == "[object ProgressEvent]"  )
         {
-          this.error= "Server is not working right now";
+          this.translate.get('MESSAGES.SERVERERROR').subscribe((text:string) => {this.error=text});   
+       //   this.error= "Server is not working right now";
           localStorage.removeItem('error');
         }
         else if(localStorage.getItem('error' ).length>100 || localStorage.getItem('error' ) == "[object ProgressEvent]"  )

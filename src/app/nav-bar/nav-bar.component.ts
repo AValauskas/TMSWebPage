@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/API/auth.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-nav-bar',
@@ -9,15 +10,24 @@ import { AuthService } from '../services/API/auth.service';
 export class NavBarComponent implements OnInit {
 
   Role: string;
+  RoleToDisplay: string;
   changeDetected:Boolean;
   successMessage=false;
   failMessage = false;
   message="";
-  constructor(public _auth: AuthService) { }
+  language:String;
+  constructor(public _auth: AuthService, public translate: TranslateService ) { 
+    translate.addLangs(['en', 'lt']);
+    translate.setDefaultLang('lt');       
+    const browserLang = translate.getBrowserLang();
+    this.language = localStorage.getItem("lang");
+   // translate.use(browserLang.match( /en|lt/)? browserLang : 'lt');
+   translate.use(localStorage.getItem("lang"))
+  }
 
   ngOnInit(): void {
     this.Role=localStorage.getItem('role')
-    console.log(localStorage.getItem('role'))
+    this.SetRole();
   }
 
   ngDoCheck(): void
@@ -27,14 +37,39 @@ export class NavBarComponent implements OnInit {
      this.Role=localStorage.getItem('role')
      console.log(localStorage.getItem('role'))
    }
+  
   }
 
   ngOnChanges(changeDetected)
   {
-   this.Role=localStorage.getItem('role')
-   console.log(localStorage.getItem('role'))
+    this.SetRole();
   }
 
+  SetRole()
+   {
+    var backRole=localStorage.getItem('role')
+    if(backRole=="Athlete") 
+    {
+      console.log("joooooooo")
+      this.translate.get('HOME.ATHLETE').subscribe((text:string) => {this.RoleToDisplay=text});   
+    } 
+    else if (backRole=="Coach")
+    {
+      this.translate.get('HOME.COACH').subscribe((text:string) => {this.RoleToDisplay=text});   
+    }
+    else if (backRole=="Admin")
+    {
+      this.translate.get('HOME.ADMIN').subscribe((text:string) => {this.RoleToDisplay=text});   
+    }
+   }
+
+  ChangeLanguage(lang)
+  {
+    localStorage.setItem("lang",lang);
+    this.language=lang;
+    this.translate.use(localStorage.getItem("lang"));
+    this.SetRole();
+  }
 
   async TurnOnSuccesMessage(message)
   {

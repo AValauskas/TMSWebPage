@@ -14,7 +14,7 @@
             <div  (click)="ChangeCoachSize()" [class.coachTabBig]="CoachClicked" [class.coachTab]="!CoachClicked"  *ngIf="role==='Athlete'"> 
         <div  *ngIf="CoachClicked" >
             <div class = "row">
-            <p id ="notesNames">Coach</p>   
+            <p id ="notesNames">{{'HOME.COACH' | translate}}</p>   
             <span class=" glyphicon glyphicon-menu-up" id="down" aria-hidden="true"></span>      
             </div>
             <div class = "maxlenght">
@@ -35,7 +35,7 @@
             <div  *ngIf="!CoachClicked" >
             <p></p>
             <div class = "row">
-                <p id ="notesNames">Coach</p>   
+                <p id ="notesNames">{{'HOME.COACH' | translate}}</p>   
                 <span class=" glyphicon glyphicon-menu-down" id="down" aria-hidden="true"></span>      
             </div>
             </div>  
@@ -44,7 +44,7 @@
          <div  (click)="ChangeFriendsSize()" [class.friendsBig]="friendsClicked" [class.friends]="!friendsClicked"  *ngIf="role==='Athlete'"> 
             <div  *ngIf="friendsClicked" >
                 <div class = "row">
-                <p id ="notesNames">Friends</p>   
+                <p id ="notesNames">{{'HOME.FRIENDS' | translate}}</p>   
                 <span class=" glyphicon glyphicon-menu-up" id="down" aria-hidden="true"></span>      
                 </div>
                 <div class = "maxlenght">
@@ -65,7 +65,7 @@
                 <div  *ngIf="!friendsClicked" >
                 <p></p>
                 <div class = "row">
-                    <p id ="notesNames">Friends</p>   
+                    <p id ="notesNames">{{'HOME.FRIENDS' | translate}}</p>   
                     <span class=" glyphicon glyphicon-menu-down" id="down" aria-hidden="true"></span>      
                 </div>
                 </div>  
@@ -75,7 +75,7 @@
          <div  (click)="ChangeAthleteSize()" [class.athletesBig]="athletesClicked" [class.athletes]="!athletesClicked"  *ngIf="role==='Coach'"> 
             <div  *ngIf="athletesClicked" >
                 <div class = "row">
-                <p id ="notesNames">Athletes</p>   
+                <p id ="notesNames">{{'HOME.ATHLETES' | translate}}</p>   
                 <span class=" glyphicon glyphicon-menu-up" id="down" aria-hidden="true"></span>      
                 </div>
                 <div class = "maxlenght">
@@ -96,7 +96,7 @@
                 <div  *ngIf="!athletesClicked" >
                 <p></p>
                 <div class = "row">
-                    <p id ="notesNames">Athletes</p>   
+                    <p id ="notesNames">{{'HOME.ATHLETES' | translate}}</p>   
                     <span class=" glyphicon glyphicon-menu-down" id="down" aria-hidden="true"></span>      
                 </div>
                 </div>  
@@ -105,7 +105,7 @@
 
         <div class="right">
             <div class="head ">
-                <p class="heading"> USER INFORMATION</p>
+                <p class="heading"> {{'HOME.USERINFO' | translate}}</p>
             </div>
             <div class="container ">
 
@@ -130,15 +130,15 @@
                     </div>   
                     <div class="form-group">
                         <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>  
-                     <input type="password" class="ml-3" [(ngModel)]="firstPass" name="firstPassword"  placeholder="Enter password" required minlength="6">    
+                     <input type="password" class="ml-3" [(ngModel)]="firstPass" name="firstPassword"  placeholder="{{'HOME.ENTERPASSWORD' | translate}}" required minlength="6">    
                     </div>
                     <div class="form-group">
                         <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>  
-                     <input type="password" class="ml-3" [(ngModel)]="secondPass" name="secondPassword"  placeholder="Repeat password" required minlength="6">    
+                     <input type="password" class="ml-3" [(ngModel)]="secondPass" name="secondPassword"  placeholder="{{'HOME.REPEATPASSWORD' | translate}}" required minlength="6">    
                     </div>
                     
                     <div class="form-group">
-                     <button [disabled]="!loginForm.valid" class="edit" (click)="ChangePassword()"  readonly>Change Password </button>
+                     <button [disabled]="!loginForm.valid" class="edit" (click)="ChangePassword()"  readonly>{{'HOME.CHANGEPASSWORD' | translate}}</button>
                      </div>
                  </form>
                 </div>

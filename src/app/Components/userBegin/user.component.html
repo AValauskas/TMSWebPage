@@ -9,10 +9,10 @@
           <div class="card-tabs">
             <ul class="nav nav-pills nav-fill color" >
               <li class="nav-item">
-                <a routerLink='/login' class="nav-link" [ngClass]="{'active': LoginActive }" (click)="ChangeActive()" >Sign In</a>
+                <a routerLink='/login' class="nav-link" [ngClass]="{'active': LoginActive }" (click)="ChangeActive()" >{{'HOME.SIGNIN' | translate}}</a>
               </li>
               <li class="nav-item" >
-                <a  routerLink='/register' class="nav-link" [ngClass]="{'active': RegisterActive}" (click)="ChangeActive()">Sign Up</a>
+                <a  routerLink='/register' class="nav-link" [ngClass]="{'active': RegisterActive}" (click)="ChangeActive()">{{'HOME.SIGNUP' | translate}}</a>
               </li>
             </ul>
           </div>

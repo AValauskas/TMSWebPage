@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/API/auth.service';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-forgetpass',
@@ -11,7 +12,7 @@ export class ForgetpassComponent implements OnInit {
   email="";
   error="";
   
-  constructor(private _auth: AuthService, public _router:Router) { }
+  constructor(private _auth: AuthService, public _router:Router, public translate: TranslateService) { }
 
   ngOnInit(): void {
   }
@@ -33,7 +34,8 @@ export class ForgetpassComponent implements OnInit {
     {   
         if( localStorage.getItem('error' ) == "[object ProgressEvent]"  )
         {
-          this.error= "Server is not working right now";
+          this.translate.get('MESSAGES.SERVERERROR').subscribe((text:string) => {this.error=text});   
+        //  this.error= "Server is not working right now";
           localStorage.removeItem('error');
         }
         else if(localStorage.getItem('error' ).length>100 || localStorage.getItem('error' ) == "[object ProgressEvent]"  )

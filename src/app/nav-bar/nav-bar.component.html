@@ -7,17 +7,17 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="/home" *ngIf="Role==='Athlete' ||Role==='Coach' ">Home <span class="sr-only" >(current)</span></a>
+          <a class="nav-link" href="/home" *ngIf="Role==='Athlete' ||Role==='Coach' ">{{'NAV.CALENDAR' | translate}}<span class="sr-only" >(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/trainingTemplates" href="#">Training templates</a>          
+          <a class="nav-link" routerLink="/trainingTemplates" href="#">{{'NAV.TEMPLATES' | translate}}</a>          
         </li>    
         <li class="nav-item">
           <a class="nav-link" routerLink="/admin" href="#" *ngIf="Role==='Admin' ">Site management</a>          
         </li>    
         <li class="nav-item dropdown" *ngIf="Role==='Athlete' ||Role==='Coach' ">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Invitations
+            {{'NAV.INVITATIONS' | translate}}
           </a>
           <div class="dropdown-menu invitation ">            
             <app-invitations
@@ -30,14 +30,21 @@
     </div>
     
     <ul class="navbar-nav ml-auto"> 
+       
            <li class="nav-item dropdown" id="personal">
-          <a class="nav-link  glyphicon glyphicon-user" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> {{Role}}</a>
+          <a class="nav-link  glyphicon glyphicon-user" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> {{RoleToDisplay}}</a>
           <div class="dropdown-menu personal" aria-labelledby="dropdownMenuLink">      
-            <a class="dropdown-item person" href="personalInfo">Account Info</a>
-            <a class="dropdown-item person" href="personal" *ngIf="Role==='Athlete' ||Role==='Coach' ">Personal times</a>
+            <a class="dropdown-item person" href="personalInfo">{{'NAV.ACCOUNTINFO' | translate}}</a>
+            <a class="dropdown-item person" href="personal" *ngIf="Role==='Athlete' ||Role==='Coach' ">{{'NAV.PERSONALTIMES' | translate}}</a>
           
           </div>
         </li>  
+        <li class="nav-item"  >   
+          <select #langselect (change)="ChangeLanguage(langselect.value)" name="langs" id="lang">
+            <option *ngFor="let lang of translate.getLangs()" value={{lang}}
+            [attr.selected]="language==lang ? true : null">{{lang}} </option>      
+            </select>
+          </li>  
       <li class="nav-item"  >                 
         <a class="nav-link" (click)="_auth.logoutUser()">
           <span class="glyphicon glyphicon-log-out"></span>

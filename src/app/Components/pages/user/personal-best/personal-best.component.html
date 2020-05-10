@@ -5,15 +5,15 @@
     <div class="row">
       <div class="col-sm-6 col-xs-6 responsive" *ngIf="Outside" > 
         <div>
-          <p class = " text-center mt-3 responsive" id="title">Outside</p>
+          <p class = " text-center mt-3 responsive" id="title">{{'COMPETITIONS.OUTSIDE' | translate}}</p>
         </div>   
       <table class="">
         <thead>
           <tr >
-            <th class="col-md-2 " >Distance</th>
-            <th class="col-md-2"  >Time</th>
-            <th class="col-md-4" >dateString</th>
-            <th class="col-md-4"  >Competition</th>
+            <th class="col-md-2  " >{{'COMPETITIONS.DISTANCE' | translate}}</th>
+              <th class="col-md-2"  >{{'COMPETITIONS.TIME' | translate}}</th>
+              <th class="col-md-4" >{{'COMPETITIONS.DATE' | translate}}</th>
+              <th class="col-md-4"  >{{'COMPETITIONS.COMPETITION' | translate}}</th>
           </tr>
         </thead>
         <tbody>
@@ -32,15 +32,15 @@
       </div>
       <div class="col-sm-6 col-xs-6 responsive" *ngIf="Inside" > 
         <div>
-          <p class = " text-center mt-3" id="title">Inside</p>
+          <p class = " text-center mt-3" id="title">{{'COMPETITIONS.INSIDE' | translate}}</p>
         </div> 
       <table class="">
         <thead>
           <tr>
-            <th class="col-md-2 "  >Distance</th>
-            <th class="col-md-2" >Time</th>
-            <th class="col-md-4"  >date</th>
-            <th class="col-md-4"  >Competition</th>
+            <th class="col-md-2  " >{{'COMPETITIONS.DISTANCE' | translate}}</th>
+              <th class="col-md-2"  >{{'COMPETITIONS.TIME' | translate}}</th>
+              <th class="col-md-4" >{{'COMPETITIONS.DATE' | translate}}</th>
+              <th class="col-md-4"  >{{'COMPETITIONS.COMPETITION' | translate}}</th>
           </tr>
         </thead>
         <tbody>

@@ -3,13 +3,13 @@
     <div class="row">
       <div class="left">
            <div class="choose">
-            <p class="heading" [ngClass]="{'active': RecordsActive }" (click)="TurnRecords()" > Records</p>
+            <p class="heading" [ngClass]="{'active': RecordsActive }" (click)="TurnRecords()" > {{'COMPETITIONS.RECORDS' | translate}}</p>
            </div>
            <div class="choose">
-            <p class="heading"[ngClass]="{'active': CompetitionsActive}" (click)="TurnCompetitions()" > Competitions</p>
+            <p class="heading"[ngClass]="{'active': CompetitionsActive}" (click)="TurnCompetitions()" > {{'COMPETITIONS.COMPETITIONS' | translate}}</p>
            </div>
            <div class="choose" *ngIf="!isFriend">
-            <p class="heading" [ngClass]="{'active': TrainingsActive}" (click)="TurnTrainings()"> Trainings</p>
+            <p class="heading" [ngClass]="{'active': TrainingsActive}" (click)="TurnTrainings()"> {{'COMPETITIONS.TRAININGS' | translate}}</p>
            </div>
 
         </div>

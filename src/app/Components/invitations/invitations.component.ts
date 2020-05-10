@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { PersonalmanagementService } from 'src/app/services/API/personalmanagement.service';
+import { TranslateService } from '@ngx-translate/core';
 
 interface IInviter{
   Id:string;
@@ -20,8 +21,9 @@ export class InvitationsComponent implements OnInit {
   isAnyInvite=false;
   error:string;
   success:string;
+  message:string;
   inviter:IInviter = <any>{};
-  constructor(private _httpManagement: PersonalmanagementService, public _router:Router) { }
+  constructor(private _httpManagement: PersonalmanagementService, public _router:Router, public translate:TranslateService) { }
 
   ngOnInit(): void {
     this._httpManagement.GetInvitations().subscribe(data=>{
@@ -44,7 +46,8 @@ export class InvitationsComponent implements OnInit {
       this.invitations = data;    
 
         console.log(this.invitations);  
-        this.parentSuccess.emit("You have accepted invitation");
+        this.translate.get('MESSAGES.INVITEACCEPT').subscribe((text:string) => {this.message=text});  
+        this.parentSuccess.emit(this.message);
         localStorage.removeItem("error");
         this.inviter.Id="";   
       
@@ -60,7 +63,8 @@ export class InvitationsComponent implements OnInit {
     this._httpManagement.DeclineInvitation(this.inviter).subscribe(data=>{      
       this.invitations = data;
         console.log(this.invitations); 
-        this.parentSuccess.emit("You have declined invitation");
+        this.translate.get('MESSAGES.DECLINEINVITE').subscribe((text:string) => {this.message=text});  
+        this.parentSuccess.emit(this.message);
         localStorage.removeItem("error");
         if(localStorage.getItem("error")==null)
       {    
@@ -78,8 +82,9 @@ export class InvitationsComponent implements OnInit {
     this._httpManagement.SendInvite(this.inviter).subscribe(data=>{    
       if(localStorage.getItem("error")==null)
       {  
-        this.parentSuccess.emit("Invitation sent succesfully");
-        this.success= "Invitation sent succesfully"
+        this.translate.get('MESSAGES.INVITESUCCESSSENT').subscribe((text:string) => {this.message=text});  
+        this.parentSuccess.emit(this.message);
+        this.success= this.message;
         this.inviter.Id="";    
         localStorage.removeItem("error");
       }

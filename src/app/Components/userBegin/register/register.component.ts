@@ -5,6 +5,7 @@ import { AuthService } from 'src/app/services/API/auth.service';
 import { Router } from '@angular/router';
 import { HelperService } from 'src/app/services/helper/helper.service';
 import { Iuser } from 'src/app/Interfaces/IUser';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-register',
@@ -20,7 +21,14 @@ export class RegisterComponent implements OnInit {
   pw1:string;
   pw2:string;
   error:String;
-  constructor(private _auth: AuthService, private helper:HelperService, public _router:Router) { }
+  constructor(private _auth: AuthService, private helper:HelperService, public _router:Router, public translate: TranslateService ) { 
+    translate.addLangs(['en', 'lt']);
+    translate.setDefaultLang('lt');     
+    console.log(translate.getLangs());
+    console.log(localStorage.getItem("lang"));
+    const browserLang = translate.getBrowserLang();
+   translate.use(localStorage.getItem("lang"))
+  }
 
   
 
@@ -32,10 +40,12 @@ export class RegisterComponent implements OnInit {
     {
       console.log(this.pw1);
       console.log(this.pw2);
-      this.error="Passwords are not the same";
+      this.translate.get('MESSAGES.DIFFERENTPASS').subscribe((text:string) => {this.error=text});   
+     // this.error="Passwords are not the same";
     }
     else if(!this.isAlphaNum(this.pw1)){
-      this.error="Password must contain numbers and letters";
+      this.translate.get('MESSAGES.VALIDATEFAILED').subscribe((text:string) => {this.error=text});  
+    //  this.error="Password must contain numbers and letters";
     }
     else{
       this.user.password = this.pw1;

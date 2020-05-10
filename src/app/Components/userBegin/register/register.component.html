@@ -2,7 +2,7 @@
   <div class ="form-group">
     <div class="row">
       <div class="input-field col s6 validate">
-       <input type="email" class="form-control"  name="Email"  [(ngModel)]="user.email" required placeholder="Enter email">   
+       <input type="email" class="form-control"  name="Email"  [(ngModel)]="user.email" required placeholder="{{'HOME.ENTEREMAIL' | translate}}">   
            
       </div>
       
@@ -11,7 +11,7 @@
   <div class ="form-group">
     <div class="row">
       <div class="input-field col s6 validate">
-        <input class="validate form-control" type="password" name="Password"  [(ngModel)]="pw1" required minlength="6"  placeholder="Enter password">        
+        <input class="validate form-control" type="password" name="Password"  [(ngModel)]="pw1" required minlength="6"  placeholder="{{'HOME.ENTERPASSWORD' | translate}}">        
       </div>
       <div class="input-field col s6 validate">
         <input class=" form-control" type="password" name="Password2" [(ngModel)]="pw2" required minlength="6" placeholder="Repeat password" #password2="ngModel">
@@ -22,11 +22,11 @@
   <div class ="form-group">
     <div class="row">
       <div class="input-field col s6 ">
-        <input  class="form-control" type="text" name="FirstName"  [(ngModel)]="user.name" required placeholder="Enter your name">
+        <input  class="form-control" type="text" name="FirstName"  [(ngModel)]="user.name" required placeholder="{{'HOME.ENTERYOURNAME' | translate}}">
       
       </div>
       <div class="input-field col s6">
-        <input class="form-control" type="text" name="LastName"  [(ngModel)]="user.surname" required placeholder="Enter your last name">
+        <input class="form-control" type="text" name="LastName"  [(ngModel)]="user.surname" required placeholder="{{'HOME.ENTERYOURLASTNAME' | translate}}">
         
       </div>
     </div>
@@ -34,10 +34,10 @@
 
   <div class ="form-group ">
       <label class="radio-inline">
-        <input type="radio" name="optradio" [(ngModel)]="user.role" id="Athlete" value="Athlete" checked>Athlete
+        <input type="radio" name="optradio" [(ngModel)]="user.role" id="Athlete" value="Athlete" checked>{{'HOME.ATHLETE' | translate}}
       </label>
       <label class="radio-inline">
-        <input type="radio" name="optradio2"  [(ngModel)]="user.role" id="Coach" value="Coach" >Coach
+        <input type="radio" name="optradio2"  [(ngModel)]="user.role" id="Coach" value="Coach" >{{'HOME.COACH' | translate}}
       </label>   
   </div>
   <div class ="form-group ">

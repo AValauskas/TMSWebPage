@@ -2,7 +2,7 @@
 <form #loginForm="ngForm" class="" (ngSubmit)="OnSubmit()" ngNativeValidate>
     <div class="form-group">
      <i class="material-icons prefix">account_circle</i>
-     <input type="email" class="form-control" [(ngModel)]="email" name="Email" placeholder="Enter email" required  >  
+     <input type="email" class="form-control" [(ngModel)]="email" name="Email" placeholder="{{'HOME.ENTEREMAIL' | translate}}" required  >  
     </div>
     <div class="form-group">
      <button [disabled]="!loginForm.valid" class="btn btn-secondary" type="submit">Confirm email</button>

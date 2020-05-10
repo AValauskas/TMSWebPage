@@ -84,13 +84,7 @@ UploadTraining()
   {
     this.trainingsToAdd=[];
     this.trainingsToAddFull=[];
-    this.negative= false;
-    this.training.sets.forEach(element => {
-      if (element.distance<0||element.pace<0||element.rest<0)
-      {
-        this.negative= true;
-      }
-  })
+    
     if(!this.negative)
     {
       this._httpTemplate.UpdateTrainingTemplate(this.training).subscribe(data=>{
@@ -102,15 +96,8 @@ UploadTraining()
   }
 
   InsertAction()
-  {
-    
-    this.negative= false;
-    this.training.sets.forEach(element => {
-      if (element.distance<0||element.pace<0||element.rest<0)
-      {
-        this.negative= true;
-      }
-  })
+  {   
+   
   if(!this.negative)
   {
       this._httpTemplate.PostTrainingTemplates(this.training).subscribe(data=>{

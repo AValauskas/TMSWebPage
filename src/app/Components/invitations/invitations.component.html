@@ -1,7 +1,7 @@
      <form class="form-inline my-2 my-lg-0 " #InviteForm="ngForm"  (ngSubmit)="SendInvite()" id="invites">
-        <input class="form-control" id= "inputInvite" type="text" placeholder="Send Invite"  [(ngModel)]="inviter.Id" name="Id">
+        <input class="form-control" id= "inputInvite" type="text" placeholder="{{'NAV.SENDINVITATION' | translate}}"  [(ngModel)]="inviter.Id" name="Id">
         <div class="divider"></div>
-        <button [disabled]="!InviteForm.valid" class="btn sendInvite" type="submit" >Send</button>
+        <button [disabled]="!InviteForm.valid" class="btn sendInvite" type="submit" >{{'NAV.SEND' | translate}}</button>
 
         
         
@@ -22,8 +22,8 @@
             <tr *ngFor="let invitation of invitations" id="oneinvite">
               <td >{{invitation.name}}</td>
               <td >{{ invitation.surname}}</td>   
-              <td><button class="btn "  id="acceptbutton" (click)="AcceptInvite( invitation.idPerson)" >Accept</button ></td>    
-              <td><button class="btn  " id="declinetbutton" (click)="DeclineInvite( invitation.idPerson)" >Decline</button ></td> 
+              <td><button class="btn "  id="acceptbutton" (click)="AcceptInvite( invitation.idPerson)" >{{'NAV.ACCEPT' | translate}}</button ></td>    
+              <td><button class="btn  " id="declinetbutton" (click)="DeclineInvite( invitation.idPerson)" >{{'NAV.DECLINE' | translate}}</button ></td> 
                 <td><div class="divider2"></div>   </td>
           </tr>
               </div>
@@ -31,7 +31,7 @@
         </table>       
         </div>
         <div *ngIf="!isAnyInvite" class="noinv">
-          <p id="NoInvites"> there are no invitations</p>
+          <p id="NoInvites">{{'NAV.NOINVITATIONS' | translate}}</p>
           </div>
         
       

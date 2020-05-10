@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './Components/pages/home/home.component';
 import { FormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule,HttpClient} from '@angular/common/http';
 import { LoginComponent } from './Components/userBegin/login/login.component';
 import { RegisterComponent } from './Components/userBegin/register/register.component';
 import { UserComponent } from './Components/userBegin/user.component';
@@ -28,8 +28,13 @@ import { AthleteListComponent } from './Components/Modals/athlete-list/athlete-l
 import { NewCompetitionModalComponent } from './Components/Modals/new-competition-modal/new-competition-modal.component';
 import { ForgetpassComponent } from './Components/userBegin/forgetpass/forgetpass.component';
 import { AdminsideComponent } from './Components/adminside/adminside.component';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
-
+export function HttpLoaderFactory(http:HttpClient)
+{
+  return new TranslateHttpLoader(http);
+}
 
 
 //import { NavbarComponent } from './navbar/navbar.component';
@@ -59,6 +64,14 @@ import { AdminsideComponent } from './Components/adminside/adminside.component';
     
   ],
   imports: [
+    TranslateModule.forRoot({
+      loader: 
+      {
+      provide:TranslateLoader,
+      useFactory: HttpLoaderFactory,
+      deps: [HttpClient]
+      }
+    }),
     CommonModule,
     BrowserModule,
     AppRoutingModule,
