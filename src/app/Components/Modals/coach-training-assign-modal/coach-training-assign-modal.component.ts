@@ -105,7 +105,7 @@ export class CoachTrainingAssignModalComponent implements OnInit {
     this._httpPersonalTrain.InsertPersonalTraining( this.PersonalTrainin).subscribe(data=>{   
       $('#myModal').modal("hide");
       var message;
-      this.translate.get('MESSAGES.ACCORDINGTEMPLATE').subscribe((text:string) => {message=text});  
+      this.translate.get('MESSAGES.TRAININSERT').subscribe((text:string) => {message=text});  
       this.parentFun.emit(message);
       this.GetData();
       this.selectedType = "";
