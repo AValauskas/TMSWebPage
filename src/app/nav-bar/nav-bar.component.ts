@@ -36,6 +36,7 @@ export class NavBarComponent implements OnInit {
      this.changeDetected = true;
      this.Role=localStorage.getItem('role')
      console.log(localStorage.getItem('role'))
+     this.SetRole();
    }
   
   }
@@ -50,7 +51,7 @@ export class NavBarComponent implements OnInit {
     var backRole=localStorage.getItem('role')
     if(backRole=="Athlete") 
     {
-      console.log("joooooooo")
+     
       this.translate.get('HOME.ATHLETE').subscribe((text:string) => {this.RoleToDisplay=text});   
     } 
     else if (backRole=="Coach")

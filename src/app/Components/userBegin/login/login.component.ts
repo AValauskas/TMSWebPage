@@ -41,12 +41,13 @@ export class LoginComponent implements OnInit {
           this.message = this.route.snapshot.paramMap.get("message")     
           if(this.message=="forget")
           {
+            
             this.translate.get('MESSAGES.FORGETPASSSUCCESS').subscribe((text:string) => {this.message=text});   
          //   this.message="email exist, check email if you want to complete of  password changing";
           }
           else if(this.message=="registered")
           {
-            this.translate.get('MESSAGES.SUCESSREGISTER').subscribe((text:string) => {this.message=text});   
+            this.translate.get('MESSAGES.SUCCESSREGISTER').subscribe((text:string) => {this.message=text});   
           //  this.message="You have succesfully registered, you only need to confirm your email";
           }
           else if(this.message.includes("register"))
@@ -54,7 +55,7 @@ export class LoginComponent implements OnInit {
             var id =  this.message.replace("register", "");
             this._auth.CompleteRegister(id).subscribe(
               data=>{  });
-              this.translate.get('MESSAGES.FORGETPASSSUCCESSFINISH').subscribe((text:string) => {this.message=text});   
+              this.translate.get('MESSAGES.SUCCESSREGISTERFINISH').subscribe((text:string) => {this.message=text});   
            // this.message="You have succesfully registered!!";
           }
           else if(this.message.includes("reset"))
