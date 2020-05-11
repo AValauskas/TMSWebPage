@@ -4,6 +4,7 @@ import { ITrainingTemplate } from '../../../Interfaces/ITrainingTemplate';
 import { ISetToDisplay } from 'src/app/Interfaces/ISetToDisplay';
 import { TemplatetrainingsService } from 'src/app/services/API/templatetrainings.service';
 import { ISetFull } from 'src/app/Interfaces/ISetFull';
+import { TranslateService } from '@ngx-translate/core';
 declare var $ :any;
 
 
@@ -35,7 +36,7 @@ export class TrainingTemplatesComponent implements OnInit {
 
   setsToDisplay:ISetToDisplay[]=[];
   
-  constructor(private _httpTemplate: TemplatetrainingsService, public _router:Router) { }
+  constructor(private _httpTemplate: TemplatetrainingsService, public _router:Router,public translate:TranslateService) { }
 
   ngOnInit(): void {
     this.Role=localStorage.getItem('role')
@@ -53,19 +54,10 @@ export class TrainingTemplatesComponent implements OnInit {
 
 UploadTraining()
 {
-  //if( this.Role=="Athlete")
-  //{
     this._httpTemplate.GetTrainingTemplates().subscribe(data=>{
       this.trainings = data
       console.log(this.trainings)
     });
-/*  }else{
-  this._httpTemplate.GetTrainingTemplatesIncludedPersonal().subscribe(data=>{
-    this.trainings = data
-    console.log(this.trainings)
-  })
-}*/
-
 }
 
 
@@ -89,7 +81,9 @@ UploadTraining()
     {
       this._httpTemplate.UpdateTrainingTemplate(this.training).subscribe(data=>{
         this.trainings = data
-        this.SuccesfullyMadeByCoachMessage("You have succesfully updated training");     
+        var message;
+        this.translate.get('MESSAGES.UPDATEDTRAIN').subscribe((text:string) => {message=text});   
+        this.SuccesfullyMadeByCoachMessage(message);     
       });
       $('#myModal').modal("hide");
     }
@@ -113,7 +107,9 @@ UploadTraining()
         localStorage.removeItem("error");
       }    
     });
-    this.SuccesfullyMadeByCoachMessage("You have succesfully inserted training");
+    var message;
+    this.translate.get('MESSAGES.TRAININSERT').subscribe((text:string) => {message=text});   
+    this.SuccesfullyMadeByCoachMessage(message);
     $('#myModal').modal("hide");
   }
   }
@@ -220,7 +216,9 @@ UploadTraining()
         this.trainings = data;
     })  
     this.training=null;
-    this.SuccesfullyMadeByCoachMessage("You have succesfully deleted item");  
+    var message;
+    this.translate.get('MESSAGES.TRAINDELETED').subscribe((text:string) => {message=text});   
+    this.SuccesfullyMadeByCoachMessage(message);  
     $('#myModalDelete').modal("hide");
   }
 

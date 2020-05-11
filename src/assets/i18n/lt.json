@@ -15,7 +15,9 @@
     "CHANGEPASSWORD" : "Pakeisti slaptažodį",
     "FRIENDS" : "Draugai", 
     "ATHLETES" : "Atletai",
-    "USERINFO" : "VARTOTOJO INFORMACIJA"  
+    "USERINFO" : "VARTOTOJO INFORMACIJA",
+    "USERDELETED" : "Jūs sėkmingai pašalinote vartotoją",
+    "INSERTADMIN" : "Jūs sėkmingai įterpėte kitą vartotoją"  
 },
 "GENERAL" : {
     "UPDATE" : "Atnaujinti",
@@ -41,7 +43,8 @@
     "ACCOUNTINFO" : "Vartotojo informacija",
     "PERSONALTIMES" : "Asmeniniai rezultatai",
     "NOINVITATIONS" : "Neturite jokių pakvietimų",
-    "SENDINVITATION" : "Siųsti pakvietimą"
+    "SENDINVITATION" : "Siųsti pakvietimą",
+    "SITEMANAGE" : "Puslapio valdymas"
 },
 "COMPETITIONS" : {
     "RECORDS" : "Rekordai",
@@ -57,6 +60,7 @@
     "COMPETITIONNAME" : "Varžybų pavadinimas",
     "CHOOSEDISTANCE" : "Pasirinkite atstumą",
     "RESULT" : "Rezultatas",
+    "RESULTS" : "RESULTS",
     "ERRORSEC" : "Skaičiai negali būti neigiami, bei sekundžių daugiau nei 59"
 },
 "TEMPLATES" : {
@@ -106,7 +110,7 @@
 "MESSAGES" : {
     "CONFIRMEMAIL" : "Pirmiausia turite patvirtinti el. Pašto adresą",
     "SERVERERROR" : "Atsiprašome, serveris šiuo metu neveikia",   
-    "FORGETPASSSUCCESS" : "PAtikrinkite e Paštą, jeigu norite sėkmingai pakeisti slaptažodį",
+    "FORGETPASSSUCCESS" : "Patikrinkite el. Paštą, jeigu norite sėkmingai pakeisti slaptažodį",
     "SUCCESSREGISTER" : "Norint pabaigti registraciją, patikrinkite el. Pašto adresą",
     "SUCCESSREGISTERFINISH" : "Jūs sėkmingai užsiregistravote!!",
     "PASSWORDUPDATECONFIRMED" : "el. Paštas patvirtintas, Nusiuntėme jum naują slaptažodį, į el. Paštą",
@@ -114,7 +118,14 @@
     "VALIDATEFAILED" : "Slaptažodis turi būti sudarytas ir iš skaičių ir iš raidžių",
     "INVITEACCEPT" : "Jūs patvirtinote pakvietimą",
     "DECLINEINVITE" : "Jūs atmetėte pakvietimą",
-    "INVITESUCCESSSENT" : "Jūs sėkmingai išsiuntėte pakvietimą"
+    "INVITESUCCESSSENT" : "Jūs sėkmingai išsiuntėte pakvietimą",
+    "TRAINDELETED" : "Treniruotė buvo sėkmingai ištrinta",
+    "UPDATEDTRAIN" : "Treniruotė buvo sėkmingai atnaujinta",
+    "TRAININSERT" : "Treniruotė sėkmingai įterpta" ,
+    "PASSWORDCHANGED" : "Slaptažodis buvo sėkmingai pakeistas"   ,
+    "UPDATEDATHLETE" : "Jūs sėkmingai atnaujinote atleto treniruotės rezultatus",
+    "ACCORDINGTEMPLATE" : "Pasak treniruočių šablono jūs nebegalite daugiau pridėti laikų" ,
+    "ASSIGNTRAIN" : "Jūs sėkmingai priskyrėte treniruotes"              
 }
 
 }

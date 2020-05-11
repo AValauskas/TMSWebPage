@@ -9,6 +9,7 @@ import { ISetToDisplay } from 'src/app/Interfaces/ISetToDisplay';
 import { TemplatetrainingsService } from 'src/app/services/API/templatetrainings.service';
 import { PersonaltrainingsService } from 'src/app/services/API/personaltrainings.service';
 import { ISetFull } from 'src/app/Interfaces/ISetFull';
+import { TranslateService } from '@ngx-translate/core';
 declare var $ :any;
 
 @Component({
@@ -34,7 +35,8 @@ export class AthleteListComponent implements OnInit {
   negative =false;
   message="";
   
-  constructor(private _httpPersonalTrain: PersonaltrainingsService,private _httpTemplate: TemplatetrainingsService,public _router:Router) { }
+  constructor(private _httpPersonalTrain: PersonaltrainingsService,private _httpTemplate: TemplatetrainingsService,
+    public _router:Router, public translate:TranslateService) { }
 
   ngOnInit(): void {
     console.log(this.AssignedTraining)
@@ -152,7 +154,8 @@ console.log(this.setsToDisplay);
       if (element.distance<0||element.paceMin<0||element.restMin<0||element.paceSec<0||element.restSec<0||element.paceSec>59||element.restSec>59)
       {
         this.negative= true; 
-        this.message ="all training datas must be positive and seconds less than 60 "      
+        this.translate.get('COMPETITIONS.ERRORSEC').subscribe((text:string) => {this.message=text});  
+      //  this.message ="all training datas must be positive and seconds less than 60 "      
       } 
       var pace =element.paceMin*60+element.paceSec
       var paceString = pace.toFixed(2);
@@ -175,7 +178,9 @@ console.log(this.setsToDisplay);
       console.log(data);      
     })
     $('#myModal').modal("hide");
-      this.parentFun.emit("You have succesfully updated your athlete training");
+    var message
+    this.translate.get('MESSAGES.UPDATEATHLETE').subscribe((text:string) => {message=text});  
+      this.parentFun.emit(message);
   } 
    
 }
@@ -190,7 +195,8 @@ this.negative=false;
   }
   else{
     this.negative=true;
-    this.message ="Accordint to template you can only add this count of repeats"
+    this.translate.get('MESSAGES.UPDATEATHLETE').subscribe((text:string) => {this.message=text});  
+    //this.message ="Accordint to template you can only add this count of repeats"
       
   }
 

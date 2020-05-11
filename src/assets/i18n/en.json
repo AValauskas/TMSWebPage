@@ -15,7 +15,10 @@
     "CHANGEPASSWORD" : "Change password",
     "FRIENDS" : "Friends",
     "ATHLETES" : "Athletes", 
-    "USERINFO" : "USER INFORMATION"
+    "USERINFO" : "USER INFORMATION",
+    "USERDELETED" : "You have succesfully deleted user",
+    "INSERTADMIN" : "You have succesfully added another admin"
+
 },
 "GENERAL" : {
     "UPDATE" : "Update",
@@ -41,7 +44,9 @@
     "ACCEPT" : "Accept",
     "DECLINE" : "Decline",
     "ACCOUNTINFO" : "Account info",
-    "PERSONALTIMES" : "Personal times"
+    "PERSONALTIMES" : "Personal times",
+    "SITEMANAGE" : "Site management"
+    
 },
 "COMPETITIONS" : {
     "RECORDS" : "Records",
@@ -57,6 +62,7 @@
     "COMPETITIONNAME" : "The name of the competition",
     "CHOOSEDISTANCE" : "Choose distance",
     "RESULT" : "Result",
+    "RESULTS" : "RESULTS",
     "ERRORSEC" : "seconds must be in range [0..60] and minutes can't be negative"
 },
 "TEMPLATES" : {
@@ -115,7 +121,14 @@
     "VALIDATEFAILED" : "Password must contain numbers and letters",
     "INVITEACCEPT" : "You have accepted invitation",
     "DECLINEINVITE" : "You have declined invitation",
-    "INVITESUCCESSSENT" : "Invitation sent succesfully"
+    "INVITESUCCESSSENT" : "Invitation sent succesfully",
+    "TRAINDELETED" : "Training was succesfully deleted",
+    "UPDATEDTRAIN" : "You have succesfully updated your training",
+    "TRAININSERT" : "You have succesfully inserted training",
+    "PASSWORDCHANGED" : "Password succesfully changed"  ,
+    "UPDATEDATHLETE" : "You have succesfully updated your athlete training",
+    "ACCORDINGTEMPLATE" : "Accordint to template you can only add this count of repeats",
+    "ASSIGNTRAIN" : "You have succesfully assigned trainings"        
 }
 
 

@@ -14,6 +14,7 @@ import { ICoachAssignedTraining } from 'src/app/Interfaces/ICoachAssignedTrainin
 import { PersonaltrainingsService } from 'src/app/services/API/personaltrainings.service';
 import { TemplatetrainingsService } from 'src/app/services/API/templatetrainings.service';
 import { PersonalmanagementService } from 'src/app/services/API/personalmanagement.service';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -54,7 +55,8 @@ export class HomeComponent implements OnInit {
   TrainingToSendForModal:ICoachAssignedTraining=<ICoachAssignedTraining>{};
 
 
-  constructor(private _httpPersonalTrain: PersonaltrainingsService,private _httpTemplate: TemplatetrainingsService, public _router:Router) { }
+  constructor(private _httpPersonalTrain: PersonaltrainingsService,private _httpTemplate: TemplatetrainingsService, 
+    public _router:Router, public translate:TranslateService) { }
 
   //-------------------------------Data to display-------------------------------------------
   ngOnInit() {  
@@ -190,7 +192,9 @@ export class HomeComponent implements OnInit {
        this.AssignedTrainingsByDate= data;   
        this.calendarEvents = [];
        $('#myModalDelete').modal("hide");  
-       this.SuccesfullyMadeByCoachMessage("Training was succesfully deleted")  
+       var message
+        this.translate.get('MESSAGES.TRAINDELETED').subscribe((text:string) => {message=text});   
+       this.SuccesfullyMadeByCoachMessage(message)  
        this.HttpCallCoach();  
         this.deleteModalActive = false;
       });  
@@ -200,7 +204,6 @@ export class HomeComponent implements OnInit {
     //-------------------------------Clicked to open new training modal---------------------------------
     OpenNewTrainingModal()
     {
-      console.log("paspaude");
       this.TrainingFormActive= true;
       this.PersonalTrainActive= false;
       $('#myModal').modal("show");
@@ -209,13 +212,10 @@ export class HomeComponent implements OnInit {
 //---------------------Open personal training modal----------------
     TurnOnTrain(trainingToSend)
     {
-      console.log(trainingToSend);
       this.PersonalTrainActive= true;
       this.TrainingFormActive=false;
       this.TrainingToSendForModal = trainingToSend;
-        console.log(this.TrainingToSendForModal)
-
-        $('#myModal').modal("show");
+      $('#myModal').modal("show");
     }
 
 
@@ -232,7 +232,8 @@ export class HomeComponent implements OnInit {
     async TurnOnSuccesMessageAthlete()
     {
       this.successMessage = true;
-      this.message = "You have succesfully updated your training"
+      this.translate.get('MESSAGES.UPDATEDTRAIN').subscribe((text:string) => {this.message=text});   
+    //  this.message = "You have succesfully updated your training"
       await this.delay(3000);
       this.successMessage = false;
       this.message="";

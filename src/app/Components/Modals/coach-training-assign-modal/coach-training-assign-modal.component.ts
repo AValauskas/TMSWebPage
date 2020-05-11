@@ -7,6 +7,7 @@ import { IPersonalTrainingFew } from 'src/app/Interfaces/IPersonalTrainingFew';
 import { PersonaltrainingsService } from 'src/app/services/API/personaltrainings.service';
 import { TemplatetrainingsService } from 'src/app/services/API/templatetrainings.service';
 import { PersonalmanagementService } from 'src/app/services/API/personalmanagement.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-coach-training-assign-modal',
@@ -36,7 +37,7 @@ export class CoachTrainingAssignModalComponent implements OnInit {
   selectAthletes: IAthlete[];
   
   constructor(private _httpPersonalTrain: PersonaltrainingsService,
-    private _httpTemplate: TemplatetrainingsService, public _router:Router) { }
+    private _httpTemplate: TemplatetrainingsService, public _router:Router, public translate:TranslateService) { }
 
   ngOnInit(): void {
    
@@ -103,7 +104,9 @@ export class CoachTrainingAssignModalComponent implements OnInit {
 
     this._httpPersonalTrain.InsertPersonalTraining( this.PersonalTrainin).subscribe(data=>{   
       $('#myModal').modal("hide");
-      this.parentFun.emit("You have succesfully assigned trainings");
+      var message;
+      this.translate.get('MESSAGES.ACCORDINGTEMPLATE').subscribe((text:string) => {message=text});  
+      this.parentFun.emit(message);
       this.GetData();
       this.selectedType = "";
       this.selectedTraining= "";

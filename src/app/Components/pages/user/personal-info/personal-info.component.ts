@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Iuser } from 'src/app/Interfaces/IUser';
 import { Router, NavigationStart } from '@angular/router';
 import { PersonalmanagementService } from 'src/app/services/API/personalmanagement.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-personal-info',
@@ -24,7 +25,7 @@ export class PersonalInfoComponent implements OnInit {
   failMessage= false;
   message:string;
 
-  constructor(private _httpManagement: PersonalmanagementService, public _router:Router) { }
+  constructor(private _httpManagement: PersonalmanagementService, public _router:Router,public translate:TranslateService) { }
 
   ngOnInit(): void {                
     if(localStorage.getItem('role')==null)
@@ -63,9 +64,13 @@ export class PersonalInfoComponent implements OnInit {
   {
     if(this.firstPass!=this.secondPass)
     {
-      this.FailMessage("Password missmatch");
+      var message;
+      this.translate.get('MESSAGES.DIFFERENTPASS').subscribe((text:string) => {message=text});  
+      this.FailMessage(message);
     }
     else if(!this.isAlphaNum(this.firstPass)){
+      var message;
+      this.translate.get('MESSAGES.VALIDATEFAILED').subscribe((text:string) => {message=text});   
       this.FailMessage("Password must contain numbers and letters");
     }
     else
@@ -74,8 +79,9 @@ export class PersonalInfoComponent implements OnInit {
       this._httpManagement.ChangePassword(this.user).subscribe(data=>{        
         this.firstPass="";
         this.secondPass="";
-        console.log( this.user);
-        this.SuccesfullyMessage("Password succesfully changed")
+        var message;
+        this.translate.get('MESSAGES.PASSWORDCHANGED').subscribe((text:string) => {message=text});   
+        this.SuccesfullyMessage(message)
       })
     }
   

@@ -8,6 +8,7 @@ import { IAthleteForm } from '../../../Interfaces/IAthleteForm';
 import { ISetToDisplay } from 'src/app/Interfaces/ISetToDisplay';
 import { PersonaltrainingsService } from 'src/app/services/API/personaltrainings.service';
 import { ISetFull } from 'src/app/Interfaces/ISetFull';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -31,7 +32,7 @@ export class PersonalTrainingModalComponent implements OnInit {
   negative =false;
   message="";
   
-  constructor(private _httpPersonalTrain: PersonaltrainingsService, public _router:Router) { 
+  constructor(private _httpPersonalTrain: PersonaltrainingsService, public _router:Router, public translate:TranslateService) { 
   
   }
 
@@ -129,7 +130,8 @@ console.log(this.setsToDisplay);
     }
     else{
       this.negative=true;
-      this.message ="According to template you can only add this count of repeats"        
+      this.translate.get('MESSAGES.ACCORDINGTEMPLATE').subscribe((text:string) => {this.message=text});  
+     // this.message ="According to template you can only add this count of repeats"        
     }    
   }
 
@@ -149,8 +151,9 @@ console.log(this.setsToDisplay);
     this.trainingsToAddFull.forEach(element => {
       if (element.distance<0||element.paceMin<0||element.restMin<0||element.paceSec<0||element.restSec<0||element.paceSec>59||element.restSec>59)
       {
-        this.negative= true;    
-        this.message ="all training datas must be positive and seconds less than 60 "       
+        this.negative= true;  
+        this.translate.get('COMPETITIONS.ERRORSEC').subscribe((text:string) => {this.message=text});   
+     //   this.message ="all training datas must be positive and seconds less than 60 "       
       } 
       var pace =element.paceMin*60+element.paceSec
       var paceString = pace.toFixed(2);

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RoutesRecognized, NavigationStart } from '@angular/router';
 import { filter, pairwise } from 'rxjs/operators';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-personal-stuff',
@@ -15,7 +16,7 @@ export class PersonalStuffComponent implements OnInit {
   isFriend = false;
   friendName:string;
 
-  constructor(public _router:Router) { 
+  constructor(public _router:Router, public translate:TranslateService) { 
     
   }
 
@@ -45,7 +46,8 @@ export class PersonalStuffComponent implements OnInit {
     }
   }
   TurnRecords(){
-    this.Chosen="Records"
+    this.translate.get('COMPETITIONS.RECORDS').subscribe((text:string) => {this.Chosen=text});   
+   //this.Chosen="Records"
     this.RecordsActive = true;
     this.CompetitionsActive = false;
     this.TrainingsActive = false;
@@ -53,7 +55,7 @@ export class PersonalStuffComponent implements OnInit {
   }
   TurnCompetitions()
   {
-    this.Chosen="Competitions"
+    this.translate.get('COMPETITIONS.COMPETITIONS').subscribe((text:string) => {this.Chosen=text});   
     this.RecordsActive = false;
     this.CompetitionsActive = true;
     this.TrainingsActive = false;
@@ -61,7 +63,7 @@ export class PersonalStuffComponent implements OnInit {
   }
   TurnTrainings()
   {
-    this.Chosen="Trainings"
+    this.translate.get('COMPETITIONS.TRAININGS').subscribe((text:string) => {this.Chosen=text});   
     this.RecordsActive = false;
     this.CompetitionsActive = false;
     this.TrainingsActive = true;

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AdminService } from 'src/app/services/API/admin.service';
 import { Iuser } from 'src/app/Interfaces/IUser';
 import { AuthService } from 'src/app/services/API/auth.service';
+import { TranslateService } from '@ngx-translate/core';
 declare var $ :any;
 
 @Component({
@@ -21,7 +22,7 @@ export class AdminsideComponent implements OnInit {
   failMessage= false;
   message:string;
   idToDelete="";
-  constructor(public _router:Router, public _httpAdmin: AdminService,  public _httpAuth: AuthService) { }
+  constructor(public _router:Router, public _httpAdmin: AdminService,  public _httpAuth: AuthService, public translate:TranslateService) { }
 
   ngOnInit(): void {
     if(localStorage.getItem('role')==null)
@@ -47,7 +48,9 @@ export class AdminsideComponent implements OnInit {
       data=>{          
         this.users=data;
         $('#myModalDelete').modal("hide");
-        this.SuccesfullyMessage("You have deleted user");
+        var message
+        this.translate.get('HOME.USERDELETED').subscribe((text:string) => {message=text});   
+        this.SuccesfullyMessage(message);
       }    
     ) 
   }
@@ -77,7 +80,8 @@ export class AdminsideComponent implements OnInit {
   {
       console.log(this.userRegister);
       if(!this.isAlphaNum(this.userRegister.password)){
-        this.error="Password must contain numbers and letters";
+        this.translate.get('MESSAGES.VALIDATEFAILED').subscribe((text:string) => {this.error=text});   
+      //  this.error="Password must contain numbers and letters";
       }
       else{
         this.userRegister.role="Admin";
@@ -106,7 +110,9 @@ export class AdminsideComponent implements OnInit {
        }
        else{
         $('#myModal').modal("hide");   
-        this.SuccesfullyMessage("You have succesfully added another admin");
+        var message
+        this.translate.get('HOME.INSERTADMIN').subscribe((text:string) => {message=text});   
+        this.SuccesfullyMessage(message);
          this.error= null;      
        }
      }
