@@ -1,0 +1,163 @@
+<div *ngIf="exist">
+<div  *ngIf="toDo"  >
+  <div >
+    <div class = "tasks firstHeading" >
+      <p class="heading "> {{'CALENDAR.TRAINTEMPLATE' | translate}}</p>   
+      </div>
+
+     
+   <form #TrainingTemplateForm="ngForm" class="" >
+     <div class="form-group">    
+       <div class = "row ">
+        <div class="input-field col-md-3" >
+       <label for="descriptionTextArea">{{'TEMPLATES.DESCRIPTION' | translate}}</label>
+        </div>
+        <div class="input-field col-md-9">        
+       <textarea  type="text" class="form-control" [(ngModel)]="toDo.description" name="description" readonly > </textarea>
+      </div>   
+       </div>
+        
+      </div>   
+      <div class ="form-group separate" *ngIf="setsToDisplay.length>0"  >      
+          <div class= "row trainInfo" >
+            <div class="input-field col s3 d-flex justify-content-center" >
+              <label for="descriptionTextArea">{{'GENERAL.DISTANCE' | translate}}</label>   
+            </div>
+            <div class="input-field col s3 d-flex justify-content-center" >
+              <label for="descriptionTextArea">{{'GENERAL.TIME' | translate}}</label>                      
+            </div>  
+            <div class="input-field col s3  d-flex justify-content-center" >
+              <label for="descriptionTextArea">{{'GENERAL.REST' | translate}}</label>                   
+            </div>
+
+        <div *ngFor="let set of setsToDisplay; let i = index" name="sets">       
+         
+          <div class= "row trainInfo" >
+            <div class="input-field col s3" >
+              <input type="number"  class="form-control num" [(ngModel)]="set.distane"  name="distance{{i}}" readonly>
+            </div>
+            <div class="input-field col s3" >
+              <input type="text"  class="form-control num" [(ngModel)]="set.runTime" name="pace{{i}}"  readonly>                      
+            </div>  
+            <div class="input-field col s3" >
+              <input type="text"  class="form-control num"  [(ngModel)]="set.rest" name="rest{{i}}" readonly>                      
+            </div>
+            
+            </div>
+            </div>
+        </div>                
+     </div>
+    
+     <div class ="form-group separate">    
+      <label>{{'TEMPLATES.REPEATS' | translate}}: {{toDo.repeats}}</label>   
+     </div>     
+   </form>  
+  </div>
+<div>
+  <div class = "tasks section" >
+    <p class="heading"> {{'CALENDAR.PERSONALTRAIN' | translate}}: {{toDo.repeats}}</p>   
+    </div>
+
+
+    
+   <form #PersonalTrain="ngForm" class="" >
+    <div class="form-group">   
+      <div class = "row ">
+        <div class="input-field col-md-3" >
+          <label for="descriptionTextArea">{{'CALENDAR.COACHTASK' | translate}}:</label>   
+        </div>
+        <div class="input-field col-md-9">        
+          <textarea  type="text" class="form-control" [(ngModel)]="personalTraining.description" name="description" readonly > </textarea>
+      </div>   
+       </div>
+                    
+    
+     </div>   
+     <div class ="form-group separate">    
+      <label>{{'CALENDAR.PLACE' | translate}}: {{personalTraining.place}}</label>   
+     </div>  
+     <div class ="form-group separate" *ngIf="canFillForm">    
+      <label>{{'CALENDAR.FILLYOUTRAIN' | translate}}:</label>   
+     </div>  
+     <div class ="form-group " *ngIf="canFillForm">
+      <div class= "row" *ngIf="trainingsToAddFull.length!=0">
+        <div class=" col-md-3" >
+      <label>{{'GENERAL.DISTANCE' | translate}}</label>
+                  </div>
+        <div class=" col-md-2" >
+          <label>{{'GENERAL.PACE' | translate}}/m</label>
+        </div>  
+        <div class=" col-md-2" >
+          <label>{{'GENERAL.PACE' | translate}}/s</label>
+        </div>
+        <div class=" col-md-2" >
+          <label>{{'GENERAL.REST' | translate}}/m</label>
+        </div>
+        <div class=" col-md-2" >
+          <label>{{'GENERAL.REST' | translate}}/s</label>
+        </div>
+        <div class=" col-md-1" >
+                        
+        </div>
+        </div>
+      <div *ngFor="let trainingtoAdd of trainingsToAddFull; let i = index" name="sets" >
+                  
+        <div class ="form-group ">
+          
+        <div class= "row" >
+          <div class=" col-md-3" >
+            <input type="number" min="0" step="0.01" id="distance" class="" [(ngModel)]="trainingtoAdd.distance"  name="distance{{i}}" placeholder="{{'GENERAL.METERS' | translate}}" required #name="ngModel">
+                    </div>
+          <div class=" col-md-2" >
+            <input type="number" min="0" step="0.01" id="timesfill" class="" [(ngModel)]="trainingtoAdd.paceMin" name="paceMin{{i}}" placeholder="min" required >                      
+          </div>  
+          <div class=" col-md-2" >
+            <input type="number" min="0" step="0.01" id="timesfill"  class=""  [(ngModel)]="trainingtoAdd.paceSec" name="paceSec{{i}}" placeholder="{{'GENERAL.SEC' | translate}}" required  >                      
+          </div>
+          <div class=" col-md-2" >
+            <input type="number" min="0" step="0.01" id="timesfill"  class=""  [(ngModel)]="trainingtoAdd.restMin" name="restMin{{i}}" placeholder="min" required  >                      
+          </div>
+          <div class=" col-md-2" >
+            <input type="number" min="0" step="0.01" id="timesfill"  class=""  [(ngModel)]="trainingtoAdd.restSec" name="restSec{{i}}" placeholder="{{'GENERAL.SEC' | translate}}" required  >                      
+          </div>
+          <div class=" col-md-1" >
+            <button  class="btn  " id="delete" (click)="OnDelete(i)">-</button>                     
+          </div>
+          </div>
+          </div>
+      </div>             
+   </div>
+   <div class="form-group " *ngIf="canFillForm">
+     <div class = "row  ml-1">
+      <div class="sm-6">
+    <button  class="btn  " id ="add" (click)="OnClick()">+</button>
+    </div>
+    <div class="sm-6" *ngIf="negative">
+      <p id="negativ">{{message}}</p>
+      </div>
+    </div>
+    </div>
+
+    <div class="form-group separate" *ngIf="canFillForm">    
+      <div class = "row ">
+       <div class="input-field col-md-3" >
+      <label for="descriptionTextArea">{{'CALENDAR.WRITEREPORT' | translate}}</label>
+       </div>
+       <div class="input-field col-md-9"  >        
+        <textarea  type="text" class="form-control" [(ngModel)]="personalTraining.athleteReport" name="Report" > </textarea>
+     </div>   
+      </div>
+    </div>      
+    <div class="form-group">
+      <button [disabled]="!PersonalTrain.valid" class="btn btn-secondary" type="submit" (click)="OnSubmit()" *ngIf="canFillForm">{{'GENERAL.CONFIRM' | translate}}</button>
+      </div>
+  </form> 
+   
+</div>
+
+
+</div>
+</div>
+<div *ngIf="!exist" class = "free">
+  {{'CALENDAR.FREEDAY' | translate}}
+</div>

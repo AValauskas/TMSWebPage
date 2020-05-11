@@ -2,32 +2,39 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './pages/home/home.component';
+import { HomeComponent } from './Components/pages/home/home.component';
 import { FormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
-import { LoginComponent } from './user/login/login.component';
-import { RegisterComponent } from './user/register/register.component';
-import { UserComponent } from './user/user.component';
+import {HttpClientModule,HttpClient} from '@angular/common/http';
+import { LoginComponent } from './Components/userBegin/login/login.component';
+import { RegisterComponent } from './Components/userBegin/register/register.component';
+import { UserComponent } from './Components/userBegin/user.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { TrainingTemplatesComponent } from './pages/trainings/training-templates/training-templates.component';
-import { MainModalComponent } from './Modals/main-modal/main-modal.component';
-import { PersonalBestComponent } from './pages/user/personal-best/personal-best.component';
-import { PersonalInfoComponent } from './pages/user/personal-info/personal-info.component';
-import { InvitationsComponent } from './nav-bar/invitations/invitations.component';
-import { PersonalStuffComponent } from './pages/user/personal-stuff/personal-stuff.component';
-import { CompetitionsComponent } from './pages/user/competitions/competitions.component';
-import { TrainingsComponent } from './pages/user/trainings/trainings.component';
+import { TrainingTemplatesComponent } from './Components/pages/training-templates/training-templates.component';
+import { PersonalBestComponent } from './Components/pages/user/personal-best/personal-best.component';
+import { PersonalInfoComponent } from './Components/pages/user/personal-info/personal-info.component';
+import { InvitationsComponent } from './Components/invitations/invitations.component';
+import { PersonalStuffComponent } from './Components/pages/user/personal-stuff/personal-stuff.component';
+import { CompetitionsComponent } from './Components/pages/user/competitions/competitions.component';
+import { TrainingsComponent } from './Components/pages/user/trainings/trainings.component';
 import {FullCalendarModule} from '@fullcalendar/angular';
-import { PersonalTrainingModalComponent } from './Modals/AllModals/personal-training-modal/personal-training-modal.component';
+import { PersonalTrainingModalComponent } from './Components/Modals/personal-training-modal/personal-training-modal.component';
 import { CommonModule } from '@angular/common';
 import { FlatpickrModule } from 'angularx-flatpickr';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
-import { CoachTrainingAssignModalComponent } from './Modals/AllModals/coach-training-assign-modal/coach-training-assign-modal.component';
-import { AthleteListComponent } from './Modals/AllModals/athlete-list/athlete-list.component';
-import { NewCompetitionModalComponent } from './Modals/AllModals/new-competition-modal/new-competition-modal.component';
+import { CoachTrainingAssignModalComponent } from './Components/Modals/coach-training-assign-modal/coach-training-assign-modal.component';
+import { AthleteListComponent } from './Components/Modals/athlete-list/athlete-list.component';
+import { NewCompetitionModalComponent } from './Components/Modals/new-competition-modal/new-competition-modal.component';
+import { ForgetpassComponent } from './Components/userBegin/forgetpass/forgetpass.component';
+import { AdminsideComponent } from './Components/adminside/adminside.component';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
+export function HttpLoaderFactory(http:HttpClient)
+{
+  return new TranslateHttpLoader(http);
+}
 
 
 //import { NavbarComponent } from './navbar/navbar.component';
@@ -42,7 +49,6 @@ import { NewCompetitionModalComponent } from './Modals/AllModals/new-competition
     UserComponent,
     NavBarComponent,
     TrainingTemplatesComponent,
-    MainModalComponent,
     PersonalBestComponent,
     PersonalInfoComponent,
     InvitationsComponent,
@@ -52,9 +58,20 @@ import { NewCompetitionModalComponent } from './Modals/AllModals/new-competition
     PersonalTrainingModalComponent,
     CoachTrainingAssignModalComponent,
     AthleteListComponent,
-    NewCompetitionModalComponent
+    NewCompetitionModalComponent,
+    ForgetpassComponent,
+    AdminsideComponent,
+    
   ],
   imports: [
+    TranslateModule.forRoot({
+      loader: 
+      {
+      provide:TranslateLoader,
+      useFactory: HttpLoaderFactory,
+      deps: [HttpClient]
+      }
+    }),
     CommonModule,
     BrowserModule,
     AppRoutingModule,
@@ -67,6 +84,7 @@ import { NewCompetitionModalComponent } from './Modals/AllModals/new-competition
        provide: DateAdapter,
        useFactory: adapterFactory,
      }),
+     
   ],
   providers: [],
   bootstrap: [AppComponent]

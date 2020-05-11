@@ -1,0 +1,60 @@
+<body>
+<div>
+    
+    <div >
+        <form #NewCompetitionForm="ngForm" class="" >
+            <div class="form-group d-flex justify-content-center" >    
+                
+              <select id="exampleFormControlSelect1" [(ngModel)]="selectedDistance" name="destinition"  required> 
+                <option selected value="" disabled id="firstChoose">{{'COMPETITIONS.CHOOSEDISTANCE' | translate}}</option>
+                <option type="number"  value=400>400</option>
+                <option type="number"  value=600>600</option>
+                <option type="number"  value=800>800</option>
+                <option type="number"  value=1000>1000</option>
+              </select>
+            </div>  
+            <div class ="form-group d-flex justify-content-center mt-3">
+                <label class="radio-inline">
+                  <input type="text" id="competition" [(ngModel)]="competition.competitionName"name="competition" placeholder="{{'COMPETITIONS.COMPETITIONNAME' | translate}}" required>
+                </label>              
+            </div>
+            <div class ="form-group d-flex justify-content-center mt-3" >
+            <div class="form-inline d-flex justify-content-center">               
+                  <label class="">
+                    {{'COMPETITIONS.RESULT' | translate}}:
+                  </label>                             
+                        <input type="number" id="time" [(ngModel)]="time.min" name="minutes" placeholder= "min">     
+                        <div class="divider"></div>   
+                        <input type="number" step="0.01" id="time" [(ngModel)]="time.sec" name="seconds" placeholder="{{'GENERAL.SEC' | translate}}" required>    
+            </div>
+          </div>
+
+            <div class ="form-group d-flex justify-content-center  mt-3" >
+              <label class="">
+                {{'COMPETITIONS.DATE' | translate}}:
+              </label>    
+                <label class="radio-inline">
+                  <input type="date" id="date" value="date" [(ngModel)]="competition.date" name="date" required>
+                </label>              
+            </div>
+
+
+            <div class ="form-group d-flex justify-content-center  mt-3" >
+                <label class="radio-inline">
+                  <input type="radio" name="optradio"  id="Inside" value="Inside"   [(ngModel)]="competition.place" checked>{{'COMPETITIONS.INSIDE' | translate}}
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="optradio2"  id="Outside" value="Outside" [(ngModel)]="competition.place">{{'COMPETITIONS.OUTSIDE' | translate}}
+                </label>   
+            </div>
+            <div *ngIf="negative">
+              <p id="negativ">{{'COMPETITIONS.ERRORSEC' | translate}}</p>
+              </div>
+         
+            <div class="form-group">
+                <button [disabled]="!NewCompetitionForm.valid" class="btn btn-secondary submit" type="submit" (click)="OnSubmit()">Confirm</button>
+                </div>
+        </form>
+    </div>
+</div>
+     </body>
