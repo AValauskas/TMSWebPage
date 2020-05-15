@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { TokenParams } from '../../Components/userBegin/login/TokenParams';
+import { TokenParams } from '../../Components/Internal management/UnauthenticatedUser/login/TokenParams';
 import { Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
 import { HttpService } from '../API/http.service';

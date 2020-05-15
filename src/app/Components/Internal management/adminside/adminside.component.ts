@@ -22,7 +22,7 @@ export class AdminsideComponent implements OnInit {
   failMessage= false;
   message:string;
   idToDelete="";
-  constructor(public _router:Router, public _httpAdmin: AdminService,  public _httpAuth: AuthService, public translate:TranslateService) { }
+  constructor(public _router:Router, public _httpAdmin: AdminService,  public translate:TranslateService) { }
 
   ngOnInit(): void {
     if(localStorage.getItem('role')==null)

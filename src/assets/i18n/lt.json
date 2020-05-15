@@ -115,7 +115,7 @@
     "SUCCESSREGISTERFINISH" : "Jūs sėkmingai užsiregistravote!!",
     "PASSWORDUPDATECONFIRMED" : "el. Paštas patvirtintas, Nusiuntėme jum naują slaptažodį, į el. Paštą",
     "DIFFERENTPASS" : "Slaptažodžiai ne vienodi",
-    "VALIDATEFAILED" : "Slaptažodis turi būti sudarytas ir iš skaičių ir iš raidžių",
+    "VALIDATEFAILED" : "Slaptažodis turi būti sudarytas ir  iš skaičių ir iš raidžių",
     "INVITEACCEPT" : "Jūs patvirtinote pakvietimą",
     "DECLINEINVITE" : "Jūs atmetėte pakvietimą",
     "INVITESUCCESSSENT" : "Jūs sėkmingai išsiuntėte pakvietimą",

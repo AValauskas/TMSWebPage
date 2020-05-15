@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RoutesRecognized, NavigationStart } from '@angular/router';
-import { filter, pairwise } from 'rxjs/operators';
+import { Router} from '@angular/router';
+
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({

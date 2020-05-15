@@ -1,0 +1,31 @@
+
+<body>
+    <div class="row">
+      <div class="left">
+           <div class="choose">
+            <p class="heading" [ngClass]="{'active': RecordsActive }" (click)="TurnRecords()" > {{'COMPETITIONS.RECORDS' | translate}}</p>
+           </div>
+           <div class="choose">
+            <p class="heading"[ngClass]="{'active': CompetitionsActive}" (click)="TurnCompetitions()" > {{'COMPETITIONS.COMPETITIONS' | translate}}</p>
+           </div>
+          <!-- <div class="choose" *ngIf="!isFriend">
+            <p class="heading" [ngClass]="{'active': TrainingsActive}" (click)="TurnTrainings()"> {{'COMPETITIONS.TRAININGS' | translate}}</p>
+           </div>-->
+
+        </div>
+        <div class="right">
+            <div class="head ">
+                <p class="heading"> {{friendName}} {{Chosen}}</p>
+            </div>
+            <div class="action">     
+                    <div *ngIf="RecordsActive">
+                        <app-personal-best></app-personal-best>
+                    </div>
+                    <div *ngIf="CompetitionsActive">
+                        <app-competitions></app-competitions>
+                    </div>
+                  
+            </div>
+        </div>
+    </div>
+</body>

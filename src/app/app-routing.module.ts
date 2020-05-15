@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {HomeComponent} from './Components/pages/home/home.component';
-import {TrainingTemplatesComponent} from './Components/pages/training-templates/training-templates.component';
-import {LoginComponent} from './Components/userBegin/login/login.component';
-import {RegisterComponent} from './Components/userBegin/register/register.component';
-import {ForgetpassComponent} from './Components/userBegin/forgetpass/forgetpass.component';
-import {UserComponent} from './Components/userBegin/user.component';
-import { PersonalBestComponent } from './Components/pages/user/personal-best/personal-best.component';
-import { PersonalInfoComponent } from './Components/pages/user/personal-info/personal-info.component';
-import { PersonalStuffComponent } from './Components/pages/user/personal-stuff/personal-stuff.component';
-import { AdminsideComponent } from './Components/adminside/adminside.component';
+import {HomeComponent} from './Components/Training Management/home/home.component';
+import {TrainingTemplatesComponent} from './Components/Training Management/training-templates/training-templates.component';
+import {LoginComponent} from './Components/Internal management/UnauthenticatedUser/login/login.component';
+import {RegisterComponent} from './Components/Internal management/UnauthenticatedUser/register/register.component';
+import {ForgetpassComponent} from './Components/Internal management/UnauthenticatedUser/forgetpass/forgetpass.component';
+import {UserComponent} from './Components/Internal management/UnauthenticatedUser/user.component';
+import { PersonalBestComponent } from './Components/Internal management/Personal/personal-best/personal-best.component';
+import { PersonalInfoComponent } from './Components/Internal management/Personal/personal-info/personal-info.component';
+import { PersonalStuffComponent } from './Components/Internal management/Personal/personal-stuff/personal-stuff.component';
+import { AdminsideComponent } from './Components/Internal management/adminside/adminside.component';
 
 const routes: Routes = [
 {path: '', component: UserComponent,

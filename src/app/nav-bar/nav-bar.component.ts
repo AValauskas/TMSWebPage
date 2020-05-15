@@ -16,7 +16,7 @@ export class NavBarComponent implements OnInit {
   failMessage = false;
   message="";
   language:String;
-  constructor(public _auth: AuthService, public translate: TranslateService ) { 
+  constructor(public _auth:AuthService, public translate: TranslateService ) { 
     translate.addLangs(['en', 'lt']);
     translate.setDefaultLang('lt');       
     const browserLang = translate.getBrowserLang();
