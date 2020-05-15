@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/API/auth.service';
+import { AuthService } from '../../services/API/auth.service';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({

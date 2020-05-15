@@ -8,7 +8,7 @@ import {HttpClientModule,HttpClient} from '@angular/common/http';
 import { LoginComponent } from './Components/Internal management/UnauthenticatedUser/login/login.component';
 import { RegisterComponent } from './Components/Internal management/UnauthenticatedUser/register/register.component';
 import { UserComponent } from './Components/Internal management/UnauthenticatedUser/user.component';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
 import { TrainingTemplatesComponent } from './Components/Training Management/training-templates/training-templates.component';
 import { PersonalBestComponent } from './Components/Internal management/Personal/personal-best/personal-best.component';
 import { PersonalInfoComponent } from './Components/Internal management/Personal/personal-info/personal-info.component';
@@ -35,8 +35,6 @@ export function HttpLoaderFactory(http:HttpClient)
   return new TranslateHttpLoader(http);
 }
 
-
-//import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
