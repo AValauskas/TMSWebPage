@@ -2,6 +2,7 @@
     "FORGET" : "Forget Password?",
     "SIGNIN" : "Sign in",
     "SIGNUP" : "Sign up",
+    "CONFIRMEMAIL" : "Confirm email",
     "HOME" : "Home",
     "ENTEREMAIL" : "Entert email",
     "ENTERPASSWORD" : "Entert password",
@@ -34,7 +35,8 @@
     "DELETECONFIRM" : "Delete confirmation",
     "DELETESURE" : " Are you sure you want to delete this training?",
     "NOINVITATIONS" : "There are no invitations",
-    "SENDINVITATION" : "Send invite"
+    "SENDINVITATION" : "Send invite",
+    "LANG" : "en"
 },
 "NAV" : {
     "CALENDAR" : "Calendar",
@@ -84,11 +86,13 @@
     "GYM" : "Gym",
     "LIMBERING" : "Limbering-up",
     "NEWTRAINING" : "New training",
-    "SHORT" : "short description",
+    "SHORT" : "Short description",
     "TRAINTYPE" : "Training type",
-    "DESTINITION" : "destinition",
-    "REPEATS" : "repeats",
-    "PERSONAL" : "Is personal?"
+    "DESTINITION" : "Destinition",
+    "REPEATS" : "Repeats",
+    "PERSONAL" : "Is personal?",
+    "TYPE" : "Type",
+    "PUBLIC" : "Public"
 },
 "CALENDAR" : {
     "NEWTRAIN" : "New training",

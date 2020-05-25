@@ -34,18 +34,14 @@ export class InvitationsComponent implements OnInit {
       }else{
         this.isAnyInvite= true;
       }
-    console.log(data);
     })
   }
  
   AcceptInvite(invaiterId:string)
   {
     this.inviter.Id =invaiterId;
-    console.log(invaiterId);
     this._httpManagement.AcceptInvite(this.inviter).subscribe(data=>{      
       this.invitations = data;    
-
-        console.log(this.invitations);  
         this.translate.get('MESSAGES.INVITEACCEPT').subscribe((text:string) => {this.message=text});  
         this.parentSuccess.emit(this.message);
         localStorage.removeItem("error");
@@ -57,12 +53,9 @@ export class InvitationsComponent implements OnInit {
 
   DeclineInvite(invaiterId:string)
   {
-    console.log(invaiterId);
     this.inviter.Id =invaiterId;
-    console.log(invaiterId);
     this._httpManagement.DeclineInvitation(this.inviter).subscribe(data=>{      
       this.invitations = data;
-        console.log(this.invitations); 
         this.translate.get('MESSAGES.DECLINEINVITE').subscribe((text:string) => {this.message=text});  
         this.parentSuccess.emit(this.message);
         localStorage.removeItem("error");
@@ -78,7 +71,6 @@ export class InvitationsComponent implements OnInit {
   SendInvite()
   {
     this.error=null;
-    console.log( this.inviter);
     this._httpManagement.SendInvite(this.inviter).subscribe(data=>{    
       if(localStorage.getItem("error")==null)
       {  
@@ -91,7 +83,6 @@ export class InvitationsComponent implements OnInit {
       else
       {
         this.error = localStorage.getItem("error");
-       // this.parentFail.emit(localStorage.getItem("error"));
         localStorage.removeItem("error");
       }
     })

@@ -60,7 +60,7 @@ export class HomeComponent implements OnInit {
 
   //-------------------------------Data to display-------------------------------------------
   ngOnInit() {  
-
+    console.log(localStorage.getItem("lang"));
     if(localStorage.getItem('role')==null)
     {
       this._router.navigateByUrl('/login');

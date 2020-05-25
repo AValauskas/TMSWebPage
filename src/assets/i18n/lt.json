@@ -2,6 +2,7 @@
     "FORGET" : "Pamiršai slaptažodį?",
     "SIGNIN" : "Prisijungti",
     "SIGNUP" : "Registruotis",
+    "CONFIRMEMAIL" : "Patvirtinkite paštą",
     "HOME" : "Namai",
     "ENTEREMAIL" : "Įrašykite el pašto adresą",
     "ENTERPASSWORD" : "Įrašykite slaptažodį",
@@ -31,7 +32,8 @@
     "METERS" : "Metrai",
     "TIME" : "Laikas",
     "DELETECONFIRM" : "Trynimo Patrvirtinimas",
-    "DELETESURE" : " Ar tikrai norite ištrinti treniruotę?"
+    "DELETESURE" : " Ar tikrai norite ištrinti treniruotę?",
+    "LANG" : "lt"
 },
 "NAV" : {
     "CALENDAR" : "Kalendorius",
@@ -65,7 +67,7 @@
 },
 "TEMPLATES" : {
     "DESCRIPTION" : "Aprašymas",
-    "SETS" : "Pakartojimai",
+    "SETS" : "Atkarpos",
     "MANAGE" : "Valdymas",
     "RUN" : "Bėgti",
     "REST" : "Ilsėtis",
@@ -86,7 +88,9 @@
     "TRAINTYPE" : "Tipas",
     "DESTINITION" : "Tikslas",
     "REPEATS" : "Pakartojimai",
-    "PERSONAL" : "Ar asmeninė?"
+    "PERSONAL" : "Ar asmeninė?",
+    "TYPE" : "Tipas",
+    "PUBLIC" : "Vieša"
 },
 "CALENDAR" : {
     "NEWTRAIN" : "Nauja treniruotė",

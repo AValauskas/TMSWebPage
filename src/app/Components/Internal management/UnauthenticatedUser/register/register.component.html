@@ -14,7 +14,7 @@
         <input class="validate form-control" type="password" name="Password"  [(ngModel)]="pw1" required minlength="6"  placeholder="{{'HOME.ENTERPASSWORD' | translate}}">        
       </div>
       <div class="input-field col s6 validate">
-        <input class=" form-control" type="password" name="Password2" [(ngModel)]="pw2" required minlength="6" placeholder="Repeat password" #password2="ngModel">
+        <input class=" form-control" type="password" name="Password2" [(ngModel)]="pw2" required minlength="6" placeholder="{{'HOME.REPEATPASSWORD' | translate}}" #password2="ngModel">
      
       </div>
     </div>
@@ -43,7 +43,7 @@
   <div class ="form-group ">
     <div class="row">
       <div class="input-field col s12 text-center">
-        <button [disabled]="!userRegistrationForm.valid" class="btn-large btn-submit btn btn-secondary" type="submit">Sign Up</button>
+        <button [disabled]="!userRegistrationForm.valid" class="btn-large btn-submit btn btn-secondary" type="submit">{{'HOME.SIGNUP' | translate}}</button>
       </div>
     </div>
   </div>

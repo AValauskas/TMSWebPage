@@ -53,21 +53,6 @@
                 <td >{{trainingSet.rest}}</td>    
             </div>
 
-
-
-          <!--      <div class="input-field col s1" >
-                  <input type="number" step="0.01" class=" setInput "  value = "{{i+1}}" name="distance{{i}}"readonly>
-                </div>
-                <div class="input-field col s3" >
-                  <input type="number" step="0.01" class="setInput " [(ngModel)]="trainingSet.distance"  name="distance{{i}}" placeholder="Distance/m" readonly>
-                </div>
-                <div class="input-field col s3" >
-                  <input type="number" step="0.01" class=" setInput " [(ngModel)]="trainingSet.pace" name="pace{{i}}" placeholder="Pace/s" readonly>                      
-                </div>  
-                <div class="input-field col s3" >
-                  <input type="number" step="0.01" class="setInput "  [(ngModel)]="trainingSet.rest" name="rest{{i}}" placeholder="Rest/s" readonly>                      
-                </div>
-                -->
                 </div>
                 </div>
             </div>  
@@ -81,34 +66,14 @@
             </div>
           </div>  
         </div> 
-     <!-- /////////////////////////////////////////////////////////////-->
-
-          <div *ngIf="training  && !insertModalActive && (Role==='Coach' || Role==='Admin')"  (click)="changeManage()" [class.timesBig]="manageClicked" [class.times]="!manageClicked">
-            <div  *ngIf="manageClicked" >
-              <div class = "row">
-                <p id ="notesNames">{{'TEMPLATES.MANAGE' | translate}}</p>   
-                <span class=" glyphicon glyphicon-menu-up" id="down" aria-hidden="true"></span>      
-              </div>
-           
-              </div>
-              <div  *ngIf="!manageClicked" >
-                <p></p>
-                <div class = "row">
-                  <p id ="notesNames">{{'TEMPLATES.MANAGE' | translate}}</p>   
-                  <span class=" glyphicon glyphicon-menu-down" id="down" aria-hidden="true"></span>      
-                </div>
-              </div>  
-            </div>   
-
-
             <div class = "maxlenght" *ngIf="training  && !insertModalActive && (Role==='Coach' || Role==='Admin')">
               <div class = "maxlenght">
                 <div class="row">
                   <div class="input-field col s6" >
-                    <button  class="btn btn-success manageButtons" (click)="OpenModal('update')" *ngIf="belongsToUser">{{'GENERAL.UPDATE' | translate}}</button>                    
+                    <button  class="btn btn-success manageButtons" (click)="OpenModal('update')" *ngIf="belongsToUser || Role==='Admin'">{{'GENERAL.UPDATE' | translate}}</button>                    
                   </div>
                   <div class="input-field col s6" >
-                  <button  class="btn btn-info manageButtons" (click)="OpenModal('delete')" *ngIf="belongsToUser">{{'GENERAL.DELETE' | translate}}</button>  
+                  <button  class="btn btn-info manageButtons" (click)="OpenModal('delete')" *ngIf="belongsToUser || Role==='Admin'">{{'GENERAL.DELETE' | translate}}</button>  
                 </div>
                 </div>
               </div>
@@ -139,7 +104,21 @@
    
    
      
-      <br><br>
+      <br>
+      <br>
+      <div class="trainingsName">
+        <div class = "row tableName">
+          <div class="input-field col s5 trains" >
+            <td ><p class = "heading">{{'TEMPLATES.SHORT' | translate}}</p></td>         
+          </div>
+          <div  class="input-field col s5 trains">
+            <td ><p class = "headingT">{{'TEMPLATES.TYPE' | translate}}</p></td>    
+        </div>
+        <div class="input-field col s2 rightside trains" >
+          <td ><p class = "headingT">{{'TEMPLATES.PUBLIC' | translate}}</p></td>  
+        </div>
+      </div>
+      </div>
     <div class="list-group trainings">
       <div *ngFor="let training of trainings" (click)="ChooseTraining(training.id)" >
           <div class = "row tableRow">
@@ -151,10 +130,10 @@
         </div>
         <div class="input-field col s2 rightside trains" >
           <div *ngIf="training.isPersonal">
-          <span class="glyphicon glyphicon-ok-circle"  id ="truefalse"></span>
+          <span class="glyphicon glyphicon-remove-circle"  id ="truefalse"></span>
           </div>
           <div *ngIf="!training.isPersonal">
-            <span class="glyphicon glyphicon-remove-circle" id ="truefalse"></span>
+            <span class="glyphicon glyphicon-ok-circle " id ="truefalse"></span>
             </div>
            
         </div>

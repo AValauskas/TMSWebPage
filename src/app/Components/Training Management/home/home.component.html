@@ -49,8 +49,9 @@
         </div>
         <div class="right">
           <div class='app container calendar'>  
-
+            
             <full-calendar id ="full"   #fullcalendar  deepChangeDetection="true"
+            locale="{{'GENERAL.LANG' | translate}}"
             [editable]="true"
              [events]="calendarEvents"  
              [firstDay]=1

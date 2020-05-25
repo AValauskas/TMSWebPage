@@ -22,8 +22,6 @@ export class LoginComponent implements OnInit {
        translate.setDefaultLang('lt');       
        const browserLang = translate.getBrowserLang();
       this.language = localStorage.getItem("lang");
-      console.log(localStorage.getItem("lang"));
-      // translate.use(browserLang.match( /en|lt/)? browserLang : 'lt');
       translate.use(localStorage.getItem("lang"))
      }
 
@@ -66,10 +64,7 @@ export class LoginComponent implements OnInit {
               this.translate.get('MESSAGES.PASSWORDUPDATECONFIRM').subscribe((text:string) => {this.message=text});   
           //  this.message="You have confirmed password update, we sent a new password to you";
           }
-
-        }     
-         
-        console.log(this.message);
+        }             
   }
 ChangeLanguage(lang)
 {
@@ -85,7 +80,6 @@ ChangeLanguage(lang)
         this.HandleError();
         if(this.error == null) 
         {
-        console.log(data);
         this.helper.ProcessToken(data.Token)        
         this._router.navigate([decodeURI("home")]);  
         }            
@@ -99,7 +93,6 @@ ChangeLanguage(lang)
     
     if(localStorage.getItem('error') !=null)
     {
-      console.log(localStorage.getItem('error' ).substring(18,23));
       if(localStorage.getItem('error' ).substring(18,23)=="email")
       {
         this.translate.get('MESSAGES.CONFIRMEMAIL').subscribe((text:string) => {this.error=text});   

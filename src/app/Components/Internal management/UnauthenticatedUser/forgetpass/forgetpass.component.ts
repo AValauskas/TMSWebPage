@@ -23,7 +23,6 @@ export class ForgetpassComponent implements OnInit {
     this._auth.RequestForNewPassword(this.email).subscribe(
       data=>{  
         this.HandleError();
-        console.log(data);
       });
 
   }

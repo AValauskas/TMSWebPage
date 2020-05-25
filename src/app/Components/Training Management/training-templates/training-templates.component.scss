@@ -102,7 +102,7 @@ select.type
     min-height: 30px;
     height:5%;
     margin-top: 2%;
-    margin-left: 2%;
+    margin-left: 4%;
     background-color: rgb(59, 59, 59);
 }
 
@@ -129,10 +129,14 @@ button.manageButtons
 div.trainings
 {
     width:90%;
-    margin-top: 5%;
+    margin-top: 1%;
     overflow-y: scroll; 
     overflow-x:  hidden;
     max-height:75%;
+}
+div.trainingsName
+{
+    width:85%;
 }
 
 div.sides
@@ -256,6 +260,15 @@ button.btnclose
     line-height: 95%;
     border: solid grey 0.3px;
   }
+  div.tableName
+  {
+    vertical-align: middle;
+    margin-left: 5%;
+    background-color: white;
+    height:40px;
+    line-height: 95%;
+    border: solid grey 0.3px;
+  }
   div.tableRow:hover
   {
     margin-left: 5%;
@@ -342,4 +355,13 @@ border-radius: 5px;
 #repeats
 {
   text-align: right;
+}
+p.heading {
+  margin-top: 10px;  
+  font-family: "Arial Black", Gadget, sans-serif;
+}
+p.headingT{
+  margin-left: 50%;
+  margin-top: 10px;  
+  font-family: "Arial Black", Gadget, sans-serif;
 }

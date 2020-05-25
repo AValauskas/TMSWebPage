@@ -24,8 +24,6 @@ export class RegisterComponent implements OnInit {
   constructor(private _auth: AuthService, private helper:HelperService, public _router:Router, public translate: TranslateService ) { 
     translate.addLangs(['en', 'lt']);
     translate.setDefaultLang('lt');     
-    console.log(translate.getLangs());
-    console.log(localStorage.getItem("lang"));
     const browserLang = translate.getBrowserLang();
    translate.use(localStorage.getItem("lang"))
   }
@@ -34,12 +32,8 @@ export class RegisterComponent implements OnInit {
 
   OnSubmit()
   {
-    console.log(this.user);
-    console.log(this.isAlphaNum(this.pw1));
     if(this.pw1!=this.pw2)
     {
-      console.log(this.pw1);
-      console.log(this.pw2);
       this.translate.get('MESSAGES.DIFFERENTPASS').subscribe((text:string) => {this.error=text});   
      // this.error="Passwords are not the same";
     }

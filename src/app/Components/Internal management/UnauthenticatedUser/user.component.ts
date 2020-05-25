@@ -25,12 +25,12 @@ export class UserComponent implements OnInit {
     this.LoginActive=false;
     this.RegisterActive=true;   
     }
-    return console.log(this.router.url)
+    return this.router.url;
 }
 
     
   ngOnInit(): void {
-    
+    localStorage.removeItem('error'); 
     if(this.router.url =="/login")
     {
     this.LoginActive=true;
