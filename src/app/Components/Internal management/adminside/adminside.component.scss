@@ -1,0 +1,147 @@
+html, body {
+    height: 92.3vh;
+    background-color: khaki;
+  }
+
+  div.trains
+  {
+   //max-width: 25%;
+   max-height: 40px;
+    overflow: hidden;
+  }
+
+  div.tableRow
+  {
+    margin-left: 5%;
+    background-color: white;
+    height:40px;
+    border: solid grey 0.3px;
+  }
+  div.tableRow:hover
+  {
+    margin-left: 5%;
+    background-color: rgb(212, 209, 209);
+    height:40px;
+    border: solid grey 0.3px
+  }
+  div.rightside
+  {
+      margin-left: 20%;
+
+  }
+  #truefalse
+  {
+    margin-top: 1%;
+    font-size: 200%;
+  }
+  button.newTrain
+  {
+      font-family: "Arial Black", Gadget, sans-serif;
+      color: white;
+      min-height: 30px;
+      height:5%;
+      background-color: rgb(59, 59, 59);
+      margin-top: 2%;
+      margin-right: 10%;    
+  }
+  
+
+div.trainingsName
+{
+    width:88%;
+    margin-top: 10%;
+    max-height:40px;
+}
+
+div.trainings
+{
+    width:90%;
+    margin-top: 1%;
+    overflow-y: scroll; 
+    overflow-x:  hidden;
+    max-height:550px;
+    min-height:100px;
+}
+div.tableName
+{
+  vertical-align: middle;
+  margin-left: 5%;
+  background-color: white;
+  height:40px;
+  line-height: 95%;
+  border: solid grey 0.3px;
+}
+p.heading {
+  margin-top: 5px;  
+  font-family: "Arial Black", Gadget, sans-serif;
+}
+div.container 
+{
+  background-color: khaki;
+}
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 20px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(46, 45, 45); 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background:  rgb(46, 45, 45); 
+  }
+
+  .modalDelete
+{
+margin-top: 40%;
+width: 80%;
+}
+.buttons
+{
+  margin-top: 10%;
+margin-left: 50%;
+}
+button.btnclose
+{
+  margin-left: 3%;
+}
+
+.divider{
+  width:5px;
+  height:auto;
+  display:inline-block;
+}
+
+.messageGood
+{
+  text-align: center;
+  font-size: 150%;
+opacity: 0.9;
+width: 100%;
+position: absolute;
+height: 10%;
+background-color: rgb(114, 179, 114);
+}
+
+.messageBad
+{
+  text-align: center;
+  font-size: 150%;
+opacity: 0.9;
+width: 100%;
+position: absolute;
+height: 10%;
+background-color: rgb(179, 116, 114);
+}
+

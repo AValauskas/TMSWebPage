@@ -52,7 +52,7 @@
               </div>
          
             <div class="form-group">
-                <button [disabled]="!NewCompetitionForm.valid" class="btn btn-secondary submit" type="submit" (click)="OnSubmit()">Confirm</button>
+                <button [disabled]="!NewCompetitionForm.valid" class="btn btn-secondary submit" type="submit" (click)="OnSubmit()">{{'GENERAL.CONFIRM' | translate}}</button>
                 </div>
         </form>
     </div>

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { TokenParams } from '../../Components/userBegin/login/TokenParams';
+import { TokenParams } from '../../Components/Internal management/UnauthenticatedUser/login/TokenParams';
 import { Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
 import { HttpService } from '../API/http.service';
@@ -23,13 +23,11 @@ export class AuthService {
 
   loginUser(data):Observable<TokenParams>
   {
-    console.log(data);
    return this.httpserv.requestCall(this._auth+"Login","Post",data,null).pipe(catchError(this.HandleError));   
   }
 
   registerUser(data)
   {
-    console.log(data);
     return this.httpserv.requestCall(this._auth+"Register","Post",data,null).pipe(catchError(this.HandleError)); 
    // let header = new HttpHeaders({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' });
     //return this.http.post<any>(this._registerUtl, data)
@@ -37,13 +35,11 @@ export class AuthService {
   }
   RequestForNewPassword(email)
   {
-    console.log(email);
    return this.httpserv.requestCall(this._auth+"resetpassword/"+email,"Post",null,null).pipe(catchError(this.HandleError));   
   }
 
   ConfirmReset(id)
   {
-    console.log(id);
    return this.httpserv.requestCall(this._auth+"confirmreset/"+id,"Patch",null,null).pipe(catchError(this.HandleError));   
   }
 

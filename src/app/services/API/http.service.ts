@@ -17,12 +17,10 @@ export class HttpService {
     let response;
     switch(method){
         case "Get":
-          console.log("ateina get");
             response=this.http.get<any>(this.apiUrl+api, {headers: headerHttp})
             .pipe(catchError(this.HandleError));
             break;
         case "Post":
-          console.log("http pasiekė");
             response = this.http.post<any>(this.apiUrl+api, data, {headers: headerHttp})
             .pipe(catchError(this.HandleError));   
             break;

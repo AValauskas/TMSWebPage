@@ -1,0 +1,156 @@
+Date : 2020-05-27 10:36:05
+Directory : c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app
+Total : 104 files,  5884 codes, 133 comments, 1070 blanks, all 7087 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| TypeScript |         68 |      3,138 |         35 |        577 |      3,750 |
+| SCSS       |         18 |      1,399 |         72 |        230 |      1,701 |
+| HTML       |         18 |      1,347 |         26 |        263 |      1,636 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++----------------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                                               | files      | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                                                  |        104 |      5,884 |        133 |      1,070 |      7,087 |
+| Components                                                                                                                                         |         71 |      5,086 |        128 |        916 |      6,130 |
+| Components\Internal management                                                                                                                     |         43 |      2,206 |         75 |        411 |      2,692 |
+| Components\Internal management\Personal                                                                                                            |         16 |      1,150 |         47 |        193 |      1,390 |
+| Components\Internal management\Personal\competitions                                                                                               |          4 |        267 |          2 |         51 |        320 |
+| Components\Internal management\Personal\personal-best                                                                                              |          4 |        224 |          0 |         43 |        267 |
+| Components\Internal management\Personal\personal-info                                                                                              |          4 |        501 |          9 |         72 |        582 |
+| Components\Internal management\Personal\personal-stuff                                                                                             |          4 |        158 |         36 |         27 |        221 |
+| Components\Internal management\UnauthenticatedUser                                                                                                 |         19 |        504 |         14 |        105 |        623 |
+| Components\Internal management\UnauthenticatedUser\forgetpass                                                                                      |          4 |         79 |          1 |         18 |         98 |
+| Components\Internal management\UnauthenticatedUser\login                                                                                           |          6 |        169 |          6 |         23 |        198 |
+| Components\Internal management\UnauthenticatedUser\register                                                                                        |          5 |        153 |          6 |         29 |        188 |
+| Components\Internal management\adminside                                                                                                           |          4 |        342 |         10 |         68 |        420 |
+| Components\Internal management\invitations                                                                                                         |          4 |        210 |          4 |         45 |        259 |
+| Components\Modals                                                                                                                                  |         16 |      1,272 |         11 |        224 |      1,507 |
+| Components\Modals\athlete-list                                                                                                                     |          4 |        420 |          3 |         78 |        501 |
+| Components\Modals\coach-training-assign-modal                                                                                                      |          4 |        268 |          4 |         48 |        320 |
+| Components\Modals\new-competition-modal                                                                                                            |          4 |        178 |          2 |         30 |        210 |
+| Components\Modals\personal-training-modal                                                                                                          |          4 |        406 |          2 |         68 |        476 |
+| Components\Training Management                                                                                                                     |          8 |      1,382 |         41 |        246 |      1,669 |
+| Components\Training Management\home                                                                                                                |          4 |        503 |         22 |        104 |        629 |
+| Components\Training Management\training-templates                                                                                                  |          4 |        879 |         19 |        142 |      1,040 |
+| Components\nav-bar                                                                                                                                 |          4 |        226 |          1 |         35 |        262 |
+| Interfaces                                                                                                                                         |         14 |        123 |          0 |         13 |        136 |
+| services                                                                                                                                           |         13 |        505 |          5 |        116 |        626 |
+| services\API                                                                                                                                       |         11 |        454 |          5 |        105 |        564 |
+| services\helper                                                                                                                                    |          2 |         51 |          0 |         11 |         62 |
++----------------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++----------------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                                                                                           | language   | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\Personal\competitions\competitions.component.html            | HTML       |         65 |          2 |         19 |         86 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\Personal\competitions\competitions.component.scss            | SCSS       |         41 |          0 |          9 |         50 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\Personal\competitions\competitions.component.spec.ts         | TypeScript |         20 |          0 |          6 |         26 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\Personal\competitions\competitions.component.ts              | TypeScript |        141 |          0 |         17 |        158 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\Personal\personal-best\personal-best.component.html          | HTML       |         52 |          0 |         16 |         68 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\Personal\personal-best\personal-best.component.scss          | SCSS       |         21 |          0 |          6 |         27 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\Personal\personal-best\personal-best.component.spec.ts       | TypeScript |         20 |          0 |          6 |         26 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\Personal\personal-best\personal-best.component.ts            | TypeScript |        131 |          0 |         15 |        146 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\Personal\personal-info\personal-info.component.html          | HTML       |        129 |          3 |         16 |        148 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\Personal\personal-info\personal-info.component.scss          | SCSS       |        206 |          6 |         32 |        244 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\Personal\personal-info\personal-info.component.spec.ts       | TypeScript |         20 |          0 |          6 |         26 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\Personal\personal-info\personal-info.component.ts            | TypeScript |        146 |          0 |         18 |        164 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\Personal\personal-stuff\personal-stuff.component.html        | HTML       |         25 |          3 |          4 |         32 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\Personal\personal-stuff\personal-stuff.component.scss        | SCSS       |         49 |         32 |          8 |         89 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\Personal\personal-stuff\personal-stuff.component.spec.ts     | TypeScript |         20 |          0 |          6 |         26 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\Personal\personal-stuff\personal-stuff.component.ts          | TypeScript |         64 |          1 |          9 |         74 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\UnauthenticatedUser\forgetpass\forgetpass.component.html     | HTML       |         13 |          0 |          3 |         16 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\UnauthenticatedUser\forgetpass\forgetpass.component.scss     | SCSS       |          0 |          0 |          1 |          1 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\UnauthenticatedUser\forgetpass\forgetpass.component.spec.ts  | TypeScript |         20 |          0 |          6 |         26 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\UnauthenticatedUser\forgetpass\forgetpass.component.ts       | TypeScript |         46 |          1 |          8 |         55 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\UnauthenticatedUser\login\LoginForm.ts                       | TypeScript |          5 |          0 |          0 |          5 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\UnauthenticatedUser\login\TokenParams.ts                     | TypeScript |          4 |          0 |          0 |          4 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\UnauthenticatedUser\login\login.component.html               | HTML       |         33 |          0 |          3 |         36 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\UnauthenticatedUser\login\login.component.scss               | SCSS       |          0 |          0 |          1 |          1 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\UnauthenticatedUser\login\login.component.spec.ts            | TypeScript |         20 |          0 |          6 |         26 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\UnauthenticatedUser\login\login.component.ts                 | TypeScript |        107 |          6 |         13 |        126 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\UnauthenticatedUser\register\RegisterForm.ts                 | TypeScript |          8 |          0 |          0 |          8 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\UnauthenticatedUser\register\register.component.html         | HTML       |         47 |          0 |         10 |         57 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\UnauthenticatedUser\register\register.component.scss         | SCSS       |          5 |          4 |          0 |          9 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\UnauthenticatedUser\register\register.component.spec.ts      | TypeScript |         20 |          0 |          6 |         26 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\UnauthenticatedUser\register\register.component.ts           | TypeScript |         73 |          2 |         13 |         88 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\UnauthenticatedUser\user.component.html                      | HTML       |         23 |          0 |         15 |         38 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\UnauthenticatedUser\user.component.scss                      | SCSS       |         22 |          1 |          5 |         28 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\UnauthenticatedUser\user.component.spec.ts                   | TypeScript |         20 |          0 |          6 |         26 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\UnauthenticatedUser\user.component.ts                        | TypeScript |         38 |          0 |          9 |         47 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\adminside\adminside.component.html                           | HTML       |        104 |          4 |         29 |        137 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\adminside\adminside.component.scss                           | SCSS       |        103 |          5 |         14 |        122 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\adminside\adminside.component.spec.ts                        | TypeScript |         20 |          0 |          6 |         26 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\adminside\adminside.component.ts                             | TypeScript |        115 |          1 |         19 |        135 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\invitations\invitations.component.html                       | HTML       |         29 |          0 |          9 |         38 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\invitations\invitations.component.scss                       | SCSS       |         82 |          4 |         16 |        102 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\invitations\invitations.component.spec.ts                    | TypeScript |         20 |          0 |          6 |         26 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Internal management\invitations\invitations.component.ts                         | TypeScript |         79 |          0 |         14 |         93 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Modals\athlete-list\athlete-list.component.html                                  | HTML       |        138 |          0 |         27 |        165 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Modals\athlete-list\athlete-list.component.scss                                  | SCSS       |         84 |          0 |         14 |         98 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Modals\athlete-list\athlete-list.component.spec.ts                               | TypeScript |         20 |          0 |          6 |         26 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Modals\athlete-list\athlete-list.component.ts                                    | TypeScript |        178 |          3 |         31 |        212 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Modals\coach-training-assign-modal\coach-training-assign-modal.component.html    | HTML       |         64 |          0 |          7 |         71 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Modals\coach-training-assign-modal\coach-training-assign-modal.component.scss    | SCSS       |         88 |          4 |         15 |        107 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Modals\coach-training-assign-modal\coach-training-assign-modal.component.spec.ts | TypeScript |         20 |          0 |          6 |         26 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Modals\coach-training-assign-modal\coach-training-assign-modal.component.ts      | TypeScript |         96 |          0 |         20 |        116 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Modals\new-competition-modal\new-competition-modal.component.html                | HTML       |         54 |          0 |          6 |         60 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Modals\new-competition-modal\new-competition-modal.component.scss                | SCSS       |         51 |          2 |          6 |         59 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Modals\new-competition-modal\new-competition-modal.component.spec.ts             | TypeScript |         20 |          0 |          6 |         26 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Modals\new-competition-modal\new-competition-modal.component.ts                  | TypeScript |         53 |          0 |         12 |         65 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Modals\personal-training-modal\personal-training-modal.component.html            | HTML       |        144 |          0 |         19 |        163 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Modals\personal-training-modal\personal-training-modal.component.scss            | SCSS       |         84 |          0 |         14 |         98 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Modals\personal-training-modal\personal-training-modal.component.spec.ts         | TypeScript |         20 |          0 |          6 |         26 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Modals\personal-training-modal\personal-training-modal.component.ts              | TypeScript |        158 |          2 |         29 |        189 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Training Management\home\home.component.html                                     | HTML       |        101 |          4 |         30 |        135 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Training Management\home\home.component.scss                                     | SCSS       |        174 |          6 |         32 |        212 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Training Management\home\home.component.spec.ts                                  | TypeScript |         20 |          0 |          6 |         26 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Training Management\home\home.component.ts                                       | TypeScript |        208 |         12 |         36 |        256 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Training Management\training-templates\training-templates.component.html         | HTML       |        268 |         10 |         40 |        318 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Training Management\training-templates\training-templates.component.scss         | SCSS       |        315 |          8 |         44 |        367 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Training Management\training-templates\training-templates.component.spec.ts      | TypeScript |         20 |          0 |          6 |         26 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\Training Management\training-templates\training-templates.component.ts           | TypeScript |        276 |          1 |         52 |        329 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\nav-bar\nav-bar.component.html                                                   | HTML       |         54 |          0 |          6 |         60 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\nav-bar\nav-bar.component.scss                                                   | SCSS       |         65 |          0 |         10 |         75 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\nav-bar\nav-bar.component.spec.ts                                                | TypeScript |         20 |          0 |          6 |         26 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Components\nav-bar\nav-bar.component.ts                                                     | TypeScript |         87 |          1 |         13 |        101 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Interfaces\IAthlete.ts                                                                      | TypeScript |          5 |          0 |          2 |          7 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Interfaces\IAthleteForm.ts                                                                  | TypeScript |          9 |          0 |          1 |         10 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Interfaces\ICoachAssignedTraining.ts                                                        | TypeScript |          7 |          0 |          1 |          8 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Interfaces\ICompetition.ts                                                                  | TypeScript |          7 |          0 |          0 |          7 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Interfaces\IPersonalTraining.ts                                                             | TypeScript |         18 |          0 |          1 |         19 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Interfaces\IPersonalTrainingFew.ts                                                          | TypeScript |         16 |          0 |          2 |         18 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Interfaces\IRecords.ts                                                                      | TypeScript |         11 |          0 |          2 |         13 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Interfaces\ISet.ts                                                                          | TypeScript |          5 |          0 |          0 |          5 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Interfaces\ISetFull.ts                                                                      | TypeScript |          7 |          0 |          0 |          7 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Interfaces\ISetToDisplay.ts                                                                 | TypeScript |          5 |          0 |          1 |          6 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Interfaces\ITime.ts                                                                         | TypeScript |          4 |          0 |          0 |          4 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Interfaces\ITrainingDefinition.ts                                                           | TypeScript |          4 |          0 |          1 |          5 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Interfaces\ITrainingTemplate.ts                                                             | TypeScript |         16 |          0 |          0 |         16 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\Interfaces\IUser.ts                                                                         | TypeScript |          9 |          0 |          2 |         11 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\app-routing.module.ts                                                                       | TypeScript |         35 |          0 |          4 |         39 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\app.component.html                                                                          | HTML       |          4 |          0 |          4 |          8 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\app.component.scss                                                                          | SCSS       |          9 |          0 |          3 |         12 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\app.component.spec.ts                                                                       | TypeScript |         31 |          0 |          5 |         36 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\app.component.ts                                                                            | TypeScript |          9 |          0 |          2 |         11 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\app.module.ts                                                                               | TypeScript |         82 |          0 |          7 |         89 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\services\API\admin.service.spec.ts                                                          | TypeScript |         12 |          0 |          5 |         17 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\services\API\admin.service.ts                                                               | TypeScript |         41 |          0 |         10 |         51 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\services\API\auth.service.spec.ts                                                           | TypeScript |         12 |          0 |          5 |         17 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\services\API\auth.service.ts                                                                | TypeScript |         50 |          3 |         14 |         67 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\services\API\http.service.spec.ts                                                           | TypeScript |         12 |          0 |          5 |         17 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\services\API\personalmanagement.service.spec.ts                                             | TypeScript |         12 |          0 |          5 |         17 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\services\API\personalmanagement.service.ts                                                  | TypeScript |        129 |          2 |         25 |        156 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\services\API\personaltrainings.service.spec.ts                                              | TypeScript |         12 |          0 |          5 |         17 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\services\API\personaltrainings.service.ts                                                   | TypeScript |         97 |          0 |         16 |        113 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\services\API\templatetrainings.service.spec.ts                                              | TypeScript |         12 |          0 |          5 |         17 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\services\API\templatetrainings.service.ts                                                   | TypeScript |         65 |          0 |         10 |         75 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\services\helper\helper.service.spec.ts                                                      | TypeScript |         12 |          0 |          5 |         17 |
+| c:\Users\Aurimas\Desktop\Bakalauras\TMSWebPage\src\app\services\helper\helper.service.ts                                                           | TypeScript |         39 |          0 |          6 |         45 |
+| Total                                                                                                                                              |            |      5,884 |        133 |      1,070 |      7,087 |
++----------------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

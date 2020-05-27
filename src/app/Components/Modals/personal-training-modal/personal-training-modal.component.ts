@@ -117,7 +117,6 @@ export class PersonalTrainingModalComponent implements OnInit {
         this.negative= false;
         this.setsToDisplay.push(set);
       });
-console.log(this.setsToDisplay);
   }
 
   OnClick()
@@ -147,7 +146,6 @@ console.log(this.setsToDisplay);
     this.negative=false;
     this.message="";
     this.trainingsToAdd=[];
-    console.log(this.trainingsToAddFull);
     this.trainingsToAddFull.forEach(element => {
       if (element.distance<0||element.paceMin<0||element.restMin<0||element.paceSec<0||element.restSec<0||element.paceSec>59||element.restSec>59)
       {
@@ -169,12 +167,9 @@ console.log(this.setsToDisplay);
   })
   if(!this.negative)
   {
-    console.log(this.trainingsToAdd);
     this.athleteForm.report=this.personalTraining.athleteReport;
     this.athleteForm.results = this.trainingsToAdd;
-    console.log(this.athleteForm);
-    this._httpPersonalTrain.UpdatePersonalTrainingResults(this.athleteForm, this.personalTraining.id).subscribe(data=>{   
-      console.log(data);      
+    this._httpPersonalTrain.UpdatePersonalTrainingResults(this.athleteForm, this.personalTraining.id).subscribe(data=>{      
     })
     this.parentFun.emit();
     $('#myModal').modal("hide");

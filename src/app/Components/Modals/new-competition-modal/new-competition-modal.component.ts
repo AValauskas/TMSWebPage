@@ -28,8 +28,6 @@ export class NewCompetitionModalComponent implements OnInit {
 
   OnSubmit()
   {
-    console.log(this.time.min);
-    console.log(this.time.sec);
     if(this.time.min<0||this.time.sec<0||this.time.sec>60)
     {
 
@@ -48,7 +46,6 @@ export class NewCompetitionModalComponent implements OnInit {
     else{
       this.negative= false;
       this.competition.distance=+this.selectedDistance;
-    console.log(this.competition);
     this.competition.distance= Number(this.competition.distance);
     this._httpManagement.AddNewCompetition(this.competition).subscribe(data=>{
       this.parentFun.emit();
