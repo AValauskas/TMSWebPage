@@ -60,7 +60,6 @@ export class HomeComponent implements OnInit {
 
   //-------------------------------Data to display-------------------------------------------
   ngOnInit() {  
-    console.log(localStorage.getItem("lang"));
     if(localStorage.getItem('role')==null)
     {
       this._router.navigateByUrl('/login');
@@ -112,7 +111,6 @@ export class HomeComponent implements OnInit {
   }
 //---------------------------------Clicks on dates-------------------------------------
     eventClick(model) {  
-      console.log(model);
     
     }  
   
@@ -136,8 +134,6 @@ export class HomeComponent implements OnInit {
           this.exist = true;
           this._httpTemplate.GetTrainingTemplateById(this.ChosenTraining.trainTemplateId).subscribe(data2=>{   
             this.ToDoInTraining=data2;
-            
-            console.log(this.ToDoInTraining);
             $('#myModal').modal("show");
             });
         }else
@@ -153,7 +149,6 @@ export class HomeComponent implements OnInit {
       this._httpPersonalTrain.GetAllCoachAssignedTrainingsByDate(model.dateStr).subscribe(data=>{   
         this.AssignedTrainingsByDate= data;   
         this.ListClicked = true;
-        console.log(data)  
          }); 
     }
     
@@ -167,7 +162,6 @@ export class HomeComponent implements OnInit {
         this._httpPersonalTrain.GetAllCoachAssignedTrainingsByDate(this.dateClicked).subscribe(data=>{   
           this.AssignedTrainingsByDate= data;   
           this.ListClicked = true;
-          console.log(data)  
            }); 
     this.SuccesfullyMadeByCoachMessage(message);
         
@@ -241,7 +235,6 @@ export class HomeComponent implements OnInit {
 
     async SuccesfullyMadeByCoachMessage(message)
     {
-      console.log(message);
       this.successMessage = true;
       this.message = message;
       await this.delay(3000);

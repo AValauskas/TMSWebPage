@@ -30,7 +30,6 @@ export class AdminsideComponent implements OnInit {
       this._router.navigateByUrl('/login');
     }   
     this.Role=localStorage.getItem('role');
-    console.log(this.Role);
     if(this.Role!="Admin")
     {
       this._router.navigateByUrl('/home');
@@ -38,7 +37,7 @@ export class AdminsideComponent implements OnInit {
 
     this._httpAdmin.GetUsers().subscribe(data=>{     
       this.users=data;
-      console.log(data); 
+      console.log(this.users);
     })
   }
 
@@ -67,7 +66,6 @@ export class AdminsideComponent implements OnInit {
 
   OpenModalDelete( id)
   {
-    console.log(id);
       this.insertModalActive= false;
       this.deleteModalActive = true;
       $('#myModalDelete').modal("show");
@@ -78,7 +76,6 @@ export class AdminsideComponent implements OnInit {
      
   OnSubmit()
   {
-      console.log(this.userRegister);
       if(!this.isAlphaNum(this.userRegister.password)){
         this.translate.get('MESSAGES.VALIDATEFAILED').subscribe((text:string) => {this.error=text});   
       //  this.error="Password must contain numbers and letters";
@@ -120,7 +117,6 @@ export class AdminsideComponent implements OnInit {
 
      async SuccesfullyMessage(message)
      {
-       console.log(message);
        this.successMessage = true;
        this.message = message;
        await this.delay(3000);

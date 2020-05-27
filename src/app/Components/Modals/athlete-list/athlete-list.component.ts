@@ -39,10 +39,6 @@ export class AthleteListComponent implements OnInit {
     public _router:Router, public translate:TranslateService) { }
 
   ngOnInit(): void {
-    console.log(this.AssignedTraining)
-    console.log(this.AssignedTraining.personalTrainingId)
-    console.log(this.AssignedTraining.trainingTemplateId)
-    console.log(this.AssignedTraining.athlete)
     
   }
 
@@ -98,18 +94,14 @@ export class AthleteListComponent implements OnInit {
         
         this.setsToDisplay.push(set);
       });
-console.log(this.setsToDisplay);
   }
 
 
   DisplayTrain()
   {
     this.athlete = this.AssignedTraining.athlete;
-    console.log( this.dateClicked);
-    console.log( this.AssignedTraining.personalTrainingId);
     this._httpTemplate.GetTrainingTemplateById( this.AssignedTraining.trainingTemplateId).subscribe(data=>{   
       this.toDo=data;
-      console.log( this.toDo);
       if(typeof this.toDo !== 'undefined'){
         if(this.toDo.sets.length==0)
         {
@@ -137,8 +129,6 @@ console.log(this.setsToDisplay);
         var trainObject = {distance:element.distance,paceMin:paceMin,paceSec:paceSec, restMin:restMin,restSec:restSec};      
         this.trainingsToAddFull.push(trainObject);   
       })
-      console.log(this.trainingsToAdd)
-      console.log( this.personalTraining);
     }); 
   }
 
@@ -149,7 +139,6 @@ console.log(this.setsToDisplay);
     this.negative=false;
     this.message ="";
     this.trainingsToAdd=[];
-    console.log(this.trainingsToAddFull);
     this.trainingsToAddFull.forEach(element => {
       if (element.distance<0||element.paceMin<0||element.restMin<0||element.paceSec<0||element.restSec<0||element.paceSec>59||element.restSec>59)
       {
@@ -171,11 +160,8 @@ console.log(this.setsToDisplay);
   })
   if(!this.negative)
   {
-    console.log(this.trainingsToAdd);
     this.athleteForm.results = this.trainingsToAdd;
-    console.log(this.athleteForm);
-    this._httpPersonalTrain.UpdatePersonalTrainingResults(this.athleteForm, this.personalTraining.id).subscribe(data=>{   
-      console.log(data);      
+    this._httpPersonalTrain.UpdatePersonalTrainingResults(this.athleteForm, this.personalTraining.id).subscribe(data=>{     
     })
     $('#myModal').modal("hide");
     var message

@@ -35,7 +35,6 @@ export class NavBarComponent implements OnInit {
    if (localStorage.getItem('role') !== this.Role) {
      this.changeDetected = true;
      this.Role=localStorage.getItem('role')
-     console.log(localStorage.getItem('role'))
      this.SetRole();
    }
   
@@ -74,7 +73,6 @@ export class NavBarComponent implements OnInit {
 
   async TurnOnSuccesMessage(message)
   {
-    console.log(message);
     this.failMessage = false;
     this.successMessage = true;
     this.message = message;
@@ -85,7 +83,6 @@ export class NavBarComponent implements OnInit {
 
   async TurnOnFailMessage(message)
   {
-    console.log("atieji");
     this.successMessage = false;
     this.failMessage = true;
     this.message = message;

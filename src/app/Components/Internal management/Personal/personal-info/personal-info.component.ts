@@ -39,22 +39,18 @@ export class PersonalInfoComponent implements OnInit {
     this.role= localStorage.getItem('role')
     this._httpManagement.GetPersonalInfo().subscribe(data=>{
       this.user= data;
-      console.log( this.user);
     })
     if (this.role=="Athlete"){   
       this._httpManagement.GetPersonalCoach().subscribe(data=>{
         this.coach= data;
-        console.log( this.coach);
       });
       this._httpManagement.GetUserFriends().subscribe(data=>{
         this.friends= data;
-        console.log( this.friends);
       });
     }
     if (this.role=="Coach"){   
       this._httpManagement.GetAthletesByCoach().subscribe(data=>{
         this.athletes= data;
-        console.log( this.athletes);
       });
     }
 
@@ -89,7 +85,6 @@ export class PersonalInfoComponent implements OnInit {
 
   ChangeCoachSize()
   {
-    console.log("clicked");
     if( this.CoachClicked)
     {
       this.CoachClicked= false;
@@ -101,7 +96,6 @@ export class PersonalInfoComponent implements OnInit {
 
   ChangeFriendsSize()
   {
-    console.log("clicked");
     if( this.friendsClicked)
     {
       this.friendsClicked= false;
@@ -113,7 +107,6 @@ export class PersonalInfoComponent implements OnInit {
 
   ChangeAthleteSize()
   {
-    console.log("clicked");
     if( this.athletesClicked)
     {
       this.athletesClicked= false;
@@ -125,7 +118,6 @@ export class PersonalInfoComponent implements OnInit {
 
   CheckFriend(other:Iuser)
   {
-    console.log(other);
    localStorage.setItem("friendId", other.idPerson);
    localStorage.setItem("friend", other.name+ " " + other.surname);
    this._router.navigateByUrl('/personal');
@@ -134,7 +126,6 @@ export class PersonalInfoComponent implements OnInit {
 
   async SuccesfullyMessage(message)
   {
-    console.log(message);
     this.successMessage = true;
     this.message = message;
     await this.delay(3000);
@@ -150,7 +141,6 @@ export class PersonalInfoComponent implements OnInit {
 
   async FailMessage(message)
   {
-    console.log(message);
     this.failMessage = true;
     this.message = message;
     await this.delay(3000);

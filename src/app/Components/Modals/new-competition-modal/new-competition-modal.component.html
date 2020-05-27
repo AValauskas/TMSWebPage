@@ -41,10 +41,10 @@
 
             <div class ="form-group d-flex justify-content-center  mt-3" >
                 <label class="radio-inline">
-                  <input type="radio" name="optradio"  id="Inside" value="Inside"   [(ngModel)]="competition.place" checked>{{'COMPETITIONS.OUTSIDE' | translate}}
+                  <input type="radio" name="optradio"  id="Inside" value="Inside"   [(ngModel)]="competition.place" checked>{{'COMPETITIONS.INSIDE' | translate}}
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="optradio2"  id="Outside" value="Outside" [(ngModel)]="competition.place">{{'COMPETITIONS.INSIDE' | translate}}
+                  <input type="radio" name="optradio2"  id="Outside" value="Outside" [(ngModel)]="competition.place">{{'COMPETITIONS.OUTSIDE' | translate}}
                 </label>   
             </div>
             <div *ngIf="negative">

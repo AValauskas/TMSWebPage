@@ -81,7 +81,6 @@ export class CoachTrainingAssignModalComponent implements OnInit {
   }
 
   onChangeType(type) {
-    console.log(type);
     this.selectedType = type;
     this._httpTemplate.GetTrainingsByType(type).subscribe(data=>{   
       this.Trainings=data;
@@ -100,7 +99,6 @@ export class CoachTrainingAssignModalComponent implements OnInit {
     this.PersonalTrainin.place = this.Place;
     this.PersonalTrainin.day=new Date(this.dateClicked);
     this.PersonalTrainin.trainTemplateId = this.selectedTraining;
-    console.log(this.PersonalTrainin);
 
     this._httpPersonalTrain.InsertPersonalTraining( this.PersonalTrainin).subscribe(data=>{   
       $('#myModal').modal("hide");

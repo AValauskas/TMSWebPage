@@ -24,7 +24,6 @@ export class PersonalBestComponent implements OnInit {
     {
         this.isFriend = true;
         this.friend=localStorage.getItem("friendId");
-        console.log(this.friend);
         this.FillFormOther();  
     }
     else{

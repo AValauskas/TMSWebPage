@@ -8,18 +8,41 @@
       </div>
 
 <div class = "container">
-    <button class="btn btn-secondary float-right newTrain" (click)="OpenModalInsert()"  *ngIf="Role==='Admin'">New user</button >
+    <button class="btn btn-secondary float-right newTrain" (click)="OpenModalInsert()"  *ngIf="Role==='Admin'">{{'ADMIN.NEWUSER' | translate}}</button >
       
+
+
+      <div class="trainingsName">
+        <div class = "row tableName">
+          <div class="input-field col s2 trains" >
+            <td ><p class = "heading">{{'ADMIN.NAME' | translate}}</p></td>         
+          </div>
+          <div  class="input-field col s2 trains">
+            <td ><p class = "heading">{{'ADMIN.SURNAME' | translate}}</p></td>    
+        </div>
+        <div  class="input-field col s6 trains">
+          <td ><p class = "heading">{{'ADMIN.EMAIL' | translate}}</p></td>    
+      </div>
+      <div  class="input-field col s1 trains">
+          <td ><p class = "heading">{{'ADMIN.ROLE' | translate}}</p></td>    
+      </div>
+        <div class="input-field col s1  trains" >
+          <td ><p class = "heading">{{'ADMIN.EMAILCONFIRMED' | translate}}</p></td>   
+           
+        </div>
+      </div>
+      </div>
+
     <div class="list-group trainings">
         <div *ngFor="let user of users" (click)="OpenModalDelete(user.id)" >
             <div class = "row tableRow">
-            <div class="input-field col s3 trains" >
+            <div class="input-field col s2 trains" >
               <td >{{user.name}}</td>         
             </div>
-            <div  class="input-field col s3 trains">
+            <div  class="input-field col s2 trains">
               <td >{{user.surname}}</td>    
           </div>
-          <div  class="input-field col s4 trains">
+          <div  class="input-field col s6 trains">
             <td >{{user.email}}</td>    
         </div>
         <div  class="input-field col s1 trains">
@@ -54,14 +77,14 @@
             <div class ="form-group mt-3">
               <div class="row">
                 <div class="input-field col s6 validate">
-                 <input type="email" class="form-control"  name="Email"  [(ngModel)]="userRegister.email" required placeholder="Enter email">       
+                 <input type="email" class="form-control"  name="Email"  [(ngModel)]="userRegister.email" required placeholder="{{'HOME.ENTEREMAIL' | translate}}">       
                 </div>                
               </div>
             </div>
             <div class ="form-group">
               <div class="row">
                 <div class="input-field col s6 validate">
-                  <input class="validate form-control" type="password" name="Password"  [(ngModel)]="userRegister.password" required minlength="6"  placeholder="Enter password">        
+                  <input class="validate form-control" type="password" name="Password"  [(ngModel)]="userRegister.password" required minlength="6"  placeholder="{{'HOME.ENTERPASSWORD' | translate}}">        
                 </div>
               </div>
             </div>
@@ -69,14 +92,14 @@
             <div class ="form-group">
                 <div class="row">
                   <div class="input-field col s6 validate">
-                    <input  class="form-control" type="text" name="FirstName"  [(ngModel)]="userRegister.name" required placeholder="Enter your name">
+                    <input  class="form-control" type="text" name="FirstName"  [(ngModel)]="userRegister.name" required placeholder="{{'ADMIN.ENTERADMINNAME' | translate}}">
                   </div>
                 </div>
               </div>
             <div class ="form-group">
               <div class="row">               
                 <div class="input-field col s6">
-                  <input class="form-control" type="text" name="LastName"  [(ngModel)]="userRegister.surname" required placeholder="Enter your last name">
+                  <input class="form-control" type="text" name="LastName"  [(ngModel)]="userRegister.surname" required placeholder="{{'ADMIN.ENTERADMINSURNAME' | translate}}">
                   
                 </div>
               </div>
@@ -100,7 +123,7 @@
 
          <!-- Modal footer -->
          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">{{'GENERAL.CLOSE' | translate}}</button>
           </div>
           
         </div>
@@ -117,17 +140,17 @@
   
           <!-- Modal Header -->
           <div class="modal-header head" *ngIf=" Role==='Admin'&& deleteModalActive"> 
-            <h4 class="modal-title">Delete confirmation</h4>
+            <h4 class="modal-title">{{'GENERAL.DELETECONFIRM' | translate}}</h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div> 
       
           <div class="modal-body modalDeleteBody" *ngIf="Role==='Admin'&& deleteModalActive" >
-            Are you sure you want to delete this user?
+            {{'GENERAL.USERDELETE' | translate}}
             <br>
             <div class = "row buttons">
-            <button class="btn btn-secondary" type="submit"  (click)="DeleteUser()">Delete</button>
+            <button class="btn btn-secondary" type="submit"  (click)="DeleteUser()">{{'GENERAL.DELETE' | translate}}</button>
             <div class="divider"></div>
-            <button type="button ml-1" class="btn btn-danger" data-dismiss="modal">Close</button>
+            <button type="button ml-1" class="btn btn-danger" data-dismiss="modal">{{'GENERAL.CLOSE' | translate}}</button>
             </div>
             </div>
           </div>

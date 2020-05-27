@@ -31,7 +31,8 @@
     "REST" : "Poilsis"  ,
     "METERS" : "Metrai",
     "TIME" : "Laikas",
-    "DELETECONFIRM" : "Trynimo Patrvirtinimas",
+    "DELETECONFIRM" : "Trynimo Patvirtinimas",
+    "USERDELETE" : "Ar tikrai norite ištrinti šį vartotoją",
     "DELETESURE" : " Ar tikrai norite ištrinti treniruotę?",
     "LANG" : "lt"
 },
@@ -125,11 +126,23 @@
     "INVITESUCCESSSENT" : "Jūs sėkmingai išsiuntėte pakvietimą",
     "TRAINDELETED" : "Treniruotė buvo sėkmingai ištrinta",
     "UPDATEDTRAIN" : "Treniruotė buvo sėkmingai atnaujinta",
+    "UPDATEATHLETE" : "Jūs sėkimgai įrašėte atleto treniruotės laikus",    
     "TRAININSERT" : "Treniruotė sėkmingai įterpta" ,
     "PASSWORDCHANGED" : "Slaptažodis buvo sėkmingai pakeistas"   ,
     "UPDATEDATHLETE" : "Jūs sėkmingai atnaujinote atleto treniruotės rezultatus",
     "ACCORDINGTEMPLATE" : "Pasak treniruočių šablono jūs nebegalite daugiau pridėti laikų" ,
     "ASSIGNTRAIN" : "Jūs sėkmingai priskyrėte treniruotes"              
+}
+,
+"ADMIN" : {
+    "NAME" : "Vardas",   
+    "SURNAME" : "Pavardė",
+    "EMAIL" : "el. Paštas",      
+    "ROLE" : "Rolė",  
+    "NEWUSER" : "Naujas vartotojas", 
+    "EMAILCONFIRMED" : "El. pašto patvirtinimas",           
+    "ENTERADMINNAME" : "Įrašykite administratoriaus vardą",   
+    "ENTERADMINSURNAME" : "Įrašykite administratoriaus pavardę"   
 }
 
 }

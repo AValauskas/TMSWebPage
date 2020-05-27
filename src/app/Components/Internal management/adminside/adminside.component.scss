@@ -45,13 +45,39 @@ html, body {
       margin-right: 10%;    
   }
   
-  div.trainings
+
+div.trainingsName
+{
+    width:88%;
+    margin-top: 10%;
+    max-height:40px;
+}
+
+div.trainings
 {
     width:90%;
-    margin-top: 10%;
+    margin-top: 1%;
     overflow-y: scroll; 
     overflow-x:  hidden;
-    max-height:600px;
+    max-height:550px;
+    min-height:100px;
+}
+div.tableName
+{
+  vertical-align: middle;
+  margin-left: 5%;
+  background-color: white;
+  height:40px;
+  line-height: 95%;
+  border: solid grey 0.3px;
+}
+p.heading {
+  margin-top: 5px;  
+  font-family: "Arial Black", Gadget, sans-serif;
+}
+div.container 
+{
+  background-color: khaki;
 }
 
   /* width */

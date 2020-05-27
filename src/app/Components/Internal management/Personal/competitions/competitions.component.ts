@@ -24,7 +24,6 @@ export class CompetitionsComponent implements OnInit {
     {
         this.isFriend = true;
         this.friend=localStorage.getItem("friendId");
-        console.log(this.friend);
         this.FillFormsOther();  
     }
     else{
@@ -40,7 +39,6 @@ export class CompetitionsComponent implements OnInit {
   {
     this._httpManagement.GetCompetitions().subscribe(data=>{
       this.Competitions = data
-      console.log(this.Competitions)
       if( this.Competitions.length>0)
       {
         if(this.Competitions.length==1)
@@ -70,7 +68,6 @@ export class CompetitionsComponent implements OnInit {
   {
     this._httpManagement.GetOtherCompetitions(this.friend).subscribe(data=>{
       this.Competitions = data
-      console.log(this.Competitions)
       if( this.Competitions.length>0)
       {
         if(this.Competitions.length==1)

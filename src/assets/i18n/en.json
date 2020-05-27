@@ -4,9 +4,9 @@
     "SIGNUP" : "Sign up",
     "CONFIRMEMAIL" : "Confirm email",
     "HOME" : "Home",
-    "ENTEREMAIL" : "Entert email",
-    "ENTERPASSWORD" : "Entert password",
-    "ENTERYOURNAME" : "Entert your name",
+    "ENTEREMAIL" : "Enter email",
+    "ENTERPASSWORD" : "Enter password",
+    "ENTERYOURNAME" : "Enter your name",
     "ENTERYOURLASTNAME" : "Entert your last name",
     "REPEATPASSWORD" : "Repeat password",
     "ATHLETE" : "Athlete",
@@ -33,6 +33,7 @@
     "METERS" : "meters",
     "TIME" : "Time",
     "DELETECONFIRM" : "Delete confirmation",
+    "USERDELETE" : "Are you sure you want to delete this user?",
     "DELETESURE" : " Are you sure you want to delete this training?",
     "NOINVITATIONS" : "There are no invitations",
     "SENDINVITATION" : "Send invite",
@@ -132,7 +133,19 @@
     "PASSWORDCHANGED" : "Password succesfully changed"  ,
     "UPDATEDATHLETE" : "You have succesfully updated your athlete training",
     "ACCORDINGTEMPLATE" : "Accordint to template you can only add this count of repeats",
-    "ASSIGNTRAIN" : "You have succesfully assigned trainings"        
+    "ASSIGNTRAIN" : "You have succesfully assigned trainings",
+    "UPDATEATHLETE" : "You have succesfully updated athlete's times"          
+}
+,
+"ADMIN" : {
+    "NAME" : "Name",   
+    "SURNAME" : "Surname",
+    "EMAIL" : "Email",      
+    "ROLE" : "Role",  
+    "NEWUSER" : "New user", 
+    "EMAILCONFIRMED" : "Email confirmed",           
+    "ENTERADMINNAME" : "Enter administrator name",   
+    "ENTERADMINSURNAME" : "Email admministrator surname"   
 }
 
 

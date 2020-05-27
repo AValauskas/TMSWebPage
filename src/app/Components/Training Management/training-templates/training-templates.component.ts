@@ -56,7 +56,6 @@ UploadTraining()
 {
     this._httpTemplate.GetTrainingTemplates().subscribe(data=>{
       this.trainings = data
-      console.log(this.trainings)
     });
 }
 
@@ -79,11 +78,12 @@ UploadTraining()
     
     if(!this.negative)
     {
+      var message;
+        this.translate.get('MESSAGES.UPDATEDTRAIN').subscribe((text:string) => {message=text});   
+        this.SuccesfullyMadeByCoachMessage(message);   
       this._httpTemplate.UpdateTrainingTemplate(this.training).subscribe(data=>{
         this.trainings = data
-        var message;
-        this.translate.get('MESSAGES.UPDATEDTRAIN').subscribe((text:string) => {message=text});   
-        this.SuccesfullyMadeByCoachMessage(message);     
+          
       });
       $('#myModal').modal("hide");
     }
@@ -99,8 +99,7 @@ UploadTraining()
       this.trainingsToAddFull=[];
       this.trainingsToAdd=[];
       if(localStorage.getItem("error")==null)
-      {
-      console.log("good")     
+      { 
       }
       else{
         this.error=localStorage.getItem("error");
@@ -118,7 +117,6 @@ UploadTraining()
   FillData(){
     this.negative=false;
     this.trainingsToAdd=[];
-    console.log(this.trainingsToAddFull);
     this.trainingsToAddFull.forEach(element => {
       if (element.distance<0||element.paceMin<0||element.restMin<0||element.paceSec<0||element.restSec<0||element.paceSec>59||element.restSec>59)
       {
@@ -136,11 +134,9 @@ UploadTraining()
       this.trainingsToAdd.push(train);    
       
   })
-  this.trainingsToAddFull=[];
+
     this.training.sets=this.trainingsToAdd;    
    this.training.destinition=Number(this.training.destinition);
-    console.log(this.training);
-
   }
 
   
@@ -170,9 +166,7 @@ UploadTraining()
 
 
   OpenModal(modal)
-  {
-    console.log(modal);
-    
+  {    
     if(modal=="insert")
     {
     this.training = <any>{};
@@ -185,7 +179,6 @@ UploadTraining()
     {    
       this.trainingsToAddFull=[];
       this.trainingsToAdd=[];
-      console.log(this.training);
     this.insertModalActive= false;
     this.updateModalActive= true;
     this.deleteModalActive = false;
@@ -212,6 +205,8 @@ UploadTraining()
   }
   DeleteTemplate()
   {
+
+    this.trainings = this.trainings.filter(obj => obj !== this.training);
     this._httpTemplate.DeleteTrainingTemplate(this.training.id).subscribe(data=>{ 
         this.trainings = data;
     })  
@@ -224,7 +219,6 @@ UploadTraining()
 
   ChangeDescriptionSize()
   {
-    console.log("clicked");
     if( this.descriptionClicked)
     {
       this.descriptionClicked= false;
@@ -276,7 +270,6 @@ UploadTraining()
 
   async SuccesfullyMadeByCoachMessage(message)
     {
-      console.log(message);
       this.successMessage = true;
       this.message = message;
       await this.delay(3000);
@@ -321,7 +314,6 @@ UploadTraining()
         
         this.setsToDisplay.push(set);
       });
-    console.log(this.setsToDisplay);
   }
 
 }
