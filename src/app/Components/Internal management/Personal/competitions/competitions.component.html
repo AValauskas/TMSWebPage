@@ -9,7 +9,6 @@
             <p class = " text-center mt-3 " id="title">{{'COMPETITIONS.OUTSIDE' | translate}}</p>
           </div>   
         <table class="">
-          
           <thead>
             <tr >
               <th class="col-md-2  " >{{'COMPETITIONS.DISTANCE' | translate}}</th>
@@ -18,18 +17,18 @@
               <th class="col-md-4"  >{{'COMPETITIONS.COMPETITION' | translate}}</th>
             </tr>
           </thead>
-          <tbody>
-             
-            <div class ="limit">   
+         
+          <tbody>            
+              
             <tr *ngFor="let competitionOutside of Outside" class ="comp">
               <td class="col-md-2" >{{competitionOutside.distance}}</td>
               <td class="col-md-2 " >{{ competitionOutside.time}}</td> 
               <td class="col-md-4">{{ competitionOutside.dateString}}</td>    
               <td class="col-md-4 "><div class="competition"> {{ competitionOutside.competition}}</div></td>    
-           </tr>
-           </div> 
+           </tr>           
             
           </tbody>
+   
         </table>
         </div>
         <div class="col-md-6 col-sm-6 col-xs-6 " *ngIf="Inside" > 
@@ -45,18 +44,16 @@
               <th class="col-md-4"  >{{'COMPETITIONS.COMPETITION' | translate}}</th>
             </tr>
           </thead>
-          <tbody>
-             
-            <div class ="limit">   
+          
+          <tbody>           
             <tr *ngFor="let competitionInside of Inside" class ="comp">
               <td class="col-md-2">{{competitionInside.distance}}</td>
               <td class="col-md-2 ">{{ competitionInside.time}}</td> 
               <td class="col-md-4" >{{ competitionInside.dateString}}</td>  
               <td class =" col-md-4"><div class="competition"> {{ competitionInside.competition}}</div></td>      
             </tr>
-            </div>
-           
           </tbody>
+        
         </table>
         </div>
         </div>
