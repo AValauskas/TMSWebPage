@@ -8,8 +8,8 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class HttpService {
-  //private apiUrl = "https://tmsback-end.herokuapp.com/api/";
-  private apiUrl = "https://localhost:44391/api/";
+  private apiUrl = "https://tmsback-end.herokuapp.com/api/";
+  //private apiUrl = "https://localhost:44391/api/";
   constructor(private http: HttpClient, public _router:Router) { }
 
   requestCall(api: string,method:string, data?:any, headerHttp?: HttpHeaders)
