@@ -48,3 +48,9 @@ button.newCompetition:hover
   background-color: rgb(117, 116, 116);
   margin-top: 2%;
 }
+.limit
+{
+  overflow-y: scroll; 
+  overflow-x:  hidden;
+  max-height:550px;
+}
