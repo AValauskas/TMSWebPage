@@ -1,5 +1,5 @@
 html, body {
-    height: 90.5vh;
+    height: 89vh;
     background-color: khaki;
   }
 
@@ -75,7 +75,10 @@ p.heading {
   margin-top: 5px;  
   font-family: "Arial Black", Gadget, sans-serif;
 }
-
+div.container 
+{
+  background-color: khaki;
+}
 
   /* width */
   ::-webkit-scrollbar {
