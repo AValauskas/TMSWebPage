@@ -1,32 +1,53 @@
-
+div.row
+{
+  border-bottom: 1px solid rgb(179, 177, 177);
+  width: 93%;
+  text-align: center;
+  display: inline-block;
+  color: grey;
+}
+#Name
+{
+  margin-top: 5px;
+  color: grey;
+}
+#left {
+  float:left;
+}
+#right {
+  float:right;
+  width:150px;
+}
 #exampleFormControlSelect1
 {
-    color: white;
- background-color: rgb(56, 56, 56);
- width: 40%;
- height: 50px;
- border-radius: 5%;
-// margin-left:30%;
- margin-top:5%;
+  text-align: right;
+  border-radius: 10px;
+  width: 150px;
+  height: 30px;
+  margin-top:5%;
 }
 #competition
 {
-   // margin-left:50%;
     border-radius: 10px;
+    border: 1px solid;
+    width: 150px;
 }
 #time
 {    
     border-radius: 10px;
-    width: 30%;
     text-align: right;
+    width: 45%;
+    border: 1px solid;
 }
 #date
 {    
+  border: 1px solid;
     border-radius: 10px;
+    width: 150px;
 }
 
 .divider{
-    width:30px;
+    width:10px;
     height:auto;
     display:inline-block;
   }
@@ -40,19 +61,18 @@
     color: red;
 }
 
-body{
-  background-color: khaki;
+select{
+  direction: rtl;
 }
-
 
 button.submit
 {
-    font-family: "Arial Black", Gadget, sans-serif;
+   
     color: white;
-    min-height: 30px;
+    min-height: 25px;
     height:10%;
     margin-top:15px;
     background-color: black;
     margin-left: 40%;
-    position: absolute;
+    margin-bottom: 15px;    
 }

@@ -17,7 +17,7 @@ export class NewCompetitionModalComponent implements OnInit {
   competition:ICompetition=<ICompetition>{};
   time:ITime=<ITime>{};
   @Output("FillForms") parentFun: EventEmitter<any> = new EventEmitter();
-  selectedDistance="";
+  selectedDistance="400";
   negative =false;
 
 
