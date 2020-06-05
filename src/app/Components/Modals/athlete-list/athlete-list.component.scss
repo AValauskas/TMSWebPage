@@ -1,9 +1,9 @@
 .tasks
 {
     text-align: center;
-   margin-top: 10px;
+    margin-top: -5px;
    background-color: khaki;
-   
+   border-bottom: rgb(83, 82, 82) 2px solid;
 }
 p.heading
 {
@@ -19,10 +19,7 @@ div.separate
 {
     border-top: rgb(233, 230, 230) 2px solid;
 }
-div.firstHeading
-{
-    margin-top: 0;
-}
+
 div.section
 {
     border-top: rgb(83, 82, 82) 2px solid;
@@ -93,5 +90,10 @@ border-radius: 5px;
     text-align: right; 
 max-width: 70px;
 border-radius: 5px;
+}
 
+.close
+{
+    margin-top: -45px;
+    margin-right: 10px;
 }
