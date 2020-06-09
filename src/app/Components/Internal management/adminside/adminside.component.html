@@ -9,24 +9,22 @@
 
 <div class = "container">
     <button class="btn btn-secondary float-right newTrain" (click)="OpenModalInsert()"  *ngIf="Role==='Admin'">{{'ADMIN.NEWUSER' | translate}}</button >
-      
-
 
       <div class="trainingsName">
         <div class = "row tableName">
-          <div class="input-field col s2 trains" >
+          <div class="col-md-2 trains" >
             <td ><p class = "heading">{{'ADMIN.NAME' | translate}}</p></td>         
           </div>
-          <div  class="input-field col s2 trains">
+          <div  class="col-md-2 trains">
             <td ><p class = "heading">{{'ADMIN.SURNAME' | translate}}</p></td>    
         </div>
-        <div  class="input-field col s6 trains">
-          <td ><p class = "heading">{{'ADMIN.EMAIL' | translate}}</p></td>    
+        <div  class=" col-md-4 trains ">
+          <td ><p class = "heading ">{{'ADMIN.EMAIL' | translate}}</p></td>    
       </div>
-      <div  class="input-field col s1 trains">
+      <div  class="col-md-2 trains ">
           <td ><p class = "heading">{{'ADMIN.ROLE' | translate}}</p></td>    
       </div>
-        <div class="input-field col s1  trains" >
+        <div class=" col-md-2 trains" >
           <td ><p class = "heading">{{'ADMIN.EMAILCONFIRMED' | translate}}</p></td>   
            
         </div>
@@ -36,24 +34,24 @@
     <div class="list-group trainings">
         <div *ngFor="let user of users" (click)="OpenModalDelete(user.id)" >
             <div class = "row tableRow">
-            <div class="input-field col s2 trains" >
+            <div class="col-md-2 trains" >
               <td >{{user.name}}</td>         
             </div>
-            <div  class="input-field col s2 trains">
+            <div  class="col-md-2 trains">
               <td >{{user.surname}}</td>    
           </div>
-          <div  class="input-field col s6 trains">
+          <div  class="col-md-4 trains">
             <td >{{user.email}}</td>    
         </div>
-        <div  class="input-field col s1 trains">
+        <div  class="col-md-2 trains">
             <td >{{user.role}}</td>    
         </div>
-          <div class="input-field col s1  trains" >
+          <div class="col-md-2  trains" >
             <div *ngIf="user.emailConfirmed">
-            <span class="glyphicon glyphicon-ok-circle"  id ="truefalse"></span>
+            <span class="glyphicon glyphicon-ok"  id ="truefalse"></span>
             </div>
             <div *ngIf="!user.emailConfirmed">
-              <span class="glyphicon glyphicon-remove-circle" id ="truefalse"></span>
+              <span class="glyphicon glyphicon-remove" id ="truefalse"></span>
               </div>
              
           </div>
@@ -71,7 +69,14 @@
 <div class="modal" id="myModal">
     <div class="modal-dialog">
       <div class="modal-content">
-
+     
+        <div class="modal-header ">
+          <h5 class="modal-title newAdmin">New admin</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        
 
         <form class="col s12 white" #userRegistrationForm="ngForm" (ngSubmit)="OnSubmit()" ngNativeValidate>
             <div class ="form-group mt-3">
@@ -115,17 +120,9 @@
             </form>
             <div *ngIf="error" class="">
             <i class="material-icons ">error</i> <a class= "text-danger">{{error}}</a>
-          </div>
+          </div>                    
           
-           
-          
-          
-
-         <!-- Modal footer -->
-         <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">{{'GENERAL.CLOSE' | translate}}</button>
-          </div>
-          
+ 
         </div>
       </div>
     </div>

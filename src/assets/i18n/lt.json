@@ -141,7 +141,7 @@
 "ADMIN" : {
     "NAME" : "Vardas",   
     "SURNAME" : "Pavardė",
-    "EMAIL" : "el. Paštas",      
+    "EMAIL" : "El. Paštas",      
     "ROLE" : "Rolė",  
     "NEWUSER" : "Naujas vartotojas", 
     "EMAILCONFIRMED" : "El. pašto patvirtinimas",           
