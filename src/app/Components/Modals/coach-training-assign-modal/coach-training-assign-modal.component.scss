@@ -2,7 +2,7 @@
 {
     text-align: center;
    margin-top: 10px;
-   background-color: khaki;
+   background-color: white;
    
 }
 p.heading
@@ -21,6 +21,8 @@ div.separate
 }
 div.firstHeading
 {
+    color :black;
+    font-size: 22px;
     margin-top: 0;
 }
 div.section
@@ -61,12 +63,21 @@ div.choose
    background-color: khaki;
 }
 
+#typeSelectF
+{
+  text-align: right;
+  border-radius: 10px;
+  width: 200px;
+  height: 30px;
+  margin-top:5%;
+}
 #typeSelect
 {
-    color: white;
- background-color: rgb(56, 56, 56);
- height: 50px;
- border-radius: 5%;
+  text-align: right;
+  border-radius: 10px;
+  width: 150px;
+  height: 30px;
+  margin-top:5%;
 }
 
 select option:disabled {
@@ -75,7 +86,7 @@ select option:disabled {
 }
 .bodyDiv
 {
-    background-color: rgb(241, 236, 205); ;
+    background-color: white ;
  
 }
 
@@ -105,3 +116,54 @@ select option:disabled {
   ::-webkit-scrollbar-thumb:hover {
     background:  rgb(46, 45, 45); 
   }
+
+  #header
+{  
+  font-size: 25px;
+  margin-left: 120px;
+  font: "Arial Black", Gadget, sans-serif
+}
+div.row
+{
+  border-bottom: 1px solid rgb(179, 177, 177);
+  width: 93%;
+  text-align: center;
+  display: inline-block;
+  color: grey;
+}
+#left {
+    float:left;
+  }
+#right {
+    float:right;
+    width:150px;
+  }
+  #fright {
+    float:right;
+    width:200px;
+  }
+  #Name
+{
+  margin-top: 7px;
+ // color: grey;
+}
+
+button.submit
+{   
+    color: white;
+    min-height: 25px;
+    height:10%;
+    margin-top:15px;
+    background-color: black;
+    margin-left: 40%;
+    margin-bottom: 15px;    
+}
+button.submit:hover
+{   
+    background-color: rgb(182, 179, 179);
+
+}
+.athletesSelect
+{
+max-width: 150px;
+}

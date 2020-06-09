@@ -33,6 +33,7 @@ export class TrainingTemplatesComponent implements OnInit {
   failMessage= false;
   message:string;
   negative =false;
+  popupName:string;
 
   setsToDisplay:ISetToDisplay[]=[];
   
@@ -173,10 +174,14 @@ UploadTraining()
     this.insertModalActive= true;
     this.updateModalActive= false;
     this.deleteModalActive = false;
+    this.translate.get('TEMPLATES.ADDTRAIN').subscribe((text:string) => {this.popupName=text});   
+    //this.popupName="ADD TRAINING";
     $('#myModal').modal("show");
     }
     else if(modal=="update")
     {    
+      //this.popupName="UPDATE TRAINING";
+      this.translate.get('TEMPLATES.UPDATETRAIN').subscribe((text:string) => {this.popupName=text});   
       this.trainingsToAddFull=[];
       this.trainingsToAdd=[];
     this.insertModalActive= false;

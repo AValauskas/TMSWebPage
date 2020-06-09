@@ -64,7 +64,8 @@
     "CHOOSEDISTANCE" : "Pasirinkite atstumą",
     "RESULT" : "Rezultatas",
     "RESULTS" : "RESULTS",
-    "ERRORSEC" : "Skaičiai negali būti neigiami, bei sekundžių daugiau nei 59"
+    "ERRORSEC" : "Skaičiai negali būti neigiami, bei sekundžių daugiau nei 59",
+    "ADDCOMPETITION" : "Varžybų pridėjimas"
 },
 "TEMPLATES" : {
     "DESCRIPTION" : "Aprašymas",
@@ -91,7 +92,9 @@
     "REPEATS" : "Pakartojimai",
     "PERSONAL" : "Ar asmeninė?",
     "TYPE" : "Tipas",
-    "PUBLIC" : "Vieša"
+    "PUBLIC" : "Vieša",
+    "ADDTRAIN" : "Treniruotės pridėjimas",
+    "UPDATETRAIN" : "Treniruotės atnaujinimas"  
 },
 "CALENDAR" : {
     "NEWTRAIN" : "Nauja treniruotė",
@@ -111,6 +114,7 @@
     "FILLYOUTRAIN" : "Užpildykite treniruotės rezultatus",
     "WRITEREPORT" : "Parašykite atsiliepimą",
     "FREEDAY" : "Šią dieną kolkas neturite treniruotės"
+    
 },
 "MESSAGES" : {
     "CONFIRMEMAIL" : "Pirmiausia turite patvirtinti el. Pašto adresą",
@@ -137,7 +141,7 @@
 "ADMIN" : {
     "NAME" : "Vardas",   
     "SURNAME" : "Pavardė",
-    "EMAIL" : "el. Paštas",      
+    "EMAIL" : "El. Paštas",      
     "ROLE" : "Rolė",  
     "NEWUSER" : "Naujas vartotojas", 
     "EMAILCONFIRMED" : "El. pašto patvirtinimas",           

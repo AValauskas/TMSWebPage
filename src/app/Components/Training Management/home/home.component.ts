@@ -124,7 +124,6 @@ export class HomeComponent implements OnInit {
         }
     }  
 
-
     AthleteDateClick(dateinfo)
     {
       this._httpPersonalTrain.GetPersonalTrainingByDate(dateinfo.dateStr).subscribe(data=>{   
@@ -152,8 +151,6 @@ export class HomeComponent implements OnInit {
          }); 
     }
     
-
-
     //-----------------------other stuff
     renewTrainings(message)
     {

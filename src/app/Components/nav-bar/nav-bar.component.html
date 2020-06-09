@@ -13,7 +13,7 @@
           <a class="nav-link" routerLink="/trainingTemplates" href="#">{{'NAV.TEMPLATES' | translate}}</a>          
         </li>    
         <li class="nav-item">
-          <a class="nav-link" routerLink="/admin" href="#" *ngIf="Role==='Admin' ">Site management</a>          
+          <a class="nav-link" routerLink="/admin" href="#" *ngIf="Role==='Admin' ">{{'NAV.SITEMANAGE' | translate}}</a>          
         </li>    
         <li class="nav-item dropdown" *ngIf="Role==='Athlete' ||Role==='Coach' ">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

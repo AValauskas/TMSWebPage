@@ -149,7 +149,14 @@
     <div class="modal" id="myModal">
       <div class="modal-dialog">
         <div class="modal-content">
-        
+          <div class="modal-header">
+            <div class ="hedr">
+            <p id="header">{{popupName}}</p>
+            </div>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
          
          
           
@@ -267,9 +274,6 @@
                </div>
              </div>
              </div>
-
-
-
               <div class="form-group">
                <button [disabled]="!trainingtemplateForm.valid" class="btn btn-secondary" (click)="OnSubmit()">{{'GENERAL.CONFIRM' | translate}}</button>
                </div>
@@ -281,11 +285,11 @@
             <button class="btn btn-secondary" type="submit" (click)="DeleteTemplate()">Confirm</button>
             </div>-->
 
-          <!-- Modal footer -->
+          <!-- Modal footer 
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-dismiss="modal">{{'GENERAL.CLOSE' | translate}}</button>
           </div>
-          
+          -->
         </div>
       </div>
     </div>

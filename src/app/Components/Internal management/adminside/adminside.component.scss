@@ -32,7 +32,7 @@ html, body {
   #truefalse
   {
     margin-top: 1%;
-    font-size: 200%;
+    font-size: 150%;
   }
   button.newTrain
   {
@@ -48,7 +48,7 @@ html, body {
 
 div.trainingsName
 {
-    width:85%;
+    width:88%;
     margin-top: 10%;
     max-height:40px;
 }
@@ -145,3 +145,13 @@ height: 10%;
 background-color: rgb(179, 116, 114);
 }
 
+button.newTrain:hover
+{
+  background-color: rgb(95, 94, 94);
+}
+.newAdmin
+{  
+  font-size: 20px;
+  margin-left: 180px;
+  font: "Arial Black", Gadget, sans-serif
+}

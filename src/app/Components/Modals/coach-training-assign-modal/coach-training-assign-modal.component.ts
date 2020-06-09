@@ -32,7 +32,7 @@ export class CoachTrainingAssignModalComponent implements OnInit {
   Description="";
   selectedType = "";
   selectedTraining= "";
-  Place="";
+  Place="Inside";
   trainingsCount=0;
   selectAthletes: IAthlete[];
   
@@ -54,7 +54,7 @@ export class CoachTrainingAssignModalComponent implements OnInit {
       this.GetData();
       if(this.oldDate!=this.dateClicked)
       {
-        this.Place="";
+        this.Place="Inside";
         this.trainingsCount=0;
         this.Description="";
         this.selectedType = "";
@@ -93,7 +93,7 @@ export class CoachTrainingAssignModalComponent implements OnInit {
 
   }
   OnSubmit(){
-    this.PersonalTrainin.coachId=localStorage.getItem('user');;
+    this.PersonalTrainin.coachId=localStorage.getItem('user');
     this.PersonalTrainin.athleteIds=this.selectAthletes.map(({ idPerson }) => idPerson );
     this.PersonalTrainin.description = this.Description;
     this.PersonalTrainin.place = this.Place;

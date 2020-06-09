@@ -1,69 +1,108 @@
+<div class="modal-header">
+    <div class ="hedr">
+    <p id="header">{{'TEMPLATES.ADDTRAIN' | translate}}</p>
+    </div>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>  
 <div class ="bodyDiv">
+    
 
 <div *ngIf="!canFillForm" class="free">
     {{'CALENDAR.DATEPASSED' | translate}}
+    <div class="modal-footer">
+     
+    </div>
     </div>
 <div *ngIf="canFillForm">   
    
-    <div class = "tasks firstHeading">
-        <select id ="typeSelect"  [ngModel]="selectedType" (change)="onChangeType($event.target.value)" name="typeChoose" >
-            <option selected value="" disabled id="firstChoose">Choose type</option>
-            <option value=5e5900f597e81d0001a5cdec>Speed</option>
-            <option value="5e59010597e81d0001a5cded">Speed endurance</option>
-            <option value="5e59011297e81d0001a5cdee">Special Endurance I</option>
-            <option value="5eab2b0fe9cb960001b514ee">Special Endurance II</option>
-            <option value="5e59021997e81d0001a5cdef">Tempo</option>
-            <option value="5e7f4732076ce700012eb97a">Exerciseses on the stairs</option>
-            <option value="5e7f47bd076ce700012eb97c">Mountain/stairs run</option>
-            <option value="5e7f4764076ce700012eb97b">Cross</option>
-            <option value="5eab2990e9cb960001b514ec">Jumpings</option>
-            <option value="5eac128be9cb960001b51501">Gym</option>
-            <option value="5e7f4a96076ce700012eb97d">limbering-up</option>
-         </select>
+    <div class = "firstHeading">
+         <div class="row ml-4" >    
+            <div class="" id ="left">
+              <p id = "Name">{{'TEMPLATES.TRAINTYPE' | translate}}</p>
+            </div>
+            <div id="fright">           
+                <select id ="typeSelectF"  [ngModel]="selectedType" (change)="onChangeType($event.target.value)" name="typeChoose" >
+                    <option selected value="" disabled id="firstChoose">{{'CALENDAR.CHOOSETYPE' | translate}}</option>
+                    <option value=5e5900f597e81d0001a5cdec>{{'TEMPLATES.SPEED' | translate}}</option>
+                    <option value="5e59010597e81d0001a5cded">{{'TEMPLATES.SPEEDENDURANCE' | translate}}</option>
+                    <option value="5e59011297e81d0001a5cdee">{{'TEMPLATES.SPECIALENDURANCEI' | translate}}</option>
+                    <option value="5eab2b0fe9cb960001b514ee">{{'TEMPLATES.SPECIALENDURANCEII' | translate}}</option>
+                    <option value="5e59021997e81d0001a5cdef">{{'TEMPLATES.TEMPO' | translate}}</option>
+                    <option value="5e7f4732076ce700012eb97a">{{'TEMPLATES.EXSTAIRS' | translate}}</option>
+                    <option value="5e7f47bd076ce700012eb97c">{{'TEMPLATES.MOUNTAINSTAIR' | translate}}</option>
+                    <option value="5e7f4764076ce700012eb97b">{{'TEMPLATES.CROSS' | translate}}</option>
+                    <option value="5eab2990e9cb960001b514ec">{{'TEMPLATES.JUMPINGS' | translate}}</option>
+                    <option value="5eac128be9cb960001b51501">{{'TEMPLATES.GYM' | translate}}</option>
+                    <option value="5e7f4a96076ce700012eb97d">{{'TEMPLATES.LIMBERING' | translate}}</option>
+                 </select>           
+            </div>
+           
+          </div> 
+         
     </div>
+    
     <div *ngIf="selectedType!=''&& trainingsCount>0" class="bodyNewTrain">
         <form #PersonalTrain="ngForm" class="" (ngSubmit)="OnSubmit()">
 
             <div class="form-group">    
-                <div class = "row " id="firstRow">
-                  <div class="input-field col-md-3" >
-                    <label for="descriptionTextArea">Description</label>  
-                  </div>
-                  <div class="input-field col-md-9">        
-                    <textarea  type="text" class="form-control" [(ngModel)]="Description" name="description" required > </textarea>
-                </div>   
-                </div>
-  
-                 </div>         
-               
+                <div class="row ml-4" >    
+                    <div class="" id ="left">
+                      <p id = "Name">{{'CALENDAR.TRAINING' | translate}}</p>
+                    </div>
+                    <div id="right">           
+                        <select  id ="typeSelect"  [(ngModel)]="selectedTraining"  name="trainingChoose" required>
+                            <option value="" selected disabled hidden id="firstChoose"> {{'CALENDAR.CHOOSETRAINING' | translate}}</option>
+                            <option value="{{i.id}}" *ngFor="let i of Trainings">{{i.toDisplay}}</option>
+                        </select>              
+                    </div>
+                  </div> 
+            </div>
+           
             <div class="form-group">    
-                <div class = "row ">
-                    
-                      <div class="input-field col-md-9">   
-                <select  id ="typeSelect"  [(ngModel)]="selectedTraining"  name="trainingChoose" required>
-                    <option value="" selected disabled hidden id="firstChoose"> Choose Training</option>
-                    <option value="{{i.id}}" *ngFor="let i of Trainings">{{i.toDisplay}}</option>
-                </select>
-                </div>
+                <div class="row ml-4" >    
+                    <div class="" id ="left">
+                      <p id = "Name">{{'TEMPLATES.DESCRIPTION' | translate}}</p>
+                    </div>
+                    <div id="right">           
+                        <textarea  type="text" class="form-control" [(ngModel)]="Description" name="description" required > </textarea>           
+                    </div>
+                  </div> 
 
             </div>
+
+            <div class="form-group">    
+                <div class="row ml-4" >    
+                    <div class="" id ="left">
+                      <p id = "Name">{{'CALENDAR.CHOOSEATHLETES' | translate}}</p>
+                    </div>
+                    <div id="right">           
+                        <select [(ngModel)]="selectAthletes" class="athletesSelect" name="athleteChoose" multiple required>
+                            <option  [ngValue]="i" *ngFor="let i of Athletes">{{i.name}} {{i.surname}}</option>
+                            </select>           
+                    </div>
+                  </div> 
+
             </div>
             <div class="form-group">    
-                <label>Choose Athletes</label>
-                <select [(ngModel)]="selectAthletes"  name="athleteChoose" multiple required>
-                    <option  [ngValue]="i" *ngFor="let i of Athletes">{{i.name}} {{i.surname}}</option>
-                    </select>
-            </div>
-            <div class ="form-group ">
-                <label class="radio-inline">
-                  <input type="radio" name="optradio" [(ngModel)]="Place" id="Inside" value="Inside" checked>Inside
-                </label>
-                <label class="radio-inline">
-                  <input type="radio" name="optradio"  [(ngModel)]="Place" id="Outside" value="Outside">Outside
-                </label>   
+                <div class="row ml-4" >    
+                    <div class="" id ="left">
+                      <p id = "Name">{{'CALENDAR.PLACE' | translate}}</p>
+                    </div>
+                    <div id="right">           
+                        <label class="radio-inline">
+                            <input type="radio" name="optradio" [(ngModel)]="Place" id="Inside" value="Inside" checked>{{'COMPETITIONS.INSIDE' | translate}}
+                          </label>
+                          <label class="radio-inline">
+                            <input type="radio" name="optradio"  [(ngModel)]="Place" id="Outside" value="Outside">{{'COMPETITIONS.OUTSIDE' | translate}}
+                          </label>           
+                    </div>
+                  </div> 
+
             </div>
             <div class="form-group">
-                <button [disabled]="!PersonalTrain.valid" class="btn btn-secondary" type="submit" >Confirm</button>
+                <button [disabled]="!PersonalTrain.valid" class="btn btn-secondary submit" type="submit" >Confirm</button>
                 </div>
         </form>
     </div>

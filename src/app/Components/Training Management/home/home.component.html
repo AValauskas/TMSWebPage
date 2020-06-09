@@ -68,9 +68,8 @@
     <!-- The Modal -->
     <div class="modal " id="myModal">
       <div class="modal-dialog ">
-        <div class="modal-content all">
-
-      
+        <div class="modal-content all">       
+          
           <div  >
             <app-personal-training-modal *ngIf="Role==='Athlete'"
             [toDo]="ToDoInTraining"
@@ -91,15 +90,7 @@
             </app-athlete-list>
 
             
-          </div>
-         
-      
-           <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">{{'GENERAL.CLOSE' | translate}} </button>
-        </div>
-        
-        
+          </div>               
           
         </div>
       </div>
