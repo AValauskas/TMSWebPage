@@ -5,7 +5,7 @@
     </button>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item active">
           <a class="nav-link" href="/home" *ngIf="Role==='Athlete' ||Role==='Coach' ">{{'NAV.CALENDAR' | translate}}<span class="sr-only" >(current)</span></a>
         </li>
@@ -27,30 +27,32 @@
           </div>
         </li>    
       </ul>      
-    </div>
-    
-    <ul class="navbar-nav ml-auto"> 
-       
-           <li class="nav-item dropdown" id="personal">
-          <a class="nav-link  glyphicon glyphicon-user" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> {{RoleToDisplay}}</a>
-          <div class="dropdown-menu personal" aria-labelledby="dropdownMenuLink">      
-            <a class="dropdown-item person" href="personalInfo">{{'NAV.ACCOUNTINFO' | translate}}</a>
-            <a class="dropdown-item person" href="personal" *ngIf="Role==='Athlete' ||Role==='Coach' ">{{'NAV.PERSONALTIMES' | translate}}</a>
-          
-          </div>
-        </li>  
-        <li class="nav-item"  >   
-          <select #langselect (change)="ChangeLanguage(langselect.value)" name="langs" id="lang">
-            <option *ngFor="let lang of translate.getLangs()" value={{lang}}
-            [attr.selected]="language==lang ? true : null">{{lang}} </option>      
-            </select>
+  
+      <div class="form-inline my-2 my-lg-0" >
+      <ul class="navbar-nav ml-auto"> 
+        
+            <li class="nav-item dropdown" id="personal">
+            <a class="nav-link  glyphicon glyphicon-user" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> {{RoleToDisplay}}</a>
+            <div class="dropdown-menu personal" aria-labelledby="dropdownMenuLink">      
+              <a class="dropdown-item person" href="personalInfo">{{'NAV.ACCOUNTINFO' | translate}}</a>
+              <a class="dropdown-item person" href="personal" *ngIf="Role==='Athlete' ||Role==='Coach' ">{{'NAV.PERSONALTIMES' | translate}}</a>
+            
+            </div>
           </li>  
-      <li class="nav-item"  >                 
-        <a class="nav-link" (click)="_auth.logoutUser()">
-          <span class="glyphicon glyphicon-log-out"></span>
-        </a>
-      </li>        
-  </ul>
+          <li class="nav-item"  >   
+            <select #langselect (change)="ChangeLanguage(langselect.value)" name="langs" id="lang">
+              <option *ngFor="let lang of translate.getLangs()" value={{lang}}
+              [attr.selected]="language==lang ? true : null">{{lang}} </option>      
+              </select>
+            </li>  
+        <li class="nav-item"  >                 
+          <a class="nav-link" (click)="_auth.logoutUser()">
+            <span class="glyphicon glyphicon-log-out"></span>
+          </a>
+        </li>        
+    </ul>
+    </div>
+  </div>
   </nav>
   <div  [class.messageGood]="successMessage && !failMessage" [class.messageBad]=" !successMessage && failMessage" *ngIf="successMessage || failMessage">
     <div>
